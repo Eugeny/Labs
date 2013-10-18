@@ -1,0 +1,54 @@
+<component name="libraryTable">
+  <library name="org.apache.tiles:tiles-extras:3.0.0" type="repository">
+    <properties maven-id="org.apache.tiles:tiles-extras:3.0.0" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/tiles-extras-3.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/tiles-core-3.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/tiles-api-3.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/tiles-request-api-1.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-digester-2.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-beanutils-1.8.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jcl-over-slf4j-1.5.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-api-1.5.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/tiles-request-servlet-wildcard-1.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/tiles-request-servlet-1.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-web-2.5.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-beans-2.5.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-core-2.5.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/spring-context-2.5.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/aopalliance-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/tiles-request-mustache-1.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/core-0.6.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-mapper-asl-1.5.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-core-asl-1.5.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/guava-r09.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/builder-0.6.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/tiles-jsp-3.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/tiles-servlet-3.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/tiles-template-3.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/tiles-autotag-core-runtime-1.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/tiles-request-jsp-1.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/tiles-freemarker-3.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/tiles-request-freemarker-1.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/freemarker-2.3.15.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/tiles-velocity-3.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/velocity-tools-2.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-collections-3.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/oro-2.0.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/velocity-1.6.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-lang-2.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/tiles-request-velocity-1.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/tiles-el-3.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/tiles-mvel-3.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/mvel2-2.0.11.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/tiles-ognl-3.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/ognl-2.7.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javassist-3.7.ga.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/tiles-compat-3.0.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/servlet-api-2.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jsp-api-2.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

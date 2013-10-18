@@ -1,0 +1,31 @@
+<taglib>
+    <tlib-version>1.0</tlib-version>
+    <jsp-version>2.0</jsp-version>
+    <short-name>My TLD</short-name>
+
+    <tag>
+        <name>iterate</name>
+        <tag-class>org.labs.seven.tags.IteratorTag</tag-class>
+        <body-content>scriptless</body-content>
+        <variable>
+            <name-given>data</name-given>
+        </variable>
+        <attribute>
+            <name>data</name>
+            <type>java.util.Collection</type>
+            <rtexprvalue>yes</rtexprvalue>
+            <required>yes</required>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>priceTag</name>
+        <tag-class>org.labs.seven.tags.PriceTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>price</name>
+            <type>java.lang.Integer</type>
+            <rtexprvalue>yes</rtexprvalue>
+        </attribute>
+    </tag>
+</taglib>

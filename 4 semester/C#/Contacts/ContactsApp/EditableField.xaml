@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="ContactsApp.EditableField" x:Name="This"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300">
+  <StackPanel Orientation="Horizontal">
+    <Button Margin="0,0,0,10" FontSize="{Binding ElementName=This, Path=FontSize}" BorderThickness="0 0 0 1"
+            MinWidth="100" MinHeight="20" BorderBrush="LightGray" Style="{StaticResource {x:Static ToolBar.ButtonStyleKey}}"
+            Background="Transparent" Name="Label" HorizontalContentAlignment="Left" Click="Label_Click"
+            Content="{Binding ElementName=This, Path=Text, Mode=TwoWay}" />
+    <TextBox Margin="0,0,0,10" Name="TextBox" FontSize="{Binding ElementName=This, Path=FontSize}"
+             Visibility="Collapsed" KeyUp="TextBox_KeyUp" Text="{Binding ElementName=This, Path=Text, Mode=OneWay}" />
+    <Button Margin="10,0,0,10" Name="Delete" Visibility="Collapsed" Click="Delete_Click">Delete</Button>
+  </StackPanel>
+</UserControl>

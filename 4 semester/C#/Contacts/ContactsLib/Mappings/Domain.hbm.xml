@@ -1,0 +1,42 @@
+﻿<?xml version="1.0"
+      encoding="utf-8"?>
+
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="ContactsLib" namespace="ContactsLib.Entities">
+
+  <class name="Contact" table="Contacts">
+    <id name="ID">
+      <generator class="native" />
+    </id>
+
+    <property name="Name" />
+    <bag name="Details" cascade="all-delete-orphan" lazy="false" 
+         collection-type="NHibernate.Collection.Observable.ObservableBagType`1[[ContactsLib.Entities.ContactDetail, ContactsLib]], NHibernate.Collection.Observable">
+      <key column="Contact_id" />
+      <one-to-many class="ContactDetail" />
+    </bag>
+  </class>
+
+
+  <class name="ContactDetail" table="ContactDetails">
+    <id name="ID">
+      <generator class="native" />
+    </id>
+
+    <property name="Name" />
+    <property name="Content" />
+  </class>
+
+
+  <class name="ContactGroup" table="ContactGroups">
+    <id name="ID">
+      <generator class="native" />
+    </id>
+
+    <property name="Name" />
+    <bag name="Contacts" cascade="all" lazy="false"
+         collection-type="NHibernate.Collection.Observable.ObservableBagType`1[[ContactsLib.Entities.Contact, ContactsLib]], NHibernate.Collection.Observable">
+      <key column="ContactGroup_id" />
+      <one-to-many class="Contact" />
+    </bag>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="eight">
+    <output-path>$PROJECT_DIR$/out/artifacts/eight</output-path>
+    <root id="archive" name="eight.war">
+      <element id="javaee-facet-resources" facet="Eight/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="Eight" />
+          <element id="module-output" name="DAL" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$PROJECT_DIR$/lib/mysql-connector-java-5.1.26-bin.jar" />
+          <element id="library" level="project" name="org.hibernate:hibernate-entitymanager:4.2.4.Final" />
+          <element id="library" level="project" name="javax.persistence:persistence-api:1.0.2" />
+          <element id="library" level="project" name="commons-fileupload:commons-fileupload:1.2.2" />
+          <element id="library" level="project" name="commons-io:commons-io:2.4" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

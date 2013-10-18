@@ -1,0 +1,1234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title>ИТиРОД, лабораторные</title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1138.47">
+ <style type="text/css">
+    p.p2 {margin: 0.0px 0.0px 6.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p4 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px Times}
+    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; text-indent: 35.0px; font: 12.0px Times}
+    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times}
+    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; text-indent: 35.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p10 {margin: 0.0px 0.0px 0.0px 35.0px; text-align: justify; font: 12.0px Times}
+    p.p11 {margin: 0.0px 0.0px 13.0px 0.0px; text-align: justify; font: 12.0px Times}
+    p.p12 {margin: 0.0px 0.0px 16.0px 0.0px; font: 13.0px 'Courier New'}
+    p.p13 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px Times; min-height: 14.0px}
+    p.p14 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times; background-color: #ffffff}
+    p.p15 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times; background-color: #ffffff; min-height: 14.0px}
+    p.p16 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times; min-height: 14.0px}
+    p.p17 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times; background-color: #f6f6f6}
+    p.p18 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times; background-color: #f6f6f6; min-height: 14.0px}
+    p.p19 {margin: 0.0px 0.0px 12.0px 0.0px; text-align: justify; font: 12.0px Times; background-color: #ffffff}
+    p.p21 {margin: 0.0px 0.0px 6.0px 0.0px; text-align: justify; font: 12.0px Times; min-height: 14.0px}
+    p.p22 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times; background-color: #f7f7f7}
+    li.li8 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times}
+    li.li14 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times; background-color: #ffffff}
+    span.s1 {text-decoration: underline}
+    span.s2 {font: 11.0px Times}
+    span.Apple-tab-span {white-space:pre}
+    table.t1 {width: 782.0px; background-color: #00BFFF; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #808080 #808080 #808080 #808080}
+    table.t2 {width: 498.0px; background-color: #ffffff; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #808080 #808080 #808080 #808080}
+    table.t3 {width: 784.0px; background-color: #ffffff}
+    td.td1 {width: 770.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #808080 #808080 #808080 #808080; padding: 5.0px 5.0px 5.0px 5.0px}
+    td.td2 {width: 61.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #808080 #808080 #808080 #808080; padding: 6.0px 6.0px 6.0px 6.0px}
+    td.td3 {width: 131.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #808080 #808080 #808080 #808080; padding: 6.0px 6.0px 6.0px 6.0px}
+    td.td4 {width: 73.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #808080 #808080 #808080 #808080; padding: 6.0px 6.0px 6.0px 6.0px}
+    td.td5 {width: 177.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #808080 #808080 #808080 #808080; padding: 6.0px 6.0px 6.0px 6.0px}
+    td.td6 {width: 778.0px; background-color: #f7f7f7; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #cccccc #cccccc #cccccc #cccccc; padding: 2.0px 2.0px 5.0px 2.0px}
+    ol.ol1 {list-style-type: decimal}
+    ul.ul1 {list-style-type: disc}
+  </style>
+  <script type="text/javascript">
+   function toggleMe(a){
+    var e=document.getElementById(a);
+    if(!e)return true;
+    if(e.style.display=="none"){
+      e.style.display="block"
+    }
+    else{
+      e.style.display="none"
+    }
+   return true;
+  }
+ </script>
+</head>
+<body>
+<h1 style="margin: 0.0px 0.0px 16.0px 0.0px; font: 24.0px Times; min-height: 29.0px"><br></h1>
+<p class="p2"><br></p>
+<h2 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 18.0px Times"><b>Л/р №1 : "Ознакомление с инструментарием программиста Java"</b></h2>
+<p class="p4"><span class="Apple-converted-space"> </span>Создать 2 класса, в двух различных пакетах. Скомпилировать в консоли, запустить из-под консоли.</p>
+<a onclick="return toggleMe('teory1')" style="text-decoration: underline">Теория к 1 л/р</a><br>
+<div id="teory1" style="display:none">
+<p class="p7">Приступая к изучению нового языка, полезно поинтересоваться, какие исходные данные могут обрабатываться средствами этого языка, в каком виде их можно задавать, и какие стандартные средства обработки этих данных заложены в язык. Это довольно скучное занятие, поскольку в каждом развитом языке программирования множество типов данных и еще больше правил их использования. Однако несоблюдение этих правил приводит к появлению скрытых ошибок, обнаружить которые иногда бывает очень трудно. Ну что же, в каждом ремесле приходится сначала "играть гаммы", и мы не можем от этого уйти.<span class="Apple-converted-space"> </span></p>
+<p class="p8">Все правила языка Java исчерпывающе изложены в его спецификации, сокращенно называемой JLS. Иногда, чтобы понять, как выполняется та или иная конструкция языка Java, приходится обращаться к спецификации, но, к счастью, это бывает редко, правила языка Java достаточно просты и естественны.<span class="Apple-converted-space"> </span></p>
+<p class="p7">Здесь перечислены примитивные типы данных, операции над ними, операторы управления, и показаны "подводные камни", которых следует избегать при их использовании. Но начнем, по традиции, с простейшей программы.<span class="Apple-converted-space"> </span></p>
+<p class="p7">По давней традиции, восходящей к языку С, учебники по языкам программирования начинаются с программы "Hello, World!". He будем нарушать эту традицию. В листинге 1 эта программа в самом простом виде, записанная на языке Java.<span class="Apple-converted-space"> </span></p>
+<p class="p7">Листинг 1. Первая программа на языке Java;<span class="Apple-converted-space"> </span></p>
+<p class="p9"><br></p>
+<table width="782.0" cellspacing="0" cellpadding="0" class="t1">
+  <tbody>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p8">class HelloWorld {</p>
+        <p class="p8"><span class="Apple-converted-space">  </span>public static void main(String[] args) {</p>
+        <p class="p8"><span class="Apple-converted-space"> </span> <span class="Apple-tab-span">	</span>System.out.println("Hello, XXI Century World!");</p>
+        <p class="p8"><span class="Apple-converted-space">  </span>}</p>
+        <p class="p8">}</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="p9"><br></p>
+<p class="p7">Вот и все, всего пять строчек! Но даже на этом простом примере можно заметить целый ряд существенных особенностей языка Java.<span class="Apple-converted-space"> </span></p>
+<ul class="ul1">
+  <li class="li8"><span class="Apple-tab-span">	</span>Всякая программа представляет собой один или несколько классов, в этом простейшем примере только один класс (class).<span class="Apple-converted-space"> </span></li>
+  <li class="li8"><span class="Apple-tab-span">	</span>Начало класса отмечается служебным словом class , за которым следует имя класса, выбираемое произвольно, в данном случае Helloworld . Все, что содержится в классе, записывается в фигурных скобках и составляет тело класса (class body).<span class="Apple-converted-space"> </span></li>
+  <li class="li8"><span class="Apple-tab-span">	</span>Все действия производятся с помощью методов обработки информации, коротко говорят просто метод (method). Это название употребляется в языке Java вместо названия "функция", применяемого в других языках.<span class="Apple-converted-space"> </span></li>
+  <li class="li8"><span class="Apple-tab-span">	</span>Методы различаются по именам. Один из методов обязательно должен называться main , с него начинается выполнение программы. В нашей простейшей программе только один метод, а значит, имя ему main .<span class="Apple-converted-space"> </span></li>
+  <li class="li8"><span class="Apple-tab-span">	</span>Как и положено функции, метод всегда выдает в результате (чаще говорят, возвращает (returns)) только одно значение, тип которого обязательно указывается перед именем метода. Метод может и не возвращать никакого значения, играя роль процедуры, как в нашем случае. Тогда вместо типа возвращаемого значения записывается слово void , как это и сделано в примере.<span class="Apple-converted-space"> </span></li>
+  <li class="li8"><span class="Apple-tab-span">	</span>После имени метода в скобках, через запятую, перечисляются аргументы (arguments) -или параметры метода. Для каждого аргумента указывается его тип и, через пробел, имя. В примере только один аргумент, его тип — массив, состоящий из строк символов. Строка символов — это встроенный в Java API тип String , а квадратные скобки — признак массива. Имя массива может быть произвольным, в примере выбрано имя args .<span class="Apple-converted-space"> </span></li>
+  <li class="li8"><span class="Apple-tab-span">	</span>Перед типом возвращаемого методом значения могут быть записаны модификаторы (modifiers). В примере их два: слово public означает, что этот метод доступен отовсюду; слово static обеспечивает возможность вызова метода main() в самом начале выполнения программы. Модификаторы вообще необязательны, но для метода main() они необходимы.<span class="Apple-converted-space"> </span></li>
+</ul>
+<p class="p7"><span class="s1">Замечание</span><span class="Apple-converted-space"> </span></p>
+<p class="p10">В тексте курса лекций после имени метода ставятся скобки, чтобы подчеркнуть, что это имя именно метода, а не простой переменной.<span class="Apple-converted-space"> </span></p>
+<p class="p7">Все, что содержит метод, тело метода (method body), записывается в фигурных скобках.</p>
+<p class="p7">Составное имя System.out.println означает, что в классе System , входящем в Java API, определяется переменная с именем out , содержащая экземпляры одного из классов Java API, класса PrintStream , в котором есть метод println() . Все это станет ясно позднее, а пока просто будем писать это длинное имя.<span class="Apple-converted-space"> </span></p>
+<p class="p7">Действие метода println () заключается в выводе своего аргумента в выходной поток, связанный обычно с выводом на экран текстового терминала, в окно MS-DOS Prompt или Command Prompt или Xterm, в зависимости от вашей системы. После вывода курсор переходит на начало следующей строки экрана, на что указывает окончание ln , слово println — сокращение слов print line. В составе Java API есть и метод print(), оставляющий курсор в конце выведенной строки. Разумеется, это прямое влияние языка Pascal.<span class="Apple-converted-space"> </span></p>
+<p class="p7">Сделаем сразу важное замечание. Язык Java различает строчные и прописные буквы, имена main, Main, MAIN различны с "точки зрения" компилятора Java. В примере важно писать String, System с заглавной буквы, a main с маленькой. Но внутри текстовой константы неважно, писать Century или century , компилятор вообще не "смотрит" на нее, разница будет видна только на экране.<span class="Apple-converted-space"> </span></p>
+<p class="p7"><span class="s1">Замечание</span><span class="Apple-converted-space"> </span></p>
+<p class="p7">Язык Java различает прописные и строчные буквы.<span class="Apple-converted-space"> </span></p>
+<p class="p6"><br></p>
+<p class="p11">Язык Java требует, чтобы весь программный код был заключен внутри поименованных классов. Приведенный выше текст примера надо записать в файл HelloWorld.java. Обязательно проверьте соответствие прописных букв в имени файла тому же в названии содержащегося в нем класса. Для того, чтобы оттранслировать этот пример необходимо запустить транслятор Java — javac, указав в качестве параметра имя файла с исходным текстом:</p>
+<p class="p12"><b><i>С: \&gt; javac HelloWorld.Java</i></b></p>
+<p class="p11">Транслятор создаст файл HelloWorld.class с независимым от процессора байт-кодом нашего примера. Для того, чтобы исполнить полученный код, необходимо иметь среду времени выполнения языка Java (в нашем случае это программа java), в которую надо загрузить новый класс для исполнения. Подчеркнем, что указывается имя класса, а не имя файла, в котором этот класс содержится.</p>
+<p class="p12"><b><i>С: &gt; java HelloWorld</i></b></p>
+<p class="p2"><br></p>
+</div>
+<p class="p2"><br></p>
+<h2 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 18.0px Times"><b>Л/р №2 : "Основы программирования на Java. Работа с контейнерами"</b></h2>
+<p class="p4">Создать класс для представления матрицы. Добавить операцию согласно варианту. Проверить работоспособность на нулевой, единичной и произвольной квадратной матрице 4x4 (т.е. перемножить нулевую на нулевую, нулевую на единичную... и проверить результаты вручную или с помощью тестов). Данные в матрице в учебных целях хранить в ArrayList и LinkedList(т.е. создать 2 типа матриц или 2 различных реализации матриц). Сравнить производительность для различных списка (ArrayList и LinkedList) при операции согласно варианту матриц 100x100. Обосновать вывод.</p>
+<p class="p4">1. Реализация сортировки матриц.</p>
+<p class="p4">2. Перемножение матриц</p>
+<p class="p4">3. Поиск максимального элемента</p>
+<p class="p4">4. Посчитать сумму элементов главной диагонали</p>
+<p class="p4">5. Сумму каждой матрицы с единичной</p>
+<p class="p4">6. Разность каждой матрицы с единичной</p>
+<p class="p4">7. Умножение матриц на константу</p>
+<p class="p4">8. Разность матриц на константу</p>
+<p class="p4">9. Деление матрц</p>
+<p class="p4">10. Найти сумму элементов, лежащих выше побочной диагонали, и произведение элементов, лежащих ниже главной диагонали.</p>
+<p class="p5"><br></p>
+<a onclick="return toggleMe('teory2')" style="text-decoration: underline">Теория к 2 л/р</a><br>
+<div id="teory2" style="display:none">
+<p class="p14">Контейнеры в Java.</p>
+<p class="p15"><br></p>
+<p class="p14">Существует два типа (Интерфейсы):</p>
+<p class="p14"> Collection - контейнер с элементами</p>
+<p class="p14"> Map - ключ значение</p>
+<p class="p15"><br></p>
+<p class="p14">От Collection берут свое начало (Интерфейсы):</p>
+<p class="p14"> List - список</p>
+<p class="p14"> Set - множество</p>
+<p class="p15"><br></p>
+<p class="p14">Map реализуется через:</p>
+<p class="p14"> HashMap - хеш таблица</p>
+<p class="p14"> TreeMap - является SortedMap(интерфейс) т.е. все элементы отсортированны (красно-черные деревья)</p>
+<p class="p15"><br></p>
+<p class="p14">List релизуется через:</p>
+<p class="p14"> ArrayList - список на основе массива (Vector)</p>
+<p class="p14"> LinkedList - потомок AbstractSequentialList - двух сторонний связанный список, на нем разлизуются также структуры Stak, Queue, Deq</p>
+<p class="p15"><br></p>
+<p class="p14">Set реализуется через:</p>
+<p class="p14"> HashSet - хешированное множество</p>
+<p class="p14"> TreeSet - является SortedSet(интерфейс) - отсортированное множество (красно-черное дерево)</p>
+<p class="p15"><br></p>
+<p class="p14">Создавая новую структуру наследуйте ее от абстрактного базового класса, даже если переопределите все его методы.</p>
+<p class="p15"><br></p>
+<p class="p14">Для списков с быстрым доступом используйте ArrayList, а там где много вставок и удалений LinkedList. Например выборка из БД. Конечно лучше для этого использовать контейнер из связанных массивов, т.к. удалять ничего не приходится. Для примера наполняем LinkedList, затем по задаче предстоит долго держать это в памяти и часто обращатся к этим данным, потому обращаем весь список в ArrayList. Существует много способов сделать это быстро, посмотри интерфейс Collection.</p>
+<p class="p14">Теперь можно бегать по ArrayList очень быстро, но ничего добавлять уже нельзя! Если он начнет растягиватся то потребуется в два раза больше памяти.</p>
+<p class="p15"><br></p>
+<p class="p14">Множество (только уникальные элементы). Наиболее часто выбирется HashSet. TreeSet используется редко, когда нужно отсортированное множество.</p>
+<p class="p15"><br></p>
+<p class="p14">Если нужно последовательно работать с элементами контейнера то нужно ВСЕГДА использовать Iterator. Это особенно актуально для LinkedList. Метод get(int index) всегда начинает поиск элемента от нила(начала, заголовка) списка сложность Q(индех), вто время как Iterator хранит свою позицию Q(1). Все итераторы реализованны вложенным классом, а потому используют одни и те же данные с контейнером.</p>
+<p class="p14">HashMap это ассоциативный массив (хеш таблица). Не заменим в ситуациях ключ-&gt;значение.</p>
+<p class="p14">TreeMap хранит все элементы отсортированными, еще ни разу не использовал его.</p>
+<p class="p15"><br></p>
+<p class="p14">Важно!</p>
+<p class="p14">Если вы используете свой Обьект как ключ в Map или используете HashSet то позаботтесь о правильном хешировании.</p>
+<p class="p14">Все эти контейнеры используют метод hashCode() ваших обьектов, затем прогоняют его через свой алгоритм. Стандартный hashCode() это адрес вашего обьекта в памяти, т.е. object1.hashCode()!=object2.hashCode(), хотя на ваш взгляд они идеентичны. Во избежание этого нужно переопределить метод hashCode() так, что бы для одинаковых с вашей точки зрения обьектов он выдавал одинаковый хеш код.</p>
+<p class="p6"><br></p>
+<h1 style="margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times; background-color: #ffffff">Улучшенные циклы for/in в Java</h1>
+<p class="p16"><br></p>
+<p class="p14">Цикл for/in, часто называемый улучшенным for или foreach, является чрезвычайно удобной конструкцией в Java 5.0. Он в действительности не предлагает какую-либо новую функциональность, но определенно упрощает несколько рутинных задач кодирования.</p>
+<p class="p15"><br></p>
+<p class="p14">Наиболее фундаментальным отличием использования for/in по сравнению со "старым for" является отсутствие необходимости использовать счетчик (обычно называемый iили count) или Iterator. Взгляните на листинг 1, в котором приведен цикл for, использующий Iterator:</p>
+<p class="p15"><br></p>
+<p class="p14">Листинг 1. Циклы for, стиль старой школы</p>
+<table width="782.0" cellspacing="0" cellpadding="0" class="t1">
+  <tbody>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p8">public void testForLoop(PrintStream out) throws IOException {</p>
+        <p class="p8"><span class="Apple-converted-space">  </span>List list = getList();<span class="Apple-converted-space">  </span>// инициализируйте этот список в другом месте</p>
+        <p class="p16"><span class="Apple-converted-space">  </span></p>
+        <p class="p8"><span class="Apple-converted-space">  </span>for (Iterator i = list.iterator(); i.hasNext(); ) {</p>
+        <p class="p8"><span class="Apple-converted-space">    </span>Object listElement = i.next();</p>
+        <p class="p8"><span class="Apple-converted-space">    </span>out.println(listElement.toString());</p>
+        <p class="p16"><span class="Apple-converted-space">    </span></p>
+        <p class="p8"><span class="Apple-converted-space">    </span>// Сделать что-нибудь еще с этим элементом списка</p>
+        <p class="p8"><span class="Apple-converted-space">  </span>}</p>
+        <p class="p8">}</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="p15"><br></p>
+<p class="p14">Если вы ожидаете длинного описания, как преобразовать этот код с использованием нового цикла for/in, то я должен вас разочаровать. В листинге 2 находится цикл из листинга 1, но использующий цикл for/in и являющийся практически таким же. Взгляните, а я объясню, что происходит, настолько детально, насколько смогу (что все равно займет меньше параграфа).</p>
+<p class="p15"><br></p>
+<p class="p14">Листинг 2. Преобразование в for/in</p>
+<table width="782.0" cellspacing="0" cellpadding="0" class="t1">
+  <tbody>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p8">public void testForInLoop(PrintStream out) throws IOException {</p>
+        <p class="p8"><span class="Apple-converted-space">  </span>List list = getList();<span class="Apple-converted-space">  </span>// инициализируйте этот список в другом месте</p>
+        <p class="p16"><br></p>
+        <p class="p16"><span class="Apple-converted-space">  </span></p>
+        <p class="p8"><span class="Apple-converted-space">  </span>for (Object listElement : list) {</p>
+        <p class="p8"><span class="Apple-converted-space">    </span>out.println(listElement.toString());</p>
+        <p class="p16"><span class="Apple-converted-space">    </span></p>
+        <p class="p8"><span class="Apple-converted-space">    </span>// Сделать что-нибудь еще с этим элементом списка</p>
+        <p class="p8"><span class="Apple-converted-space">  </span>}</p>
+        <p class="p8">}</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="p15"><br></p>
+<p class="p14">Базовый синтаксис цикла for/in приведен в листинге 3. Он может показаться немного странным, если вы не приучили себя к чтению спецификаций, но довольно простым, если вы проходите его шаг за шагом.</p>
+<p class="p15"><br></p>
+<p class="p14">Листинг 3. Базовая структура цикла for/in</p>
+<table width="782.0" cellspacing="0" cellpadding="0" class="t1">
+  <tbody>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p8">for (declaration : expression)</p>
+        <p class="p8"><span class="Apple-converted-space">  </span>statement</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="p6"><br></p>
+</div>
+<p class="p5"><br></p>
+
+<h2 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 18.0px Times"><b>Л/р №3 : "Работа со строками и IO"<span class="Apple-converted-space"> </span></b></h2>
+<p class="p4">-<span class="Apple-converted-space">  </span>Написать класс, который считывает произвольный текстовый файл и выводит статистику использования букв (a - 0.03%, b - 0.14% ,...).</p>
+<p class="p4">-<span class="Apple-converted-space">  </span>Для матриц написать сохранение и чтение в текстовый файл, используя Reader и Writer (вариант из 2 л/р)</p>
+<p class="p4">-<span class="Apple-converted-space">  </span>Для матриц написать сериализацию и десериализацию (ObjectInputStream ObjectOutputStream). (вариант из 2 л/р)</p>
+<p class="p2"><br></p>
+<a onclick="return toggleMe('teory3')" style="text-decoration: underline">Теория к 3 л/р</a><br>
+<div id="teory3" style="display:none">
+<p class="p2"><br></p>
+<h2 style="margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times; background-color: #ffffff">Внимание</h2>
+<p class="p14">И String, и StringBuffer объявлены final, что означает, что ни от одного из этих классов нельзя производить подклассы. Это было сделано для того, чтобы можно было применить некоторые виды оптимизации по-зволяющие увеличить производительность при выполнении операций обработки строк.</p>
+<h2 style="margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times; background-color: #ffffff">Конструкторы</h2>
+<p class="p14">Как и в случае любого другого класса, вы можете создавать объекты типа String с помощью оператора new. Для создания пустой строки ис-пользуется конструктор без параметров:</p>
+<table width="782.0" cellspacing="0" cellpadding="0" class="t1">
+  <tbody>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p8">public static void main(String argv[]) {</p>
+        <p class="p8"><span class="Apple-converted-space">  </span>String s = new String();</p>
+        <p class="p16"><span class="Apple-converted-space">  </span>//Приведенный ниже фрагмент кода создает объект s типа String инициализируя его строкой из трех символов, переданных конструктору в качестве</p>
+        <p class="p16"><span class="Apple-converted-space">  </span>//параметра в символьном массиве.</p>
+        <p class="p8"><span class="Apple-converted-space">  </span>char chars[] = { 'а', 'b', 'с' };</p>
+        <p class="p8"><span class="Apple-converted-space">    </span>String s = new String(chars);</p>
+        <p class="p8"><span class="Apple-converted-space">    </span>System.out.println(s);</p>
+        <p class="p8">}</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p/>
+<p class="p14">Этот фрагмент кода выводит строку . Итак, у этого конструктора - 3 параметра:</p>
+<p class="p14"><span class="Apple-tab-span">	</span>String(char chars[], int начальныйИндекс, int числоСимволов);<span class="Apple-converted-space"> </span></p>
+<p class="p14">Используем такой способ инициализации в нашем очередном примере:</p>
+<table width="782.0" cellspacing="0" cellpadding="0" class="t1">
+  <tbody>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p8">public static void main(String argv[]) {</p>
+        <p class="p8"><span class="Apple-converted-space">  </span>char chars[] = { 'a', 'b', 'с', 'd', 'e', 'f' };</p>
+        <p class="p8"><span class="Apple-converted-space">    </span>String s = new String(chars,2,3);</p>
+        <p class="p8"><span class="Apple-converted-space">    </span>System.out.println(s);</p>
+        <p class="p8">}</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p/>
+<p class="p14">Этот фрагмент выведет: cde.</p>
+<p/>
+<h2 style="margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times; background-color: #ffffff">Специальный синтаксис для работы со строками</h2>
+<p class="p14">В Java включено несколько приятных синтаксических дополнений, цель которых - помочь программистам в выполнении операций со строками. В числе таких операций создание объектов типа String слияние нескольких строк и преобразование других типов данных в символьное представление.</p>
+<h2 style="margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times; background-color: #ffffff">Создание строк</h2>
+<p class="p14">Java включает в себя стандартное сокращение для этой опера-ции - запись в виде литерала, в которой содержимое строки заключа-ется в пару двойных кавычек. Приводимый ниже фрагмент кода экви-валентен одному из предыдущих, в котором строка инициализировалась массивом типа char.</p>
+<p class="p14"><span class="Apple-tab-span">	</span>String s = "abc";<span class="Apple-converted-space"> </span></p>
+<p class="p14"><span class="Apple-tab-span">	</span>System.out.println(s);<span class="Apple-converted-space"> </span></p>
+<p class="p14">Один из общих методов, используемых с объектами String - метод length, возвращающий число символов в строке. Очередной фрагмент вы-водит число 3, поскольку в используемой в нем строке - 3 символа.</p>
+<p class="p14"><span class="Apple-tab-span">	</span>String s = "abc";<span class="Apple-converted-space"> </span></p>
+<p class="p14"><span class="Apple-tab-span">	</span>System.out.println(s.length);<span class="Apple-converted-space"> </span></p>
+<p class="p16"></p>
+<p class="p8">Существует большое количество готовых методов для работы со строками. С ними можно ознакомиться в javadoc.</p>
+<p class="p2"><br></p>
+<p class="p8">Обобщенное понятие источника ввода относится к различным способам получения информации: к чтению дискового файла, символов с клавиатуры, либо получению данных из сети. Аналогично, под обобщенным понятием вывода также могут пониматься дисковые файлы, сетевое соединение и т.п. Эти абстракции дают удобную возможность для работы с вводом-выводом (I/O), не требуя при этом, чтобы каждая часть вашего кода понимала разницу между, скажем, клавиатурой и сетью. В Java эта абстракция называется потоком (stream) и реализована в нескольких классах пакета java.io. Ввод инкапсулирован в классе InputStream, вывод — в OutputStream. В Java есть несколько специализаций этих абстрактных классов, учитывающих различия при работе с дисковыми файлами, сетевыми соединениями и даже с буферами в памяти.</p>
+<p class="p16"></p>
+<p class="p8">File</p>
+<p class="p16"></p>
+<p class="p8">File — единственный объект в java.io, который работает непосредственно с дисковыми файлами. Хотя на использование файлов в апплетах наложены жесткие ограничения, файлы по прежнему остаются основными ресурсами для постоянного хранения и совместного использования информации. Каталог в Java трактуется как обычный файл, но с дополнительным свойством — списком имен файлов, который можно просмотреть с помощью метода list.</p>
+<p class="p16"></p>
+<p class="p8">ЗАМЕЧАНИЕ</p>
+<p/>
+<p class="p8">Java правильно обрабатывает разделители имен каталогов в пути, используемые в UNIX и DOS. Если вы используете стиль UNIX — символы '/', то при работе в Windows Java автоматически преобразует их в '\'. Не забудьте, если вы привыкли к разделителям, принятым в DOS, то есть, к '\', то для того, чтобы включить их в строку пути, необходимо их удвоить, аналогично тому, как это сделано в строке “\\java\\COPYRIGHT”.</p>
+<p class="p8">Для определения стандартных свойств объекта в классе File есть много разных методов. Однако, класс File несимметричен. Есть много методов, позволяющих узнать свойства объекта, но соответствующие функции для изменения этих свойств отсутствуют. В очередном примере используются различные методы, позволяющие получить характеристики файла:</p>
+<p class="p16"></p>
+<table width="782.0" cellspacing="0" cellpadding="0" class="t1">
+  <tbody>
+    <tr>
+      <td valign="middle" class="td1">
+      	<p class="p8">import java.io.File;</p>
+      	<p/>
+      	<p class="p8">class FileTest {</p>
+        <p class="p8"><span class="Apple-tab-span">	</span>static void p(String s) {</p>
+<p class="p8"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>System.out.println(s);</p>
+<p class="p8"><span class="Apple-tab-span">	</span>}</p>
+<p class="p8"><span class="Apple-tab-span">	</span>public static void main(String args[]) {</p>
+<p class="p8"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>File f1 = new File("/java/COPYRIGHT");</p>
+<p class="p8"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>p("File Name:" + f1 .getName());</p>
+<p class="p8"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>p("Path:" + f1.getPath());</p>
+<p class="p8"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>p("Abs Path:" + f1.getAbsolutePath());</p>
+<p class="p8"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>p("Parent:" + f1.getParent());</p>
+<p class="p8"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>p(f1.exists() ? "exists" : "does not exist");</p>
+<p class="p8"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>p(f1.canWrite() ? "is writeable" : "is not writeable");</p>
+<p class="p8"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>p(f1.canRead() ? "is readable" : "is not readable");</p>
+<p class="p8"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>p("is " + (f1.isDirectory() ? " " : "not") + " a directory");</p>
+<p class="p8"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>p(f1.isFile() ? "is normal file" : "might be a named pipe");</p>
+<p class="p8"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>р(f1.isAbsolute() ? "is absolute" : "is not absolute");</p>
+<p class="p8"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>p("File last modified:" + f1. lastModified());</p>
+<p class="p8"><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>p("File size:" + f1.length() + " Bytes");</p>
+<p class="p8"><span class="Apple-tab-span">	</span>}</p>
+        <p class="p8">}</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="p16"></p>
+<p class="p8">При запуске этой программы вы получите что-то наподобие вроде:</p>
+<p class="p16"><br></p>
+<p class="p8">File Name:COPYRIGHT (имя файла)</p>
+<p class="p8">Path:/java/COPYRIGHT (путь)</p>
+<p class="p8">Abs Path:/Java/COPYRIGHT (путь от корневого каталога)</p>
+<p class="p8">Parent:/java (родительский каталог)</p>
+<p class="p8">exists (файл существует)</p>
+<p class="p8">is writeable (разрешена запись)</p>
+<p class="p8">is readable (разрешено чтение)</p>
+<p class="p8">is not a directory (не каталог)</p>
+<p class="p8">is normal file (обычный файл)</p>
+<p class="p8">is absolute</p>
+<p class="p8">File last modified:812465204000 (последняя модификация файла)</p>
+<p class="p8">File size:695 Bytes (размер файла)</p>
+<p class="p16"><br></p>
+<p class="p8">Существует также несколько сервисных методов, использование которых ограничено обычными файлами (их нельзя применять к каталогам). Метод renameTo(File dest) переименовывает файл (нельзя переместить файл в другой каталог). Метод delete уничтожает дисковый файл. Этот метод может удалять только обычные файлы, каталог, даже пустой, с его помощью удалить не удастся.</p>
+<p class="p16"><br></p>
+<p class="p8">Каталоги</p>
+<p class="p16"><br></p>
+<p class="p8">Каталоги — это объекты класса File, в которых содержится список других файлов и каталогов. Если File ссылается на каталог, его метод isDirectory возвращает значение true. В этом случае вы можете вызвать метод list и извлечь содержащиеся в объекте имена файлов и каталогов.<span class="Apple-converted-space"> </span></p>
+<p class="p16"><br></p>
+<p class="p8">FilenameFilter</p>
+<p class="p16"><br></p>
+<p class="p8">Зачастую у вас будет возникать потребность ограничить количество имен файлов, возвращаемых методом list, чтобы получить от него только имена, соответствующие определенному шаблону. Для этого в пакет java.io включен интерфейс FilenameFilter. Объекту, чтобы реализовать этот интерфейс, требуется определить только один метод — accept(), который будет вызываться один раз с каждым новым именем файла. Метод accept должен возвращать true для тех имен, которые надо включать в список, и false для имен, которые следует исключить.</p>
+<p class="p8">У класса File есть еще два сервисных метода, ориентированных на работу с каталогами. Метод mkdir создает подкаталог. Для создания каталога, путь к которому еще не создан, надо использовать метод mkdirs — он создаст не только указанный каталог, но и все отсутствующие родительские каталоги.</p>
+<p class="p16"><br></p>
+<p class="p8">InputStream</p>
+<p class="p16"><br></p>
+<p class="p8">InputStream — абстрактный класс, задающий используемую в Java модель входных потоков. Все методы этого класса при возникновении ошибки возбуждают исключение IOException. Ниже приведен краткий обзор методов класса InputStream.</p>
+<ul class="ul1">
+  <li class="li8">read() возвращает представление очередного доступного символа во входном потоке в виде целого.</li>
+  <li class="li8">read(byte b[]) пытается прочесть максимум b.length байтов из входного потока в массив b. Возвращает количество байтов, в действительности прочитанных из потока.<br>
+</li>
+  <li class="li8">read(byte b[], int off, int len) пытается прочесть максимум len байтов, расположив их в массиве b, начиная с элемента off. Возвращает количество реально прочитанных байтов.<br>
+</li>
+  <li class="li8">skip(long n) пытается пропустить во входном потоке n байтов. Возвращает количество пропущенных байтов.<br>
+</li>
+  <li class="li8">available() возвращает количество байтов, доступных для чтения в настоящий момент.<br>
+</li>
+  <li class="li8">close() закрывает источник ввода. Последующие попытки чтения из этого потока приводят к возбуждению IOException.<br>
+</li>
+  <li class="li8">mark(int readlimit) ставит метку в текущей позиции входного потока, которую можно будет использовать до тех пор, пока из потока не будет прочитано readlimit байтов.<br>
+</li>
+  <li class="li8">reset() возвращает указатель потока на установленную ранее метку.<br>
+</li>
+  <li class="li8">markSupported() возвращает true, если данный поток поддерживает операции mark/reset.</li>
+</ul>
+<p class="p8">OutputStream</p>
+<p class="p16"><br></p>
+<p class="p8">Как и InputStream, OutputStream — абстрактный класс. Он задает модель выходных потоков Java. Все методы этого класса имеют тип void и возбуждают исключение IOException в случае ошибки. Ниже приведен список методов этого класса:</p>
+<ul class="ul1">
+  <li class="li8">write(int b) записывает один байт в выходной поток. Обратите внимание — аргумент этого метода имеет тип int, что позволяет вызывать write, передавая ему выражение, при этом не нужно выполнять приведение его типа к byte.<br>
+</li>
+  <li class="li8">write(byte b[]) записывает в выходной поток весь указанный массив байтов.<br>
+</li>
+  <li class="li8">write(byte b[], int off, int len) записывает в поток часть массива — len байтов, начиная с элемента b[off].<br>
+</li>
+  <li class="li8">flush() очищает любые выходные буферы, завершая операцию вывода.<br>
+</li>
+  <li class="li8">close() закрывает выходной поток. Последующие попытки записи в этот поток будут возбуждать IOException.</li>
+</ul>
+<p class="p8">Файловые потоки</p>
+<p class="p16"><br></p>
+<p class="p8">FilelnputStream</p>
+<p class="p16"><br></p>
+<p class="p8">Класс FileInputStream используется для ввода данных из файлов. В приведенном ниже примере создается два объекта этого класса, использующие один и тот же дисковый файл.</p>
+<p class="p8">InputStream f0 = new FileInputStream("/autoexec.bat");</p>
+<p class="p8">File f = new File("/autoexec.bat"):</p>
+<p class="p8">InputStream f1 = new FileInputStream(f);</p>
+<p class="p16"><br></p>
+<p class="p8">Когда создается объект класса FileInputStream, он одновременно с этим открывается для чтения. <span class="Apple-tab-span">	</span>FileInputStream замещает шесть методов абстрактного класса InputStream. Попытки применить к объекту этого класса методы mark и reset приводят к возбуждению исключения IOException.<span class="Apple-converted-space"> </span></p>
+<p class="p16"><span class="Apple-tab-span">	</span></p>
+<p class="p8">FileOutputStream</p>
+<p class="p16"><br></p>
+<p class="p8">У класса FileOutputStream — два таких же конструктора, что и у FileInputStream. Однако, создавать объекты этого класса можно независимо от того, существует файл или нет. При создании нового объекта класс FileOutputStream перед тем, как открыть файл для вывода, сначала создает его.</p>
+<p class="p16"><br></p>
+<p class="p8">ВНИМАНИЕ</p>
+<p class="p8">В настоящее время не существует способа открыть FileOutputStream для дозаписи в конец файла. Если вы открываете файл с помощью конструктора FileOutputStream, прежнее содержимое этого файла теряется. Это - явный недостаток реализации Java.</p>
+<p class="p16"><br></p>
+<p class="p8">ByteArraylnputStream</p>
+<p class="p16"><br></p>
+<p class="p8">ByteArrayInputStream - это реализация входного потока, в котором в качестве источника используется массив типа byte. У этого класса два конструктора, каждый из которых в качестве первого параметра требует байтовый массив.<span class="Apple-converted-space"> </span></p>
+<p class="p16"><br></p>
+<p class="p8">Фильтруемые потоки</p>
+<p class="p16"><br></p>
+<p class="p8">При работе системы вывода в среде с параллельными процессами при отсутствии синхронизации могут возникать неожиданные результаты. Причиной этого являются попытки различных подпроцессов одновременно обратиться к одному и тому же потоку. Все конструкторы и методы, имеющиеся в этом классе, идентичны тем, которые есть в классах InputStream и OutputStream, единственное отличие классов фильтруемых потоков в том, что их методы синхронизованы.</p>
+<p class="p16"><br></p>
+<p class="p8">Буферизованные потоки</p>
+<p class="p16"><br></p>
+<p class="p8">Буферизованные потоки являются расширением классов фильтруемых потоков, в них к потокам ввода-вывода присоединяется буфер в памяти. Этот буфер выполняет две основные функции:</p>
+<ul class="ul1">
+  <li class="li8">Он дает возможность исполняющей среде java проделывать за один раз операции ввода-вывода с более чем одним байтом, тем самым повышая производительность среды.</li>
+  <li class="li8">Поскольку у потока есть буфер, становятся возможными такие операции, как пропуск данных в потоке, установка меток и очистка буфера.</li>
+</ul>
+<p class="p8">BufferedInputStream</p>
+<p class="p16"><br></p>
+<p class="p8">Буферизация ввода-вывода — общепринятый способ оптимизации таких операций. Класс BufferedlnputStream в Java дает возможность “окружить” любой объект InputStream буферизованным потоком, и, тем самым, получить выигрыш в производительности. У этого класса два конструктора. Первый из них BufferedInputStream(InputStream in) создает буферизованный поток, используя для него буфер длиной 32 байта. Во втором BufferedInputStream(InputStream in, int size) размер буфера для создаваемого потока задается вторым параметром конструктора. В общем случае оптимальный размер буфера зависит от операционной системы, количества доступной оперативной памяти и конфигурации компьютера.</p>
+<p class="p2"><br></p>
+</div>
+<p class="p2"><br></p>
+<h2 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 18.0px Times"><b>Л/р №4 : "Работа с потоками в Java"<span class="Apple-converted-space"> </span></b></h2>
+  <p class="p4">Написать эмулятор системы массового обслуживания. Имеется банк с P счетами, N кассирам, M клиентами. Клиент может снимать/лодить деньги с любого из P счёта. Использовать многопоточность и средства синхронизации Java. Написать демона-наблюдателя, который следит за тем, что всё в порядке (что на счетах и в кошельках клиентов сумма &gt; 0, что текущая денежная масса постоянна -- нет утечек).<span class="Apple-converted-space">  </span>Предусмотреть средства синхронизации. Каждую транзакцию сохранять в файл (лог : имя кассира - операция - id клиента).</p>
+<p class="p2"><br></p>
+<a onclick="return toggleMe('teory4')" style="text-decoration: underline">Теория к 4 л/р</a><br>
+<div id="teory4" style="display:none">
+<p class="p6"><span class="s1"></span><br></p>
+<p class="p14">Итак, потоки в Java. Основа их – класс java.lang.Thread. Этот класс позволяет создать поток и запустить его на выполнение.</p>
+<p class="p14">Существует два пути создания потока. Первый – наследование от класса java.lang.Thread и переопределение его метода run. Второй – реализация интерфейсаjava.lang.Runnable и создание потока на основе этой реализации. В принципе это методы эквивалентны, разница в деталях. Наследование от java.lang.Thread делает его единственным родителем класса, что не всегда удобно. Я лично предпочитаю реализовывать java.lang.Runnable.</p>
+<p class="p14">Таким образом, простейший поток может быть реализован так:</p>
+<table width="782.0" cellspacing="0" cellpadding="0" class="t1">
+  <tbody>
+    <tr>
+      <td valign="middle" class="td1">
+      	<p class="p8">public class SampleThread extends Thread{</p>
+<p class="p8"><br></p>
+<p class="p8"><span class="Apple-converted-space">    </span>public SampleThread(){</p>
+<p class="p8"><span class="Apple-converted-space">        </span>super();</p>
+<p class="p8"><span class="Apple-converted-space">    </span>}</p>
+<p class="p8"><br></p>
+<p class="p8"><span class="Apple-converted-space">    </span>public void run(){</p>
+<p class="p8"><span class="Apple-converted-space">        </span>System.out.println("Hello, threads world!");</p>
+<p class="p8"><span class="Apple-converted-space">    </span>}</p>
+<p class="p8"><br></p>
+<p class="p8"><span class="Apple-converted-space">    </span>public static void main(String[] args){</p>
+<p class="p8"><span class="Apple-converted-space">        </span>Thread t = new SampleThread();</p>
+<p class="p8"><span class="Apple-converted-space">        </span>t.start();</p>
+<p class="p8"><span class="Apple-converted-space">    </span>}</p>
+<p class="p8"><br></p>
+<p class="p8">}</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="p14">Или так:</p>
+<table width="782.0" cellspacing="0" cellpadding="0" class="t1">
+  <tbody>
+    <tr>
+      <td valign="middle" class="td1">
+      <p class="p8">public class SampleRunnable implements Runnable{</p>
+<p class="p8"><br></p>
+<p class="p8"><span class="Apple-converted-space">    </span>public SampleRunnable(){</p>
+<p class="p8"><span class="Apple-converted-space">        </span>super();</p>
+<p class="p8"><span class="Apple-converted-space">    </span>}</p>
+<p class="p8"><br></p>
+<p class="p8"><span class="Apple-converted-space">    </span>public void run(){</p>
+<p class="p8"><span class="Apple-converted-space">        </span>System.out.println("Hello, threads world!");</p>
+<p class="p8"><span class="Apple-converted-space">    </span>}</p>
+<p class="p8"><br></p>
+<p class="p8"><span class="Apple-converted-space">    </span>public static void main(String[] args){</p>
+<p class="p8"><span class="Apple-converted-space">        </span>Runnable r = new SampleRunnable();</p>
+<p class="p8"><span class="Apple-converted-space">        </span>Thread t = new Thread(r);</p>
+<p class="p8"><span class="Apple-converted-space">        </span>t.start();</p>
+<p class="p8"><span class="Apple-converted-space">    </span>}</p>
+<p class="p8"><br></p>
+<p class="p8">}</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="p14">Как уже говорилось, эти методы практически эквивалентны.</p>
+<p class="p14">В приведенных примерах в методах main создаются потоки, после чего они запускаются на выполнение. Поток завершается, когда произошел выход из метода run, либо если в методе run было выброшено исключение, которое не было обработано. Чаще всего это RuntimeException или наследник, реже – Error или наследник. После того, как поток завершил работу, перестартовать его НЕЛЬЗЯ. Попытка вторичного вызова start приведет к исключению IllegalThreadStateException.</p>
+<p class="p14">Для того, чтобы уже закончить с классом Thread, коснемся еще нескольких его возможностей.</p>
+<p class="p14">Во-первых, у потоков могут быть различные приоритеты. Существует несколько констант – Thread.MIN_PRIORITY == 1, Thread.NORM_PRIORITY == 5 и Thread.MAX_PRIORITY == 10. Значения эти внутренние и с реальными приоритетами потоков в операционной системе соотносятся слабо.</p>
+<p class="p14">Во-вторых, потоки могу быть т.н. демонами. Такой поток отличается от обычного тем, что он не препятствует окончанию работы виртуальной машины. Т.е. можно сказать, что виртуальная машина работает, пока существует хотя бы один поток, не являющийся демоном. Потоки-демоны удобно использовать для фоновых задач.</p>
+<p class="p14">В-третьих, поток можно приостановить на определенный промежуток времени. Изнутри. Делается это через статический метод Thread.sleep() с параметром – количеством миллисекунд, на которое приостанавливается поток. До истечения этого времени поток может быть выведен из состояния ожидания вызовом interrupt.</p>
+<p class="p14">И последнее – статический метод yield. Он служит для передачи управления другим потокам. Т.е. в результате его вызова происходит переключение контекста и процессор начинает исполнять код другого потока. Это нужно как в ситуациях, когда работа на текущий момент завершена и можно дать поработать другим (например, поток обрабатывает данные, все обработал, а новые еще не пришли), так и в ситуациях, когда поток занимается какими-нибудь интенсивными действиями, съедает большую часть процессора и не дает другим потокам работать. Обратите внимание, что этот метод статический и действует только на текущий поток. Заставить таким образом чужой поток поделиться своим временем нельзя!</p>
+<p class="p6"><span class="s1"></span><br></p>
+</div>
+<p class="p2"><br></p>
+<h2 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 18.0px Times"><b>Л/р №5 : "Работа с БД (jdbc) Java"</b></h2>
+<p class="p4">Создать простейшую таблицу (4 поля), и для неё написать объект. Для объекта написать высокоуровневые CRUD-операции добавления (INSERT), сохранения (UPDATE), удаления (DELETE), и чтения (SELECT) из таблицы.<span class="Apple-converted-space">  </span>Т.е.</p>
+<p class="p4">Student s = new Student();</p>
+<p class="p4">s.setName("Petrov");</p>
+<p class="p4">s.save()</p>
+<p class="p4">Написать простое приложение (смотри вариант) используя ORM. Операции: вставка товара, просмотр, удалить, редактировать.</p>
+<p class="p4">1. Интернет-магазин</p>
+<p class="p4">2. Библиотека</p>
+<p class="p4">3. Социальная сеть</p>
+<p class="p4">4. Центр логистики</p>
+<p class="p4">5. База данных студентов</p>
+<p class="p4">6. Интернет-банк</p>
+<p class="p4">7. Склад</p>
+<p class="p4">8. Финансовая биржа</p>
+<p class="p4">9. Турфирма</p>
+<p class="p4">10. Фотогалерея</p>
+<p class="p5"><br></p>
+<a onclick="return toggleMe('teory5')" style="text-decoration: underline">Теория к 5 л/р</a><br>
+<div id="teory5" style="display:none">
+<p class="p13"><br></p>
+<h1 style="margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times">Использование JDBC в Java</h1>
+<h2 style="margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times; min-height: 14.0px"><br></h2>
+<h2 style="margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times">Подключение</h2>
+<p class="p16"><br></p>
+<p class="p8">Прежде чем подключаться к серверу БД необходимо выяснить, к какому именно серверу вы собираетесь подключаться и скачать соответствующий драйвер. Драйвер представляет собой *.jar файл.</p>
+<p class="p8">Первым делом импортируйте пакет java.sql.*;, который содержит классы для работы с БД.</p>
+<p class="p8">Далее необходимо указать диспетчеру драйверов JDBC, какой именно драйвер следует загрузить. Это можно сделать тремя способами:</p>
+<ol class="ol1">
+  <li class="li8">Class.forName("полное имя класса").newInstance();<br>
+Например, Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver").newInstance();</li>
+  <li class="li8">DriverManager.registerDriver(new com.microsoft.sqlserver.jdbc.SQLServerDriver());</li>
+  <li class="li8">Class.forName(“полное имя класса”);</li>
+</ol>
+<p class="p8">никакой разницы в них нет, задача ведь в том, чтобы classloader загрузил наш драйвер.<br>
+<br>
+Следующий шаг это передача сведений о подключении к базе данных в виде URL-адреса подключения.<br>
+<br>
+Connection con = DriverManager.getConnection("jdbc:sqlserver://localhost:1433","username", "password");<br>
+<br>
+1433 – порт принимаемый по умолчанию.<br>
+<br>
+Если вы используете драйвер jTDS, то подключение будет выглядеть следующим образом:<br>
+<br>
+DriverManager.registerDriver(new net.sourceforge.jtds.jdbc.Driver());<br>
+Connection con = DriverManager.getConnection("jdbc:jtds:sqlserver://localhost:1433"," username ", " password ");</p>
+<h2 style="margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times; min-height: 14.0px"><br></h2>
+<h2 style="margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times">Класс Connection</h2>
+<p class="p16"><br></p>
+<p class="p8">Класс java.sql.Connection представляет в JDBC сеанс работы с базой данных. Он предоставляет приложению объекты Statement (и его подклассы) для этого сеанса. Он также управляет транзакциями для этих команд. По умолчанию каждая команда выполняется в отдельной транзакции. Объект Connection позволяет отключить функцию Autocommit автоматического завершения транзакции. В этом случае требуется явно завершить транзакцию, иначе результаты выполнения всех команд будут потеряны.</p>
+<h3 style="margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times">Основные методы:</h3>
+<p class="p16"><br></p>
+<p class="p8">public void close() throws SQLException<br>
+Этот метод позволяет вручную освободить все ресурсы, такие как сетевые соединения и блокировки базы данных, связанные с данным объектом Connection. Этот метод автоматически вызывается при сборке мусора; лучше, однако, вручную закрыть Connection, если вы в нем больше не нуждаетесь.</p>
+<p class="p16"><br></p>
+<p class="p8">public Statement createStatement() throws SQLException<br>
+public Statement createStatement(int type, int concur) throws SQLException<br>
+</p>
+<p class="p8">Метод создает объект Statement, связанный с сеансом Connection. Версия без аргументов создает объект Statement, для которого экземпляры ResultSet имеют тип только для чтения и перемещения в прямом направлении.</p>
+<p class="p16"><br></p>
+<p class="p8">public boolean getAutoCommit() throws SQLException<br>
+public void setAutoCommit(boolean ac) throws SQLException<br>
+</p>
+<p class="p8">По умолчанию все объекты Connection находятся в режиме автозавершения. В этом режиме каждая команда завершается сразу после выполнения. Может оказаться предпочтительнее вручную завершить серию команд в приложении как единую транзакцию. В этом случае метод setAutoCommit() используется для отключения автозавершения. Затем, после выполнения своих команд, вы вызываете commit() или rollback(), в зависимости от успеха или неуспеха транзакции. В режиме автозавершения команда завершается, когда она выполнена, или выполняется следующая команда, в зависимости от того, что произойдет раньше. Команда, возвращающая ResultSet, выполнена, когда извлечена последняя строка или закрыт объект ResultSet. Если команда возвращает множественные результирующие наборы, завершение происходит после извлечения последней строки последнего объекта ResultSet.</p>
+<p class="p16"><br></p>
+<p class="p8">public void commit() throws SQLException<br>
+</p>
+<p class="p8">Этот метод делает постоянными изменения, произведенные всеми командами, связанными с данным соединением и выполненными вслед за последней командой завершения или отката транзакции. Использовать его следует только при отключенном автозавершении. Он не завершает изменения, сделанные командами, которые связаны с другими объектами Connection.</p>
+<p class="p16"><br></p>
+<p class="p8">public String getCatalog() throws SQLException<br>
+public void setCatalog(String catalog) throws SQLException<br>
+</p>
+<p class="p8">Если драйвер поддерживает каталоги, то setCatalog() используется для выбора подпространства базы данных с заданным именем каталога. Если драйвер каталоги не поддерживает, запрос игнорируется.</p>
+<p class="p16"><br></p>
+<p class="p8">public DatabaseMetaData getMetaData() throws SQLException<br>
+</p>
+<p class="p8">Класс DatabaseMetaData предоставляет методы, описывающие таблицы базы данных, поддержку SQL, хранимые процедуры и другие сведения, относящиеся к базе данных и данному Connection, которые не относятся непосредственно к выполнению команд и извлечению результирующих наборов. Метод создает экземпляр класса DatabaseMetaData для данного Connection.</p>
+<p class="p16"><br></p>
+<p class="p8">public SQLWarning getWarnings() throws SQLException<br>
+</p>
+<p class="p8">Возвращает первое предупреждение из списка, связанного с данным объектом Connection.</p>
+<h2 style="margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times; min-height: 14.0px"><br></h2>
+<h2 style="margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times; min-height: 14.0px"><br></h2>
+<h2 style="margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times">Класс Statement</h2>
+<p class="p8">Класс представляет встроенную команду SQL и используется приложением для доступа к базе данных. При закрытии Statement автоматически закрываются все связанные с ним открытые объекты ResultSet.</p>
+<h3 style="margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times; min-height: 14.0px"><br></h3>
+<h3 style="margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times">Основные методы:</h3>
+<p class="p16"><br></p>
+<p class="p8">public void addBatch(String sql) throws SQLException<br>
+</p>
+<p class="p8">Добавляет заданную команду SQL к текущему пакету команд.</p>
+<p class="p16"><br></p>
+<p class="p8">public void cancel() throws SQLException<br>
+</p>
+<p class="p8">В многопоточной среде с помощью этого метода можно потребовать прекращения всякой обработки, связанной с данным Statement. В этом смысле метод аналогичен методу stop() для объектов Thread.</p>
+<p class="p16"><br></p>
+<p class="p8">public boolean execute(String sql) throws SQLException<br>
+public ResultSet executeQuery(String sql) throws SQLException<br>
+public int executeUpdate(String sql) throws SQLException<br>
+</p>
+<p class="p8">Выполняет Statement, передавая базе данных заданную SQL-строку. Первый метод, execute(), позволяет вам выполнить Statement, когда неизвестно заранее, является SQL-строка запросом или обновлением. Метод возвращает true, если команда создала результирующий набор.<br>
+<br>
+Метод executeQuery() используется для выполнения запросов (на извлечение данных). Он возвращает для обработки результирующий набор.<br>
+<br>
+Метод executeUpdate() используется для выполнения обновлений. Он возвращает количество обновленных строк.</p>
+<p class="p16"><br></p>
+<p class="p8">public int[ ] executeBatch(String sql) throws SQLException<br>
+</p>
+<p class="p8">Посылает базе данных пакет SQL-команд для выполнения. Возвращает массив чисел, описывающих количество строк, затронутых каждой командой SQL.</p>
+<p class="p16"><br></p>
+<p class="p8">public ResultSet getResultSet() throws SQLException<br>
+</p>
+<p class="p8">Метод возвращает текущий ResultSet. Для каждого результата его следует вызывать только однажды. Его не нужно вызывать после обращения к executeQuery(), возвращающему единственный результат.</p>
+<p class="p16"><br></p>
+<p class="p8">public void close() throws SQLException<br>
+</p>
+<p class="p8">Вручную закрывает объект Statement. Обычно этого не требуется, так как Statement автоматически закрывается при закрытии связанного с ним объекта Connection. К сожалению, не все разработчики JDBC-драйверов придерживаются этих конвенций, так что настоятельно советую закрывать вручную, как это показано в примере.</p>
+<h2 style="margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times; min-height: 14.0px"><br></h2>
+<h2 style="margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times">Класс ResultSet</h2>
+<p class="p16"><br></p>
+<p class="p8">Этот класс представляет результирующий набор базы данных. Он обеспечивает приложению построчный доступ к результатам запросов в базе данных. Во время обработки запроса ResultSet поддерживает указатель на текущую обрабатываемую строку. Приложение последовательно перемещается по результатам, пока они не будут все обработаны или не будет закрыт ResultSet.</p>
+<h3 style="margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times; min-height: 14.0px"><br></h3>
+<h3 style="margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times">Основные методы:</h3>
+<p class="p16"><br></p>
+<p class="p8">public boolean absolute(int row) throws SQLException<br>
+</p>
+<p class="p8">Метод перемещает курсор на заданное число строк от начала, если число положительно, и от конца - если отрицательно.</p>
+<p class="p16"><br></p>
+<p class="p8">public void afterLast() throws SQLException<br>
+</p>
+<p class="p8">Этот метод перемещает курсор в конец результирующего набора за последнюю строку.</p>
+<p class="p16"><br></p>
+<p class="p8">public void beforeFirst() throws SQLException<br>
+</p>
+<p class="p8">Этот метод перемещает курсор в начало результирующего набора перед первой строкой.</p>
+<p class="p16"><br></p>
+<p class="p8">public void deleteRow() throws SQLException<br>
+</p>
+<p class="p8">Удаляет текущую строку из результирующего набора и базы данных.</p>
+<p class="p16"><br></p>
+<p class="p8">public ResultSetMetaData getMetaData() throws SQLException<br>
+</p>
+<p class="p8">Предоставляет объект метаданных для данного ResultSet. Класс ResultSetMetaData содержит информацию о результирующие таблице, такую как количество столбцов, их заголовок и т.д.</p>
+<p class="p16"><br></p>
+<p class="p8">public int getRow() throws SQLException<br>
+</p>
+<p class="p8">Возвращает номер текущей строки.</p>
+<p class="p16"><br></p>
+<p class="p8">public Statement getStatement() throws SQLException<br>
+</p>
+<p class="p8">Возвращает экземпляр Statement, который произвел данный результирующий набор.</p>
+<p class="p16"><br></p>
+<p class="p8">public boolean next() throws SQLException</p>
+<p class="p8">public boolean previous() throws SQLException<br>
+</p>
+<p class="p8">Эти методы позволяют переместиться в результирующем наборе на одну строку вперед или назад. Во вновь созданном результирующем наборе курсор устанавливается перед первой строкой, поэтому первое обращение к методу next() влечет позиционирование на первую строку. Эти методы возвращают true, если остается строка для дальнейшего перемещения. Если строк для обработки больше нет, возвращается false. Если открыт поток InputStream для предыдущей строки, он закрывается. Также очищается цепочка предупреждений SQLWarning.</p>
+<p class="p16"><br></p>
+<p class="p8">public void close() throws SQLException<br>
+</p>
+<p class="p8">Осуществляет немедленное закрытие ResultSet вручную. Обычно этого не требуется, так как закрытие Statement, связанного с ResultSet, автоматически закрывает ResultSet. К сожалению, не все разработчики JDBC-драйверов придерживаются этих конвенций, например, драйвер Oracle самостоятельно не закрывает ResultSet'ы, так что настоятельно советую закрывать вручную, как это показано в примере.</p>
+<p class="p16"><br></p>
+<p class="p8">Пример использования.</p>
+<table width="782.0" cellspacing="0" cellpadding="0" class="t1">
+  <tbody>
+    <tr>
+      <td valign="middle" class="td1">
+<p class="p8">package mssql;</p>
+<p class="p8">import java.sql.*;</p>
+<p class="p8"><br></p>
+<p class="p8">public class Main {</p>
+<p class="p8"><br></p>
+<p class="p8">  private static Connection con = null;</p>
+<p class="p8">  private static String username = "name";</p>
+<p class="p8">  private static String password = "pass";</p>
+<p class="p8">  private static String URL = "jdbc:jtds:sqlserver://localhost:1433";</p>
+<p class="p8"><br></p>
+<p class="p8">  public static void main(String[] args) throws SQLException {</p>
+<p class="p8">    DriverManager.registerDriver(new net.sourceforge.jtds.jdbc.Driver());</p>
+<p class="p8">    //Загружаем драйвер</p>
+<p class="p8">    con = DriverManager.getConnection(URL, username, password);</p>
+<p class="p8">    //соединяемся</p>
+<p class="p8">    if(con!=null) System.out.println("Connection Successful !\n");</p>
+<p class="p8">    if (con==null) System.exit(0);</p>
+<p class="p8">    Statement st = con.createStatement();</p>
+<p class="p8">    //Statement позволяет отправлять запросы базе данных</p>
+<p class="p8">    ResultSet rs = st.executeQuery("select hd from pc group by hd having count(hd)&gt;=2");</p>
+<p class="p8">    //ResultSet получает результирующую таблицу</p>
+<p class="p8">    int x = rs.getMetaData().getColumnCount();</p>
+<p class="p8">    //Resultset.getMetaData() получаем информацию</p>
+<p class="p8">    //результирующей таблице</p>
+<p class="p8">    while(rs.next()){</p>
+<p class="p8">      for(int i=1; i&lt;=x;i++){</p>
+<p class="p8">        System.out.print(rs.getString(i) + "\t");</p>
+<p class="p8">      }</p>
+<p class="p8">      System.out.println();</p>
+<p class="p8">    }</p>
+<p class="p8">    System.out.println();</p>
+<p class="p8">    if(rs!=null)rs.close();</p>
+<p class="p8">    if(st!=null)st.close();</p>
+<p class="p8">    if(con!=null)con.close();</p>
+<p class="p8">  }</p>
+<p class="p8">}</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p class="p5"><br></p>
+<h2 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 18.0px Times"><b>Л/р №6 : "Работа с servlet" [6]</b></h2>
+<p class="p4">Простейший сервлет и html-форма к нему, так чтобы выполнялось предыдущее приложение с ORM(4-5 страниц). Вывести список объектов.<span class="Apple-converted-space"> </span></p>
+<p class="p2"><br></p>
+<a onclick="return toggleMe('teory6')" style="text-decoration: underline">Теория к 6 л/р</a><br>
+<div id="teory6" style="display:none">
+<p class="p6"><span class="s1"></span><br></p>
+<p class="p14">Сервлет является Java-интерфейсом, реализация которого расширяет функциональные возможности Сервера.<span class="Apple-converted-space">  </span>Сервлет взаимодействует с клиентами посредством принципа запрос-ответ.</p>
+<p class="p14">Хотя сервлеты могут обслуживать любые запросы, они обычно используются для расширения веб-серверов. Для таких приложений технология Java Servletопределяет HTTP-специфичные сервлет классы.</p>
+<p class="p14">Пакеты javax.servlet и javax.servlet.http обеспечивают интерфейсы и классы для создания сервлетов.</p>
+<h2 style="margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times; background-color: #ffffff; min-height: 14.0px"><br></h2>
+<p class="p14">Жизненный цикл сервлета состоит из следующих шагов:</p>
+<ol class="ol1">
+  <li class="li14">В случае отсутствия сервлета в контейнере.</li>
+  <ol class="ol1">
+    <li class="li14">Класс сервлета загружается контейнером.</li>
+    <li class="li14">Контейнер создает экземпляр класса сервлета.</li>
+    <li class="li14">Контейнер вызывает метод init(). Этот метод инициализирует сервлет и вызывается в первую очередь, до того, как сервлет сможет обслуживать запросы. За весь жизненный цикл метод init() вызывается только однажды.</li>
+  </ol>
+  <li class="li14">Обслуживание клиентского запроса. Каждый запрос обрабатывается в своем отдельном потоке. Контейнер вызывает метод service() для каждого запроса. Этот метод определяет тип пришедшего запроса и распределяет его в соответствующий этому типу метод для обработки запроса. Разработчик сервлета должен предоставить реализацию для этих методов. Если поступил запрос, метод для которого не реализован, вызывается метод родительского класса и обычно завершается возвращением ошибки инициатору запроса.</li>
+  <li class="li14">В случае если контейнеру необходимо удалить сервлет, он вызывает метод destroy(), который снимает сервлет из эксплуатации. Подобно методуinit(), этот метод тоже вызывается единожды за весь цикл сервлета.</li>
+</ol>
+<p class="p15"><br></p>
+<h2 style="margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times; background-color: #ffffff">Пример</h2>
+<h2 style="margin: 0.0px 0.0px 0.0px 0.0px; text-align: justify; font: 12.0px Times; background-color: #ffffff; min-height: 14.0px"><br></h2>
+<table width="782.0" cellspacing="0" cellpadding="0" class="t1">
+  <tbody>
+    <tr>
+      <td valign="middle" class="td1">
+<p class="p8">import java.io.IOException;</p>
+<p class="p8">import java.io.PrintWriter;</p>
+<p class="p8">import javax.servlet.ServletException;</p>
+<p class="p8">import javax.servlet.http.HttpServlet;</p>
+<p class="p8">import javax.servlet.http.HttpServletRequest;</p>
+<p class="p8">import javax.servlet.http.HttpServletResponse;</p>
+<p class="p8">import javax.servlet.http.HttpSession;</p>
+<p class="p8"><span class="Apple-converted-space"> </span></p>
+<p class="p8">public class NewServlet extends HttpServlet {</p>
+<p class="p8"><span class="Apple-converted-space"> </span></p>
+<p class="p8"><span class="Apple-converted-space">    </span>@Override</p>
+<p class="p8"><span class="Apple-converted-space">    </span>protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {</p>
+<p class="p8"><span class="Apple-converted-space"> </span></p>
+<p class="p8"><span class="Apple-converted-space">        </span>// Параметр</p>
+<p class="p8"><span class="Apple-converted-space">        </span>String parameter = request.getParameter("parameter");</p>
+<p class="p8"><span class="Apple-converted-space"> </span></p>
+<p class="p8"><span class="Apple-converted-space">        </span>// Старт HTTP сессии</p>
+<p class="p8"><span class="Apple-converted-space">        </span>if (request.getSession() == null) {</p>
+<p class="p8"><span class="Apple-converted-space">            </span>HttpSession session = request.getSession(true);</p>
+<p class="p8"><span class="Apple-converted-space">            </span>session.setAttribute("parameter", parameter);</p>
+<p class="p8"><span class="Apple-converted-space">        </span>}</p>
+<p class="p8"><span class="Apple-converted-space"> </span></p>
+<p class="p8"><span class="Apple-converted-space">        </span>response.setContentType("text/html;charset=UTF-8");</p>
+<p class="p8"><span class="Apple-converted-space">        </span>PrintWriter out = response.getWriter();</p>
+<p class="p8"><span class="Apple-converted-space">        </span>try {</p>
+<p class="p8"><span class="Apple-converted-space">            </span>out.println("&lt;html&gt;");</p>
+<p class="p8"><span class="Apple-converted-space">            </span>out.println("&lt;head&gt;");</p>
+<p class="p8"><span class="Apple-converted-space">            </span>out.println("&lt;title&gt;Заголовок&lt;/title&gt;");</p>
+<p class="p8"><span class="Apple-converted-space">            </span>out.println("&lt;/head&gt;");</p>
+<p class="p8"><span class="Apple-converted-space">            </span>out.println("&lt;body&gt;");</p>
+<p class="p8"><span class="Apple-converted-space">            </span>out.println("&lt;h1&gt;Пример сервлета"+parameter+"&lt;/h1&gt;");</p>
+<p class="p8"><span class="Apple-converted-space">            </span>out.println("&lt;/body&gt;");</p>
+<p class="p8"><span class="Apple-converted-space">            </span>out.println("&lt;/html&gt;");</p>
+<p class="p8"><span class="Apple-converted-space">        </span>} finally {</p>
+<p class="p8"><span class="Apple-converted-space">            </span>out.close();</p>
+<p class="p8"><span class="Apple-converted-space">        </span>}</p>
+<p class="p8"><span class="Apple-converted-space">    </span>}<span class="Apple-converted-space"> </span></p>
+<p class="p8"><span class="Apple-converted-space"> </span></p>
+<p class="p8"><span class="Apple-converted-space">    </span>@Override</p>
+<p class="p8"><span class="Apple-converted-space">    </span>public String getServletInfo() {</p>
+<p class="p8"><span class="Apple-converted-space">        </span>return "Пример сервлета";</p>
+<p class="p8"><span class="Apple-converted-space">    </span>}</p>
+<p class="p8"><span class="Apple-converted-space"> </span></p>
+<p class="p8">}</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p class="p2"><br></p>
+<h2 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 18.0px Times"><b>Л/р №7 : "JSP" [6]</b></h2>
+<p class="p4">- Выполнение предыдущей лр № 6 с помощью jsp. Реализовать пользовательские теги (минимум два), вроде &lt;my:iterator&gt; и &lt;my:renderObject/&gt;. Эти теги нужно реализовать декларативно (/WEB-INF/tags/*.tag)</p>
+<p class="p4">- Реализовать другие теги (возможно эти же два, только обязательно, чтобы они взаимодействовали), причём они должны быть реализованы программно, т.к. как TagHandler'ы, у которых имеется соответствующая библиотека тега (taglib).</p>
+<p class="p2"><br></p>
+<a onclick="return toggleMe('teory7')" style="text-decoration: underline">Теория к 7 л/р</a><br>
+<div id="teory7" style="display:none">
+<p class="p19">JavaServer Pages (JSP) позволяют вам отделить динамическую часть ваших страниц от статического HTML. Вы, как обычно, пишете обычный код в HTML, используя для этого любую программу для создания Web страниц. Затем вы заключаете динамическую часть кода в специальные таги, большинство которых начинаются с "&lt;%" и завершаются "%&gt;". В качестве примера рассмотрим секцию JSP страницы, результатом которой будет что-то вроде "Спасибо за покупку Core Web Programming" по запросу с URL: http://host/OrderConfirmation.jsp?title=Core+Web+Programming:</p>
+<p class="p14">Спасибо за покупку<span class="Apple-converted-space"> </span></p>
+<p class="p14">&lt;I&gt;&lt;%= request.getParameter("title") %&gt;&lt;/I&gt;</p>
+<p class="p15"><br></p>
+<p class="p19">Вы даете вашему файлу расширение .jsp и размещаете там же, где должны размещаться обычные Web страницы. Хотя то что вы написали больше похоже на обычный HTML файл чем на сервлет, просто за кадром JSP страница преобразуется в обычный сервлет с статическим HTML который просто направляется в поток вывода, связанный с методом сервлета service. Обычно это происходит при первом запросе страницы, и разработчики могут сразу после установки сами выполнить этот запрос, если хотят чтобы первый реальный пользователь при обращении к странице не столкнулся с небольшой задержкой, вызванной трансляцией JSP страницы в сервлет и его последующей компиляцией и загрузкой. Также отметим что большинство Web серверов позволяет вам задавать ссылки (aliases), так что адрес URL, указывающий на HTML файл в действительности будет указывать на сервлет или страницу JSP.</p>
+<p class="p19">Помимо стандартных HTML конструкций существуют еще три основных типа конструкций JSP, котрые вы можете включить в страницу: элементы скриптов, директивы и действия. Элементы скриптов позволяют вам указать код на языке Java, который впоследствии станет частью в конечный сервлет, директивы дадут вам возможность управлять всей структурой сервлета, а действия служат для задания существующих используемых компонентов, а также для контроля поведением движка JSP. Для упрощения элементов скриптов, вы имеете доступ к нескольким заранее определенным переменным, таким, например, как переменная request, использованная в приведенном выше отрывке.</p>
+<h2 style="margin: 0.0px 0.0px 13.0px 0.0px; text-align: justify; font: 12.0px Times; background-color: #ffffff">Синтаксис</h2>
+<table width="498.0" cellspacing="0" cellpadding="0" class="t2">
+  <tbody>
+    <tr>
+      <td valign="middle" class="td2">
+        <p class="p8">Элемент JSP</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p8">Синтаксис</p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p8">Описание</p>
+      </td>
+      <td valign="middle" class="td5">
+        <p class="p8">Примечание</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td2">
+        <p class="p8">Выражение JSP</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p8">&lt;%= выражение %&gt;</p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p8">Выражение обрабатывается и направляется на вывод</p>
+      </td>
+      <td valign="middle" class="td5">
+        <p class="p8">Эквивалент на XML:</p>
+        <p class="p8">&lt;jsp:expression&gt;</p>
+        <p class="p8">expression</p>
+        <p class="p8">&lt;/jsp:expression&gt;. Заранее определенные переменные: request, response, out, session, application, config и pageContext (также доступны в скриплетах).</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td2">
+        <p class="p8">Скриплет JSP</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p8">&lt;% код %&gt;</p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p8">Код добавляется в метод service.</p>
+      </td>
+      <td valign="middle" class="td5">
+        <p class="p8">Эквивалент на XML:</p>
+        <p class="p8">&lt;jsp:scriptlet&gt;</p>
+        <p class="p8">код</p>
+        <p class="p8">&lt;/jsp:scriptlet&gt;.</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td2">
+        <p class="p8">Объявление JSP</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p8">&lt;%! код %&gt;</p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p8">Код добавляется в тело класса сервлета, вне метода service.</p>
+      </td>
+      <td valign="middle" class="td5">
+        <p class="p8">Эквивалент на XML:</p>
+        <p class="p8">&lt;jsp:declaration&gt;</p>
+        <p class="p8">код</p>
+        <p class="p8">&lt;/jsp:declaration&gt;.</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td2">
+        <p class="p8">Директива JSP page</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p8">&lt;%@ page att="значение" %&gt;</p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p8">Директивы для движка сервлета с информацией об основных настройках.</p>
+      </td>
+      <td valign="middle" class="td5">
+        <p class="p8">Эквивалент на XML:</p>
+        <p class="p8">&lt;jsp:directive.page att="val"\&gt;. Допустимые атрибуты (жирным выделены значения, принимаемые по умолчанию):<span class="Apple-converted-space"> </span></p>
+        <p class="p8">import="пакет.class"</p>
+        <p class="p8">contentType="MIME-Type"</p>
+        <p class="p8">isThreadSafe="true|false</p>
+        <p class="p8">" session="true|false"</p>
+        <p class="p8">buffer="размерkb|none"</p>
+        <p class="p8">autoflush="true|false"</p>
+        <p class="p8">extends="пакет.class"</p>
+        <p class="p8">info="сообщение"</p>
+        <p class="p8">errorPage="url"</p>
+        <p class="p8">isErrorPage="true|false"</p>
+        <p class="p8">language="java"</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td2">
+        <p class="p8">Директива JSP include</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p8">&lt;%@ include file="url" %&gt;</p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p8">Файл в локальной системе, подключаемый при трансляции JSP в сервлет.</p>
+      </td>
+      <td valign="middle" class="td5">
+        <p class="p8">Эквивалент на XML:</p>
+        <p class="p8">&lt;jsp:directive.include</p>
+        <p class="p8">  file="url"\&gt;.</p>
+        <p class="p8">URL должен быть относительным . Для подключения файла в процессе запроса а не в ходе трансляции используйте действие jsp:include.</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td2">
+        <p class="p8">Комментарий JSP</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p8">&lt;%-- комментарий --%&gt;</p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p8">Комментарий; игнорируется при трансляции JSP страницы в сервлет.</p>
+      </td>
+      <td valign="middle" class="td5">
+        <p class="p8">Если вы хотите чтобы комментарий сохранился в конечном HTML, используйте обычный синтаксис HTML для описания комментариев: &lt;-- комментарий --&gt;.</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td2">
+        <p class="p8">Действие jsp:include</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p8">&lt;jsp:include page="относительный URL" flush="true"/&gt;</p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p8">Подключает файл при запросе страницы.</p>
+      </td>
+      <td valign="middle" class="td5">
+        <p class="p8">Если вы хотите чтобы файл подключался в процессе трансляции страницы, используйте директиву page совместно с атрибутом include. Внимание: некоторые сервера требуют чтобы подключаемые файлы были в формате HTML или JSP, в зависимости от настроек сервера (обычно данное ограничение базируется на указании расширений файлов).</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td2">
+        <p class="p8">Действие jsp:useBean</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p8">&lt;jsp:useBean att=значение*/&gt; or</p>
+        <p class="p8">&lt;jsp:useBean att=значение*&gt;</p>
+        <p class="p8">...</p>
+        <p class="p8">&lt;/jsp:useBean&gt;</p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p8">Найти или создать Java Bean.</p>
+      </td>
+      <td valign="middle" class="td5">
+        <p class="p8">Возможные атрибуты:<span class="Apple-converted-space"> </span></p>
+        <p class="p8">id="имя"</p>
+        <p class="p8">scope="page|request|session|application"</p>
+        <p class="p8">class="пакет.class"</p>
+        <p class="p8">type="пакет.class"</p>
+        <p class="p8">beanName="пакет.class"</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td2">
+        <p class="p8">Действие jsp:setProperty</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p8">&lt;jsp:setProperty att=значение*/&gt;</p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p8">Устанавливает свойства bean, или явно, или указанием на соответствующее значение параметра, передаваемое при запросе.</p>
+      </td>
+      <td valign="middle" class="td5">
+        <p class="p8">Допустимые атрибуты:<span class="Apple-converted-space"> </span></p>
+        <p class="p8">name="имяBean"</p>
+        <p class="p8">property="имяСвойства|*"</p>
+        <p class="p8">param="имяПараметра"</p>
+        <p class="p8">value="значение"</p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td2">
+        <p class="p8">Действие jsp:getProperty</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p8">&lt;jsp:getProperty</p>
+        <p class="p8">name="ИмяСвойства"</p>
+        <p class="p8">value="значение"/&gt;</p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p8">Получение и вывод свойств  bean.</p>
+      </td>
+      <td valign="middle" class="td5">
+        <p class="p8"> </p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td2">
+        <p class="p8">Действие jsp:forward</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p8">&lt;jsp:forward</p>
+        <p class="p8">page="относительный URL"/&gt;</p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p8">Передает запрос другой странице.</p>
+      </td>
+      <td valign="middle" class="td5">
+        <p class="p8"> </p>
+      </td>
+    </tr>
+    <tr>
+      <td valign="middle" class="td2">
+        <p class="p8">Действие jsp:plugin</p>
+      </td>
+      <td valign="middle" class="td3">
+        <p class="p8">&lt;jsp:plugin</p>
+        <p class="p8">attribute="значение"*&gt;</p>
+        <p class="p8">...</p>
+        <p class="p8">&lt;/jsp:plugin&gt;</p>
+      </td>
+      <td valign="middle" class="td4">
+        <p class="p8">Генерирует тэги  OBJECT или EMBED, в зависимости от типа броузера, в котором будет выполнятся апплет использующий  Java Plugin.</p>
+      </td>
+      <td valign="middle" class="td5">
+        <p class="p8"> </p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="p21"><br></p>
+<h2 style="margin: 0.0px 0.0px 13.0px 0.0px; text-align: justify; font: 12.0px Times; background-color: #ffffff">Текст шаблона: Статический HTML</h2>
+<p class="p19">Как правило большую часть вашей JSP страницы составляет статический HTML, называемый текстом шаблона. Во всех отношениях (кроме одного) этот HTML выглядит как обычный HTML, использующий те же правила синтаксиса, и он просто "передается" клиенту сервлетом, создаваемым для обработки страницы. При этом не только сам HTML выглядит нормальным, он может создаваться с применением тех инструментов, которые вы ранее использовали при создании Web страниц.<span class="Apple-converted-space"> </span></p>
+<p class="p19">Единственным печальным исключением из правила что "текст шаблона передается в неизменном виде" является ситуация, когда в тексте вы хотите отобразить последовательность символов "&lt;%", для этого в тексте шаблона надо использовать сочетание символов "&lt;\%".</p>
+<h2 style="margin: 0.0px 0.0px 13.0px 0.0px; text-align: justify; font: 12.0px Times; background-color: #ffffff">4. Элементы скриптов JSP</h2>
+<p class="p19">Элементы скриптов JSP позволяют вам вставлять код на Java в сервлет, создаваемый из текущей JSP страницы. Существуют три формы:</p>
+<ol class="ol1">
+  <li class="li14">Выражения, имеющие форму &lt;%= выражение %&gt;, которые обрабатываются и направляются на  вывод,</li>
+  <li class="li14">Скриплеты, имеющие форму &lt;% код %&gt;, которые вставляются в метод service сервлета</li>
+  <li class="li14">Объявления, имеющие форму &lt;%! код %&gt;, которые вставляются в тело класса сервлета, вне существующих методов.</li>
+</ol>
+<p class="p15"><br></p>
+<h2 style="margin: 0.0px 0.0px 13.0px 0.0px; text-align: justify; font: 12.0px Times; background-color: #ffffff">Директивы JSP</h2>
+<p class="p14">Директивы JSP воздействуют на всю структуру класса сервлета. Обычно они имеют следующую форму:</p>
+<p class="p14">&lt;%@ директива атрибут="значение" %&gt;</p>
+<p class="p14">Вы также можете объединить установку нескольких атрибутов для одной директивы:</p>
+<p class="p14">&lt;%@ директива атрибут1="значение1"<span class="Apple-converted-space"> </span></p>
+<p class="p14"><span class="Apple-converted-space">              </span>атрибут2="значение2"</p>
+<p class="p14"><span class="Apple-converted-space">              </span>...</p>
+<p class="p14"><span class="Apple-converted-space">              </span>атрибутN="значениеN" %&gt;</p>
+<p class="p19">Существуют два основных типа директив: page, которая позволяет вам совершать такие операции, как импорт классов, изменение суперкласса сервлета, и т.п.; иinclude, которая дает вам возможность вставить файл в класс сервлета при трансляции JSP файла в сервлет. Также следует упомянуть директиву taglib, которая не поддерживается в JSP версии 1.0, но позволяет авторам JSP задавать свои собственные тэги. Предполагается что эта директива станет основной особенностью JSP 1.1.</p>
+<h2 style="margin: 0.0px 0.0px 13.0px 0.0px; text-align: justify; font: 12.0px Times; background-color: #ffffff">Пример использования элементов скриптов и директив</h2>
+<p class="p19">На этом простейшем примере показано использование различных конструкций JSP: выражений, скриплетов, объявлений и директив.<span class="Apple-converted-space"> </span></p>
+<table width="782.0" cellspacing="0" cellpadding="0" class="t1">
+  <tbody>
+    <tr>
+      <td valign="middle" class="td1">
+<p class="p8">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"&gt;</p>
+<p class="p8">&lt;HTML&gt;</p>
+<p class="p8">&lt;HEAD&gt;</p>
+<p class="p8">&lt;TITLE&gt;Использование JavaServer Pages&lt;/TITLE&gt;</p>
+<p class="p8"><br></p>
+<p class="p8">&lt;META NAME="author" CONTENT="Marty Hall -- hall@apl.jhu.edu"&gt;</p>
+<p class="p8">&lt;META NAME="keywords"</p>
+<p class="p8"><span class="Apple-converted-space">      </span>CONTENT="JSP,JavaServer Pages,servlets"&gt;</p>
+<p class="p8">&lt;META NAME="description"</p>
+<p class="p8"><span class="Apple-converted-space">      </span>CONTENT="Быстрый пример четырех основных тэгов JSP."&gt;</p>
+<p class="p8">&lt;LINK REL=STYLESHEET</p>
+<p class="p8"><span class="Apple-converted-space">      </span>HREF="My-Style-Sheet.css"</p>
+<p class="p8"><span class="Apple-converted-space">      </span>TYPE="text/css"&gt;</p>
+<p class="p8">&lt;/HEAD&gt;</p>
+<p class="p8"><br></p>
+<p class="p8">&lt;BODY BGCOLOR="#FDF5E6" TEXT="#000000" LINK="#0000EE"</p>
+<p class="p8"><span class="Apple-converted-space">      </span>VLINK="#551A8B" ALINK="#FF0000"&gt;</p>
+<p class="p8"><br></p>
+<p class="p8">&lt;CENTER&gt;</p>
+<p class="p8">&lt;TABLE BORDER=5 BGCOLOR="#EF8429"&gt;</p>
+<p class="p8"><span class="Apple-converted-space">  </span>&lt;TR&gt;&lt;TH CLASS="TITLE"&gt;</p>
+<p class="p8"><span class="Apple-converted-space">      </span>Использование JavaServer Pages&lt;/TABLE&gt;</p>
+<p class="p8">&lt;/CENTER&gt;</p>
+<p class="p8">&lt;P&gt;</p>
+<p class="p8"><br></p>
+<p class="p8">//Некое динамическое содержание созданное с использованием различных механизмов JSP:</p>
+<p class="p8">&lt;UL&gt;</p>
+<p class="p8"><span class="Apple-converted-space">  </span>&lt;LI&gt;&lt;B&gt;Выражение.&lt;/B&gt;&lt;BR&gt;</p>
+<p class="p8"><span class="Apple-converted-space">      </span>Имя вашего хоста: &lt;%= request.getRemoteHost() %&gt;.</p>
+<p class="p8"><span class="Apple-converted-space">  </span>&lt;LI&gt;&lt;B&gt;Scriptlet.&lt;/B&gt;&lt;BR&gt;</p>
+<p class="p8"><span class="Apple-converted-space">      </span>&lt;% out.println("Дополнительные данные запроса: " +</p>
+<p class="p8"><span class="Apple-converted-space">                     </span>request.getQueryString()); %&gt;</p>
+<p class="p8"><span class="Apple-converted-space">  </span>&lt;LI&gt;&lt;B&gt;Объявление (совместно с выражением).&lt;/B&gt;&lt;BR&gt;</p>
+<p class="p8"><span class="Apple-converted-space">      </span>&lt;%! private int accessCount = 0; %&gt;</p>
+<p class="p8"><span class="Apple-converted-space">      </span>Количество обращений к странице с момента загрузки сервера: &lt;%= ++accessCount %&gt;</p>
+<p class="p8"><span class="Apple-converted-space">  </span>&lt;LI&gt;&lt;B&gt;Директива (совместно с выражением).&lt;/B&gt;&lt;BR&gt;</p>
+<p class="p8"><span class="Apple-converted-space">      </span>&lt;%@ page import = "java.util.*" %&gt;</p>
+<p class="p8"><span class="Apple-converted-space">      </span>Текущая дата: &lt;%= new Date() %&gt;</p>
+<p class="p8">&lt;/UL&gt;</p>
+<p class="p8"><br></p>
+<p class="p8"><br></p>
+<p class="p8">&lt;/BODY&gt;</p>
+<p class="p8">&lt;/HTML&gt;</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+<p class="p2"><br></p>
+<h2 style="margin: 0.0px 0.0px 14.0px 0.0px; font: 18.0px Times"><b>Л/р №8 : "XML - XSTL" [8]</b></h2>
+  <p class="p4">- Написать сохранение/чтение объекта с помощью DOM и SAX. Все объекты хранятся в БД, используются наработки предыдущих лр № 5-7</p>
+  <p class="p4">- Написать сервлет, который выдаёт список объектов в форме XML (/output/xml)</p>
+  <p class="p4">- Написать фильтр, который используя XSLT-преобразование, используя вывод предыдущего сервлета преобразует его в HTML-вид, читаемый для пользователя (/output/html)</p>
+  <p class="p4">- Написать форму для заргузки<span class="Apple-converted-space">  </span>XML-файла со списком объектов и соответствующий сервлет для вставки этих объектов из XML-файла в БД.</p>
+<p class="p2"><br></p>
+<a onclick="return toggleMe('teory8')" style="text-decoration: underline">Теория к 8 л/р</a><br>
+<div id="teory8" style="display:none">
+<p class="p14">Как лучше сохранять XML-данные в файл?<span class="Apple-converted-space">  </span>Есть три основных подхода:</p>
+<ol class="ol1">
+  <li class="li14">Использование DOM, JDOM API и им подобных технологий для записи в файл напрямую из структур данных XML в памяти.</li>
+  <li class="li14">Использование TrAX (Transformation API for XML) и тождественного преобразования для сохранения XML-данных.</li>
+  <li class="li14">Использование высокоуровнего API, такого как JAXB.</li>
+</ol>
+<p class="p15"><br></p>
+<p class="p14">Сохранение непосредственно через API</p>
+<p class="p14">Если чтение XML-данных осуществляется с помощью одного или нескольких API, то вполне логично и сохранять XML-документ, используя те же API. К примеру, при работе с XML через JDOM API после получения ссылки на объект JDOMDocument запись можно осуществлять следующим образом:</p>
+<p class="p15"><br></p>
+<table width="784.0" cellspacing="0" cellpadding="0" class="t1">
+  <tbody>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p8">XMLOutputter outputter = new XMLOutputter();</p>
+        <p class="p8">outputter.setFormat(Format.getPrettyFormat());</p>
+        <p class="p8">outputter.output(myDocument, new FileWriter("outputFile.xml"));</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="p15"><br></p>
+<p class="p14">Похожим образом можно записывать XML, используя новый API для загрузки и сохранения в спецификации DOM Level 3:</p>
+<p class="p15"><br></p>
+<table width="784.0" cellspacing="0" cellpadding="0" class="t1">
+  <tbody>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p8">DOMWriter writer = new org.apache.xml.serialize.XMLSerializer();</p>
+        <p class="p8">writer.setNewLine("\r\n");</p>
+        <p class="p8">writer.setEncoding("UTF-8");</p>
+        <p class="p8">writer.writeNode(new FileOutputStream(new File("outputFile.xml")), myDocument);</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="p15"><br></p>
+<p class="p14">Новый DOM API можно использовать множеством различных способов. При этом какие-то из них сильнее привязаны к конкретной реализации DOM API, например, как вышеприведенный класс, который использует Xerces. Хотя есть и другие способы, не зависящие от конкретных библиотек, они не столь наглядны для демонстрации.</p>
+<p class="p14">Преимущества</p>
+<p class="p14">Преимуществом сохранения через API является то, что вы работаете напрямую с API и, следовательно, держите все под контролем. Например, вы можете добавлять новые строки, указывать отступы и т.д., вплоть до мельчайших деталей. При этом мало, что отделяет вас от непосредственного доступа к файлу: нет ни оберток API, ни каких либо абстрактных слоев, так что вы можете работать с XML на очень низком уровне. Так что если вы уверенно владеете JDOM или DOM, то использование этих API – очень удобный способ сохранения XML-данных.</p>
+<p class="p14">Недостатки</p>
+<p class="p14">Недостатки прямого сохранения через API зачастую являются обратной стороной преимуществ. Из-за того, что практически все аспекты вывода находятся под контролем программиста, неправильное использование API легко может привести к неверному сохранению данных. Например, распространенными ошибками являются неправильные переводы строк, неверная кодировка, а также ошибки ввода-вывода. При этом приходится работать на очень низком уровне, практически без помощи каких либо вспомогательных утилит (JDOM предоставляет только методы Format.getPrettyFormat() иFormat.getCompactFormat(), а DOM – и того меньше). Таким образом, необходимо досконально знать кодировки, форматы записи, правила отступов и остальные аспекты, имеющие какое либо значение для сохранения файла.</p>
+<p class="p15"><br></p>
+<p class="p14">Форматы преобразования</p>
+<p class="p14">Одна из популярных альтернатив – это использование TrAX и тождественного преобразования. TrAX – это API для XML-преобразований (Transformation API for XML). В настоящее время TrAX является частью JAXP, которая включаются практически во все релизы Java (кроме Micro Edition). TrAX позволяет использовать таблицы стилей XSL для преобразования XML-документов. TrAX предоставляет возможность преобразования SAX-событий или DOM-документов в XML-файлы и обратно, что удобно, т.к. SAX и DOM являются наиболее распространенными методами работы с XML. Например, можно взять DOM-документ, преобразовать его с помощью TrAX и сохранить результат в файле. Или же можно считать файл, преобразовать его и представить в виде DOM Document.</p>
+<p class="p14">В частном случае можно использовать таблицу стилей, не задающую никакого преобразования данных, и использовать ее для перевода документа из одного формата в другой. Использование такой таблицы стилей, которая просто дублирует входной документ, называется тождественным преобразованием. Таким образом, можно считать документ из файла, применить тождественное преобразование и получить тот же самый документ в виде DOM. Обратное действие—из DOM в файл—является ничем иным, как сохранением XML. Это делается примерно так:</p>
+<p class="p15"><br></p>
+<table width="784.0" cellspacing="0" cellpadding="0" class="t1">
+  <tbody>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p8">Source domSource = new DOMSource(myDOMDocument);</p>
+        <p class="p8">Result fileResult = new StreamResult(new File("outputFile.xml"));</p>
+        <p class="p8">TransformerFactory factory = TransformerFactory.newInstance();</p>
+        <p class="p8">Transformer transformer = factory.newTransformer();</p>
+        <p class="p8">transformer.transform(domSource, fileResult);</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="p15"><br></p>
+<p class="p14">В этом примере DOM-документ сохраняется в XML-файле outputFile.xml.</p>
+<p class="p15"><br></p>
+<p class="p14">Преимущества TrAX</p>
+<p class="p14">Наибольшим плюсом TrAX является простота использования. TrAX легко вызывается из Java-кода и не требует серьезных знаний SAX или DOM, что делает его очень привлекательным для программистов, не обладающих уверенными навыками работы с XML. Вдобавок, его могут использовать начинающие программисты, незнакомые с SAX или DOM, т.к. достаточно выучить 10-20 строк кода и можно сохранять XML-данные в файл или преобразовывать в DOM-документы и наборы SAX-событий.</p>
+<p class="p15"><br></p>
+<p class="p14">Обратная сторона использования TrAX</p>
+<p class="p14">Наибольшим недостатком TrAX является то, что при всей простоте преобразований, достаточно трудно контролировать мелкие детали вывода, такие как переводы строк, кодировки, пробелы и отступы. TrAX поддерживает работу с этими аспектами сохранения, но это далеко не так просто, как в случае непосредственного использования DOM или JDOM. Как правило, простота использования TrAX сочетается с недостатком гибкости при сохранении в файл, по крайней мере, на первый взгляд.</p>
+<p class="p14">При этом, практически всего, что можно делать через DOM или JDOM, можно достичь и при использовании TrAX, но это не настолько просто и интуитивно. Приходится вникать в детали XSLT и TrAX API, которые имеют весьма слабое отношение к практическим задачам сохранения XML.</p>
+<p class="p15"><br></p>
+<p class="p14">Использования привязки к данным (data binding) для сохранения XML</p>
+<p class="p14">Еще одним способом перевода XML в статическое представление—особенно, если это представление должно быть в виде файла на диске—является использование API для привязки к данным (data binding), таких как JAXB. Несмотря на то, что привязка к данным, как правило, не рассматривается в качестве метода их сохранения, она фактически является таковым. Это не что иное, как способ взять XML-документ в памяти и записать его в файл.</p>
+<p class="p14"><span class="Apple-converted-space"> </span>Ниже представлен фрагмент кода в стиле JAXB, который сохраняет XML на диск:</p>
+<p class="p15"><br></p>
+<table width="784.0" cellspacing="0" cellpadding="0" class="t1">
+  <tbody>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p8">FileOutputStream stream = new FileOutputStream("outputFile.xml");</p>
+        <p class="p8">Marshaller marshaller = myJaxbContext.createMarshaller();</p>
+        <p class="p8">marshaller.marshal(myJavaObject, stream);</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="p15"><br></p>
+<p class="p14">Вы можете задавать различные параметры, такие как кодировка выходного файла через объект Marshaller. В смысле гибкости настройки параметров вывода, JAXB не сильно отличается от вышерассмотренных подходов.</p>
+<p class="p14">Преимущества JAXB</p>
+<p class="p14">Одним из наиболее существенных преимуществ JAXB является простота использования, особенно при решении несложных задач. К тому же, в то время как SAX и DOM считаются достаточно сложными в использовании (по крайней мере, в кругу рядовых программистов), понимание JAXB необходимо практически каждому Java-разработчику. Как следствие, выложено много статей и руководств по JAXB, что подтверждается обзорами публикаций на сайтах типа developerWork за 2007 год. Кроме этого, JAXB лучше поддерживается, чем DOM или SAX. Несмотря на то, что реализации SAX и DOM также включены в релизы Java-платформы, JAXB является детищем Sun Microsystems, так что его поддержка обещает быть лучше.</p>
+<p class="p14">От вас не требуется глубоких знаний XML, чтобы начать использовать JAXB. Вы можете работать с обыкновенными Java-объектами (а не специфическими интерфейсами, типа Node или Text в DOM), а затем сохранить их в XML. Как следствие, вам не придется изучать гору нового материала, перед тем как начать работать с JAXB, что особенно ценно, когда ваш босс требует от вас результатов немедленно.</p>
+<p class="p14">Недостатки JAXB</p>
+<p class="p14">В то же время необязательность знания XML также является определенным недостатком JAXB, потому как чем меньше вы знаете об XML, тем сложнее разумно использовать JAXB. В итоге, может запросто получиться плохо отформатированный XML-документ или документ, в котором присутствует только часть объектов, а, может, и вовсе не те объекты, которые должны были быть сохранены.</p>
+<p class="p14">В результате разработчики зачастую вынуждены либо вообще отказаться от использования JAXB, либо начинать глубже изучать XML, SAX и DOM. Более того, после этого многие из них просто переходят на использование SAX и DOM, оставляя для JAXB лишь простейшую функцию конвертации между XML и Java-объектами.</p>
+<p class="p15"><br></p>
+<p class="p14">И последний подход...</p>
+<p class="p14"><span class="Apple-converted-space"> </span>запись последовательности бит, байт и строк непосредственно в FileOutputStream или FileWriter. Это вполне осуществимо на практике и иногда используется. Однако в этом случае вместо сохранения XML-данных происходит просто создание нового XML-документа на основе данных, представленных в каком-либо другом формате. Подобные действия легко распознать на практике, потому как код, как правило, выглядит как на фрагменте ниже:</p>
+<p class="p15"><br></p>
+<table width="784.0" cellspacing="0" cellpadding="0" class="t1">
+  <tbody>
+    <tr>
+      <td valign="middle" class="td1">
+        <p class="p8">String xmlString = setupXMLBuffer(</p>
+        <p class="p8"><span class="Apple-converted-space">  </span>new StringBuffer("&lt;firstName&gt;")</p>
+        <p class="p8"><span class="Apple-converted-space">       </span>.append(customer.firstName)</p>
+        <p class="p8"><span class="Apple-converted-space">       </span>.append("&lt;/firstName&gt;")</p>
+        <p class="p8"><span class="Apple-converted-space">       </span>.append("&lt;lastName&gt;")</p>
+        <p class="p8"><span class="Apple-converted-space">       </span>.append(customer.lastName)</p>
+        <p class="p8"><span class="Apple-converted-space">       </span>.append("&lt;/lastName&gt;")</p>
+        <p class="p8"><span class="Apple-converted-space">  </span>// etc...</p>
+        <p class="p8"><span class="Apple-converted-space">       </span>.toString()</p>
+        <p class="p8">);</p>
+        <p class="p8">bufferedWriter.write(xmlString);</p>
+        <p class="p8">// other file I/O code</p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p class="p15"><br></p>
+<p class="p14">В таком подходе нет ничего фундаментально неверного, просто вместо сохранения XML-документа, происходит сохранение данных и одновременное наполнение ими XML-файла. Таким образом, вопросы сохранения именно XML-документов в данном случае оказываются несущественными, т.к. невозможно отделить сохранение данных от перевода их в XML.</p>
+<p class="p2"><br></p>
+</div>
+<p class="p2"><br></p>
+</body>
+</html>

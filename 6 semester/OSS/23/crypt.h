@@ -1,0 +1,1 @@
+char crypt(char in);

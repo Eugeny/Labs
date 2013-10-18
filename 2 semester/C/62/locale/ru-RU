@@ -1,0 +1,54 @@
+helloworld
+Привет мир!
+copyright
+Евгений Паньков (с) 2011
+basehelp
+BS: Назад F9: Язык ESC: Выход
+appname
+Абитуриент
+mm_submit
+Подать документы
+mm_unsubmit
+Забрать документы
+mm_balls
+Проходные баллы
+mm_report
+Отчет
+mm_rate_students
+Рейтинг студентов
+mm_rate_facs
+Рейтинг факультетов
+mm_rate_specs
+Рейтинг специальностей
+sel_fac
+Выберите факультет
+sel_spec
+Выберите специальность
+sel_name
+Введите свое имя
+sel_lname
+Введите свою фамилию
+sel_pname
+Введите свое отчество
+sel_result0
+Введите средний балл (0-100)
+sel_result1
+Введите результат тестирования 1
+sel_result2
+Введите результат тестирования 2
+sel_result3
+Введите результат тестирования 3
+sel_school
+Введите номер школы
+sel_passport
+Введите номер паспорта
+sel_address
+Введите ваш адрес
+submitted
+Ваш регистрационный код: %i
+unsubmit_pw
+Введите код
+unsubmit_inv
+Неверный код
+unsubmit_succ
+Вы успешно удалены из базы

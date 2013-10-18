@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/DAL/DAL.iml" filepath="$PROJECT_DIR$/DAL/DAL.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Eight/Eight.iml" filepath="$PROJECT_DIR$/Eight/Eight.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Five/Five.iml" filepath="$PROJECT_DIR$/Five/Five.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Four/Four.iml" filepath="$PROJECT_DIR$/Four/Four.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Seven/Seven.iml" filepath="$PROJECT_DIR$/Seven/Seven.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Six/Six.iml" filepath="$PROJECT_DIR$/Six/Six.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Three/Three.iml" filepath="$PROJECT_DIR$/Three/Three.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Two/Two.iml" filepath="$PROJECT_DIR$/Two/Two.iml" />
+    </modules>
+  </component>
+</project>
+

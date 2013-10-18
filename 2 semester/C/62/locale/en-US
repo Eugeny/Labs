@@ -1,0 +1,54 @@
+helloworld
+Hello World!
+copyright
+Eugeny Pankov (c) 2011
+basehelp
+BS: Back F9: Language ESC: Quit
+appname
+Abiturient
+mm_submit
+Submit documents
+mm_unsubmit
+Unsubmit documents
+mm_balls
+View balls
+mm_report
+Report
+mm_rate_students
+Student rating
+mm_rate_facs
+Faculty rating
+mm_rate_specs
+Speciality rating
+sel_fac
+Choose faculty
+sel_spec
+Choose speciality
+sel_name
+Enter your first name
+sel_lname
+Enter your last name
+sel_pname
+Enter your patronymic name
+sel_result0
+Enter average school result (0-100)
+sel_result1
+Enter testing result #1
+sel_result2
+Enter testing result #2
+sel_result3
+Enter testing result #3
+sel_school
+Enter your school name
+sel_passport
+Enter your passport number
+sel_address
+Enter your address
+submitted
+Your registration code: %i
+unsubmit_pw
+Enter code
+unsubmit_inv
+Invalid code
+unsubmit_succ
+Successfully unregistered

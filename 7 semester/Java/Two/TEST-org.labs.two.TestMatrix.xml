@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="0" failures="0" hostname="eugeny-thinkpad" name="org.labs.two.TestMatrix" skipped="0" tests="4" time="0.088" timestamp="2013-09-06T15:03:13">
+  <properties>
+    <property name="java.vendor" value="Oracle Corporation" />
+    <property name="lib.dir" value="../lib" />
+    <property name="sun.java.launcher" value="SUN_STANDARD" />
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers" />
+    <property name="os.name" value="Linux" />
+    <property name="sun.boot.class.path" value="/usr/lib/jvm/java-7-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-7-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-7-oracle/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-7-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-7-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-7-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-7-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-7-oracle/jre/classes" />
+    <property name="sun.desktop" value="gnome" />
+    <property name="java.vm.specification.vendor" value="Oracle Corporation" />
+    <property name="ant.home" value="/usr/share/ant" />
+    <property name="jar.dir" value="build/jar" />
+    <property name="java.runtime.version" value="1.7.0_25-b15" />
+    <property name="user.name" value="eugeny" />
+    <property name="ant.file.type.Two" value="file" />
+    <property name="build.dir" value="build" />
+    <property name="user.language" value="en" />
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-7-oracle/jre/lib/amd64" />
+    <property name="ant.project.default-target" value="main" />
+    <property name="ant.project.name" value="Two" />
+    <property name="java.version" value="1.7.0_25" />
+    <property name="user.timezone" value="" />
+    <property name="sun.arch.data.model" value="64" />
+    <property name="java.endorsed.dirs" value="/usr/lib/jvm/java-7-oracle/jre/lib/endorsed" />
+    <property name="sun.cpu.isalist" value="" />
+    <property name="sun.jnu.encoding" value="UTF-8" />
+    <property name="file.encoding.pkg" value="sun.io" />
+    <property name="file.separator" value="/" />
+    <property name="java.specification.name" value="Java Platform API Specification" />
+    <property name="classes.dir" value="build/classes" />
+    <property name="java.class.version" value="51.0" />
+    <property name="user.country" value="US" />
+    <property name="java.home" value="/usr/lib/jvm/java-7-oracle/jre" />
+    <property name="java.vm.info" value="mixed mode" />
+    <property name="main-class" value="org.labs.two.Main" />
+    <property name="ant.file" value="/home/eugeny/Work/Labs/7 semester/Java/Two/build.xml" />
+    <property name="os.version" value="3.2.0-44-generic" />
+    <property name="path.separator" value=":" />
+    <property name="java.vm.version" value="23.25-b01" />
+    <property name="ant.library.dir" value="/usr/share/ant/lib" />
+    <property name="java.awt.printerjob" value="sun.print.PSPrinterJob" />
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle" />
+    <property name="awt.toolkit" value="sun.awt.X11.XToolkit" />
+    <property name="user.home" value="/home/eugeny" />
+    <property name="java.specification.vendor" value="Oracle Corporation" />
+    <property name="test.dir" value="test" />
+    <property name="java.library.path" value="/usr/java/packages/lib/amd64:/usr/lib64:/lib64:/lib:/usr/lib" />
+    <property name="java.vendor.url" value="http://java.oracle.com/" />
+    <property name="java.vm.vendor" value="Oracle Corporation" />
+    <property name="java.runtime.name" value="Java(TM) SE Runtime Environment" />
+    <property name="sun.java.command" value="org.apache.tools.ant.taskdefs.optional.junit.JUnitTestRunner org.labs.two.TestMatrix filtertrace=true haltOnError=false haltOnFailure=false formatter=org.apache.tools.ant.taskdefs.optional.junit.SummaryJUnitResultFormatter showoutput=true outputtoformatters=true logfailedtests=true logtestlistenerevents=false formatter=org.apache.tools.ant.taskdefs.optional.junit.XMLJUnitResultFormatter,/home/eugeny/Work/Labs/7 semester/Java/Two/TEST-org.labs.two.TestMatrix.xml crashfile=/home/eugeny/Work/Labs/7 semester/Java/Two/junitvmwatcher568621943046738096.properties propsfile=/home/eugeny/Work/Labs/7 semester/Java/Two/junit1615433419004291955.properties" />
+    <property name="java.class.path" value="/home/eugeny/Work/Labs/7 semester/Java/Two/build/jar/Two.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/antlr-2.7.7.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/aopalliance-1.0.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/builder-0.6.2.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/commons-beanutils-1.8.0.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/commons-collections-3.2.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/commons-digester-2.0.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/commons-fileupload-1.2.2.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/commons-io-2.4.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/commons-lang-2.4.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/core-0.6.2.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/dom4j-1.6.1.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/freemarker-2.3.15.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/guava-r09.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/hibernate-commons-annotations-4.0.2.Final.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/hibernate-core-4.2.4.Final.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/hibernate-core-4.2.5.Final.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/hibernate-entitymanager-4.2.4.Final.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/hibernate-jpa-2.0-api-1.0.1.Final.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/hibernate-validator-annotation-processor-5.0.0.Final.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/jackson-core-asl-1.5.2.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/jackson-mapper-asl-1.5.2.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/javassist-3.15.0-GA.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/javassist-3.7.ga.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/javax.annotation.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/javax.ejb.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/javax.jms.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/javax.resource.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/javax.servlet.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/javax.servlet.jsp.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/javax.servlet.jsp.jstl.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/jboss-logging-3.1.0.GA.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/jboss-transaction-api_1.1_spec-1.0.1.Final.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/jcl-over-slf4j-1.5.8.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/jsp-api-2.1.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/junit-4.0.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/junit-4.9.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/mvel2-2.0.11.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/mysql-connector-java-5.1.26-bin.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/ognl-2.7.3.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/oro-2.0.8.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/persistence-api-1.0.2.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/servlet-api-2.4.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/servlet-api-2.5.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/slf4j-api-1.5.8.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/slf4j-nop-1.5.8.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/spring-aop-3.2.0.RELEASE.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/spring-beans-2.5.6.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/spring-beans-3.2.0.RELEASE.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/spring-context-2.5.6.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/spring-context-3.2.0.RELEASE.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/spring-core-2.5.6.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/spring-core-3.2.0.RELEASE.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/spring-expression-3.2.0.RELEASE.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/spring-web-2.5.6.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/spring-web-3.2.0.RELEASE.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/tiles-api-3.0.0.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/tiles-autotag-core-runtime-1.0.0.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/tiles-compat-3.0.0.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/tiles-core-3.0.0.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/tiles-el-3.0.0.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/tiles-extras-3.0.0.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/tiles-freemarker-3.0.0.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/tiles-jsp-3.0.0.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/tiles-mvel-3.0.0.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/tiles-ognl-3.0.0.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/tiles-request-api-1.0.0.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/tiles-request-api-1.0.3.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/tiles-request-freemarker-1.0.0.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/tiles-request-jsp-1.0.0.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/tiles-request-mustache-1.0.0.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/tiles-request-servlet-1.0.0.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/tiles-request-servlet-1.0.3.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/tiles-request-servlet-wildcard-1.0.0.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/tiles-request-servlet-wildcard-1.0.3.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/tiles-request-velocity-1.0.0.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/tiles-servlet-3.0.0.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/tiles-template-3.0.0.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/tiles-velocity-3.0.0.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/tools.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/velocity-1.6.2.jar:/home/eugeny/Work/Labs/7 semester/Java/lib/velocity-tools-2.0.jar:/home/eugeny/.ant/lib/junit-4.9.jar:/usr/share/java/ant-launcher-1.8.2.jar:/usr/share/ant/lib/ant.jar:/home/eugeny/.ant/lib/ant-junit-1.9.2.jar" />
+    <property name="ant.version" value="Apache Ant(TM) version 1.8.2 compiled on December 3 2011" />
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification" />
+    <property name="ant.file.type" value="file" />
+    <property name="java.vm.specification.version" value="1.7" />
+    <property name="sun.cpu.endian" value="little" />
+    <property name="sun.os.patch.level" value="unknown" />
+    <property name="java.io.tmpdir" value="/tmp" />
+    <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/" />
+    <property name="os.arch" value="amd64" />
+    <property name="java.awt.graphicsenv" value="sun.awt.X11GraphicsEnvironment" />
+    <property name="java.ext.dirs" value="/usr/lib/jvm/java-7-oracle/jre/lib/ext:/usr/java/packages/lib/ext" />
+    <property name="user.dir" value="/home/eugeny/Work/Labs/7 semester/Java/Two" />
+    <property name="ant.file.Two" value="/home/eugeny/Work/Labs/7 semester/Java/Two/build.xml" />
+    <property name="line.separator" value="&#xa;" />
+    <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM" />
+    <property name="basedir" value="/home/eugeny/Work/Labs/7 semester/Java/Two" />
+    <property name="ant.java.version" value="1.7" />
+    <property name="ant.core.lib" value="/usr/share/ant/lib/ant.jar" />
+    <property name="file.encoding" value="UTF-8" />
+    <property name="java.specification.version" value="1.7" />
+    <property name="src.dir" value="src" />
+    <property name="ant.project.invoked-targets" value="main" />
+  </properties>
+  <testcase classname="org.labs.two.TestMatrix" name="testCreation" time="0.001" />
+  <testcase classname="org.labs.two.TestMatrix" name="testIO" time="0.005" />
+  <testcase classname="org.labs.two.TestMatrix" name="testMultiplication" time="0.0" />
+  <testcase classname="org.labs.two.TestMatrix" name="testSerialization" time="0.023" />
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

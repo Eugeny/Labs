@@ -1,0 +1,2 @@
+def fx(x):
+	return x**2

@@ -1,0 +1,9 @@
+#!/usr/bin/env python
+import marshal
+import pyvm
+import sys
+
+data = open(sys.argv[1]).read()
+code = marshal.loads(data[8:])
+
+pyvm.VM().execute(code)

@@ -1,0 +1,9 @@
+*.suo
+*Debug*
+*TestResults*
+*ReSharper*
+*.o
+app
+*a.out
+ipch
+*.pdb

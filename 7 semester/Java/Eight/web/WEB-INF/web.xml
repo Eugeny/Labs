@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
+		  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+         version="2.5">
+
+    <filter>
+        <filter-name>XSLTFilter</filter-name>
+        <filter-class>org.labs.eight.XSLTFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>XSLTFilter</filter-name>
+        <url-pattern>/xslt</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>output</servlet-name>
+        <servlet-class>org.labs.eight.OutputServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>upload</servlet-name>
+        <servlet-class>org.labs.eight.UploadServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>output</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>upload</servlet-name>
+        <url-pattern>/upload</url-pattern>
+    </servlet-mapping>
+
+</web-app>

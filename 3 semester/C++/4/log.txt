@@ -1,0 +1,14 @@
+Document:
+=== Header ===
+Lorem ipsum
+dolor sit amet.
+============================
+More text
+here
+
+Removing all text
+=== Header ===
+============================
+
+Element #1 is: 
+=== Header ===
