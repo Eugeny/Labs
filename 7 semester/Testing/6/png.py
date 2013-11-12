@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import binascii
 import random
 import sha
@@ -73,8 +74,8 @@ while True:
             if is_prime(p):
                 print 'P:', p
                 print 'Q:', q
-                print 'P is prime:', is_prime(p)
-                print 'Q is prime:', is_prime(q)
+                #print 'P is prime:', is_prime(p)
+                #print 'Q is prime:', is_prime(q)
                 sys.exit(0)
 
         counter += 1

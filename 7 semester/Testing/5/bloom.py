@@ -1,4 +1,8 @@
+#!/usr/bin/env python
+import binascii
 import mathlib
+import random
+import sys
 
 
 class AsmuthBloom(object):
@@ -54,7 +58,7 @@ class AsmuthBloom(object):
     
     def generate_shares(self, secret, k, h):
         if (mathlib.bit_len(secret) > k):
-            raise ValueError("k-bits is not enought")
+            raise ValueError("Secret is too long")
 
         m = self._get_m(k, h)
         self._m_0 = m.pop(0)
@@ -74,32 +78,72 @@ class AsmuthBloom(object):
         d = y % self._m_0
         return d
 
+
+def stringToLong(s):
+    return long(binascii.hexlify(s), 16)
+
     
-import random
-import sys
+
 
 if len(sys.argv) < 4:
-    print 'Usage: ./bloom.py <bits> <N> <M>'
+    print 'Usage: ./bloom.py (--random <bits> | <path>) <M> <N>'
+    print ' --random <bits>     - generate random secret'
+    print ' <path>              - read secret from file'
+    print ' <M>                 - number of shares'
+    print ' <N>                 - number of shared needed for recovery'
     sys.exit(1)
 
-random = random.SystemRandom()
-secret = random.getrandbits(int(sys.argv[1]))
+source = sys.argv[1]
+if source == '--random':
+    random = random.SystemRandom()
+    secret = random.getrandbits(int(sys.argv.pop(2)))
+else:
+    try:
+        secret = stringToLong(open(source).read())
+    except:
+        print 'Could not read the source file'
+        sys.exit(1)
 
-m, n = int(sys.argv[3]), int(sys.argv[2])
+try:
+    m = int(sys.argv[3])
+except:
+    print 'Invalid M'
+
+try:
+    n = int(sys.argv[2])
+except:
+    print 'Invalid N'
+
+if n > m:
+    print 'N should be less or equal than M'
+    sys.exit(1)
+
 threshold = (m, n)
-m_0_bits = 500 
-m_1_bits = 800
+m_0_bits = 512
+m_1_bits = 512
     
+print '------------'
 print "Secret: %s" % secret
     
 ab = AsmuthBloom(threshold)
-shares = ab.generate_shares(secret, m_0_bits, m_1_bits)
-    
-print "Secret parts:"
-for i in xrange(0,n):
-    print "%s:\n %s" % (i+1, shares[i])
-    
 
+try:
+    shares = ab.generate_shares(secret, m_0_bits, m_1_bits)
+except ValueError, e:
+    print 'Cannot generate shares: ' + str(e)
+    sys.exit(1)
+    
+print "Secret shares:"
+for i in xrange(0,n):
+    print " :: %s: %s\n" % (i+1, shares[i])
+    
+print '------------'
+
+print 
+
+print '------------'
+print 'Self-testing'
 d = ab.combine_shares(shares[0:m])
-print "Regenerated secret: %s" % d
-print "Is correct? %s" % (d == secret)
+print "Recombined secret: %s" % d
+print "Self-test %s" % ('successful' if d == secret else 'failed')
+print '------------'
