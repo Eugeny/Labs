@@ -86,11 +86,12 @@ def stringToLong(s):
 
 
 if len(sys.argv) < 4:
-    print 'Usage: ./bloom.py (--random <bits> | <path>) <M> <N>'
+    print 'Usage: ./bloom.py (--random <bits> | <path>) <M> <N> <K>'
     print ' --random <bits>     - generate random secret'
     print ' <path>              - read secret from file'
     print ' <M>                 - number of shares'
     print ' <N>                 - number of shared needed for recovery'
+    print ' <K>                 - number of share bits'
     sys.exit(1)
 
 source = sys.argv[1]
@@ -100,27 +101,40 @@ if source == '--random':
 else:
     try:
         secret = stringToLong(open(source).read())
-    except:
-        print 'Could not read the source file'
+    except Exception, e:
+        print 'Could not read the source file: %s' % e
         sys.exit(1)
 
 try:
     m = int(sys.argv[3])
 except:
     print 'Invalid M'
+    sys.exit(1)
 
 try:
     n = int(sys.argv[2])
 except:
     print 'Invalid N'
+    sys.exit(1)
 
-if n > m:
-    print 'N should be less or equal than M'
+try:
+    k = int(sys.argv[4])
+except:
+    print 'Invalid K'
+    sys.exit(1)
+
+
+if m < 2:
+    print 'M should be >= 2'
+    sys.exit(1)
+
+if n < m:
+    print 'M should be less or equal than N'
     sys.exit(1)
 
 threshold = (m, n)
-m_0_bits = 512
-m_1_bits = 512
+m_0_bits = k
+m_1_bits = k
     
 print '------------'
 print "Secret: %s" % secret
@@ -135,7 +149,8 @@ except ValueError, e:
     
 print "Secret shares:"
 for i in xrange(0,n):
-    print " :: %s: %s\n" % (i+1, shares[i])
+    print " :: %s: a = %s" % (i+1, shares[i][0])
+    print "       b = %s\n" % (shares[i][1])
     
 print '------------'
 
@@ -143,7 +158,7 @@ print
 
 print '------------'
 print 'Self-testing'
-d = ab.combine_shares(shares[0:m])
+d = ab.combine_shares(shares[0:4])
 print "Recombined secret: %s" % d
 print "Self-test %s" % ('successful' if d == secret else 'failed')
 print '------------'
