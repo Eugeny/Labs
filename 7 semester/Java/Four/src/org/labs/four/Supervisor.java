@@ -9,29 +9,33 @@ public class Supervisor extends Thread {
         this.logger = logger;
     }
 
-    private int getTotalAmount() {
-        bank.getSupervisorLock().lock();
-        int total = 0;
-        for (Account account : bank.getAccounts())
-            total += account.getFunds();
-        for (Client client : bank.getClients())
-            total += client.getPurse();
-        bank.getSupervisorLock().unlock();
-        return total;
-    }
-
     @Override
     public void run() {
-        int amount = getTotalAmount();
+        Integer amount = null;
         while (true) {
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                break;
+            for (Client client : bank.getClients())
+                client.setStatus(Client.VerificationStatus.VERIFICATION_PENDING);
+
+            int newAmount = 0;
+            for (Client client : bank.getClients()) {
+                client.setStatus(Client.VerificationStatus.VERIFIED);
+                newAmount += client.getPurse() + bank.getAccount(client).getFunds();
+
+                // Delay
+                try {
+                    Thread.sleep(50);
+                } catch (InterruptedException e) {
+                    break;
+                }
             }
 
-            int newAmount = getTotalAmount();
-            logger.logStatus(newAmount == amount, newAmount);
+            for (Client client : bank.getClients())
+                client.setStatus(Client.VerificationStatus.NONE);
+
+            if (amount != null)
+                logger.logStatus(newAmount == amount, newAmount);
+
+            amount = newAmount;
         }
     }
 }

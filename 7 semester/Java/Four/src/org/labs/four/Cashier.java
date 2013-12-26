@@ -17,10 +17,9 @@ public class Cashier extends Thread {
                 synchronized (bank.getQueue()) {
                     bank.getQueue().wait();
                 }
-                PendingClientOperation operation = bank.getQueue().remove();
-                Thread.sleep(1000);
-                boolean success = bank.performOperation(operation);
-                logger.logOperation(operation, success);
+                ClientOperation operation = bank.getQueue().remove();
+                Thread.sleep(10);
+                operation.execute(bank, logger);
             } catch (InterruptedException e) {
                 break;
             }

@@ -10,7 +10,7 @@ public class Main {
         List<Client> clients = new ArrayList<Client>();
         Bank bank = new Bank();
 
-        for (int i = 1; i <= 10; i++) {
+        for (int i = 1; i <= 3; i++) {
             Client client = new Client("Client " + i);
             client.addPurseMoney(100);
             clients.add(client);
@@ -25,10 +25,10 @@ public class Main {
         while (true) {
             Collections.shuffle(clients);
 
-            bank.enqueueOperation(PendingClientOperation.createRandom(clients.get(0)));
+            bank.enqueueOperation(ClientOperation.createRandom(clients.get(0), clients.get(1)));
 
             try {
-                Thread.sleep(500);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
             }
         }

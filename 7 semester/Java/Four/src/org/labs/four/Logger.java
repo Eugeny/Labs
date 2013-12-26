@@ -9,11 +9,13 @@ public class Logger {
         this.stream = stream;
     }
 
-    public void logOperation(PendingClientOperation operation, boolean success) {
-        stream.printf("%s: %s\n", operation.toString(), success ? "success" : "rejected");
+    public void logOperation(ClientOperation operation, String status) {
+        stream.printf("%s: %s\n", operation.toString(), status);
     }
 
     public void logStatus(boolean good, int totalAmount) {
         stream.printf("--- Status: %s, total: %d\n", good ? "OK" : "error!", totalAmount);
+        if (!good)
+            System.exit(1);
     }
 }
