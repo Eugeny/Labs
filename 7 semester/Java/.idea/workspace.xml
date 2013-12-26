@@ -116,10 +116,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Bank.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Bank.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Four/src/org/labs/four/Bank.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="17" selection-start="1456" selection-end="1456" vertical-scroll-proportion="0.0" vertical-offset="594" max-vertical-offset="2070">
+            <state line="55" column="4" selection-start="1794" selection-end="1794" vertical-scroll-proportion="0.40691927" vertical-offset="725" max-vertical-offset="1350">
               <folding>
                 <element signature="e#260#277#0" expanded="true" />
                 <element signature="e#345#358#0" expanded="true" />
@@ -137,10 +137,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ClientOperation.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ClientOperation.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Four/src/org/labs/four/ClientOperation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="13" selection-start="1393" selection-end="1393" vertical-scroll-proportion="-0.6642066" vertical-offset="900" max-vertical-offset="1728">
+            <state line="63" column="5" selection-start="2275" selection-end="2275" vertical-scroll-proportion="0.0" vertical-offset="900" max-vertical-offset="1728">
               <folding />
             </state>
           </provider>
@@ -203,10 +203,10 @@
         <option value="$PROJECT_DIR$/Four/src/org/labs/four/PendingClientOperation.java" />
         <option value="$PROJECT_DIR$/Four/src/org/labs/four/Transaction.java" />
         <option value="$PROJECT_DIR$/Four/src/org/labs/four/Cashier.java" />
-        <option value="$PROJECT_DIR$/Four/src/org/labs/four/Bank.java" />
         <option value="$PROJECT_DIR$/Four/src/org/labs/four/Main.java" />
         <option value="$PROJECT_DIR$/Four/src/org/labs/four/Logger.java" />
         <option value="$PROJECT_DIR$/Four/src/org/labs/four/ClientOperation.java" />
+        <option value="$PROJECT_DIR$/Four/src/org/labs/four/Bank.java" />
       </list>
     </option>
   </component>
@@ -736,7 +736,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24959481" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.52996844" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.52996844" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.511076" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2439222" sideWeight="0.5055292" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1052,16 +1052,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Four/src/org/labs/four/Bank.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="17" selection-start="1456" selection-end="1456" vertical-scroll-proportion="0.0" vertical-offset="594" max-vertical-offset="2070">
-          <folding>
-            <element signature="e#260#277#0" expanded="true" />
-            <element signature="e#345#358#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Four/src/org/labs/four/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="20" selection-start="494" selection-end="494" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="720">
@@ -1078,8 +1068,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Four/src/org/labs/four/ClientOperation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="40" column="13" selection-start="1393" selection-end="1393" vertical-scroll-proportion="-0.6642066" vertical-offset="900" max-vertical-offset="1728">
+        <state line="63" column="5" selection-start="2275" selection-end="2275" vertical-scroll-proportion="0.0" vertical-offset="900" max-vertical-offset="1728">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Four/src/org/labs/four/Bank.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="4" selection-start="1794" selection-end="1794" vertical-scroll-proportion="0.40691927" vertical-offset="725" max-vertical-offset="1350">
+          <folding>
+            <element signature="e#260#277#0" expanded="true" />
+            <element signature="e#345#358#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

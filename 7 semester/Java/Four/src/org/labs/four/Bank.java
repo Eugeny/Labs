@@ -53,47 +53,7 @@ public class Bank {
             tx.notifyAll();
         }
     }
-
-    public boolean validateOperation(ClientOperation operation) {
-        if (operation.getOperationType() == ClientOperation.OperationType.Deposit) {
-            if (operation.getClient().getStatus() != operation.getBenificiar().getStatus())
-                return false;
-            if (operation.getAmount() > operation.getClient().getPurse())
-                return false;
-        }
-        if (operation.getOperationType() == ClientOperation.OperationType.Withdrawal) {
-            if (operation.getAmount() > accounts.get(operation.getClient()).getFunds())
-                return false;
-        }
-        return true;
-    }
-
-    public boolean performOperation(ClientOperation operation) {
-        Client client = operation.getClient();
-        Account account = accounts.get(client);
-
-        synchronized (client) {
-            synchronized (account) {
-                if (validateOperation(operation)) {
-                    if (operation.getOperationType() == ClientOperation.OperationType.Deposit) {
-                        client.removePurseMoney(operation.getAmount());
-                        Account targetAccount = getAccount(operation.getBenificiar());
-                        synchronized (targetAccount) {
-                            targetAccount.deposit(operation.getAmount());
-                        }
-                    }
-                    if (operation.getOperationType() == ClientOperation.OperationType.Withdrawal) {
-                        client.addPurseMoney(operation.getAmount());
-                        account.withdraw(operation.getAmount());
-                    }
-                    return true;
-                } else {
-                    return false;
-                }
-            }
-        }
-    }
-
+    
     public Set<Client> getClients() {
         return accounts.keySet();
     }
