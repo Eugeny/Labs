@@ -7,13 +7,13 @@ public class ClientOperation {
     private Client client;
     private OperationType operationType;
     private int amount;
-    private Client benificiar;
+    private Client benificiary;
 
-    public ClientOperation(Client client, int amount, OperationType operationType, Client benificiar) {
+    public ClientOperation(Client client, int amount, OperationType operationType, Client benificiary) {
         this.client = client;
         this.amount = amount;
         this.operationType = operationType;
-        this.benificiar = benificiar;
+        this.benificiary = benificiary;
     }
 
     public static ClientOperation createRandom(Client client, Client benificiar) {
@@ -30,7 +30,7 @@ public class ClientOperation {
         Account account = bank.getAccount(client);
         if (getOperationType() == OperationType.Withdrawal)
             tx.addResource(account);
-        Account targetAccount = bank.getAccount(benificiar);
+        Account targetAccount = bank.getAccount(benificiary);
         if (getOperationType() == OperationType.Deposit)
             tx.addResource(targetAccount);
 
@@ -41,19 +41,30 @@ public class ClientOperation {
         try {
             int purse = client.getPurse();
             if (getOperationType() == ClientOperation.OperationType.Deposit) {
-                if (client.getStatus() != benificiar.getStatus())
-                    return;
-                if (amount > purse)
-                    return;
-                client.removePurseMoney(amount);
-                targetAccount.deposit(amount);
+                if (client.getStatus() != benificiary.getStatus())
+                    synchronized (Supervisor.completedNotification) {
+                        Supervisor.completedNotification.wait();
+                    }
+
+                synchronized (client) {
+                    synchronized (benificiary) {
+                        if (amount > purse)
+                            return;
+                        client.removePurseMoney(amount);
+                        targetAccount.deposit(amount);
+                    }
+                }
             }
+
             if (getOperationType() == ClientOperation.OperationType.Withdrawal) {
-                if (amount > account.getFunds())
-                    return;
-                account.withdraw(amount);
-                client.addPurseMoney(amount);
+                synchronized (client) {
+                    if (amount > account.getFunds())
+                        return;
+                    account.withdraw(amount);
+                    client.addPurseMoney(amount);
+                }
             }
+
             Thread.sleep(500);
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -87,13 +98,13 @@ public class ClientOperation {
     public String toString() {
         return String.format("%s -> %s %s (%d)",
                 client.getName(),
-                (operationType == OperationType.Deposit ? benificiar.getName() : client.getName()),
+                (operationType == OperationType.Deposit ? benificiary.getName() : client.getName()),
                 operationType,
                 amount);
     }
 
-    public Client getBenificiar() {
-        return benificiar;
+    public Client getBenificiary() {
+        return benificiary;
     }
 
     public enum OperationType {

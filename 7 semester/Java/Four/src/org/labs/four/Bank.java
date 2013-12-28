@@ -53,7 +53,7 @@ public class Bank {
             tx.notifyAll();
         }
     }
-    
+
     public Set<Client> getClients() {
         return accounts.keySet();
     }

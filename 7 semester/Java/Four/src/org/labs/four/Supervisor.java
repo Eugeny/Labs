@@ -3,6 +3,7 @@ package org.labs.four;
 public class Supervisor extends Thread {
     private Bank bank;
     private Logger logger;
+    public static Object completedNotification = new Object();
 
     public Supervisor(Bank bank, Logger logger) {
         this.bank = bank;
@@ -18,9 +19,10 @@ public class Supervisor extends Thread {
 
             int newAmount = 0;
             for (Client client : bank.getClients()) {
-                client.setStatus(Client.VerificationStatus.VERIFIED);
-                newAmount += client.getPurse() + bank.getAccount(client).getFunds();
-
+                synchronized (client) {
+                    client.setStatus(Client.VerificationStatus.VERIFIED);
+                    newAmount += client.getPurse() + bank.getAccount(client).getFunds();
+                }
                 // Delay
                 try {
                     Thread.sleep(50);
@@ -36,6 +38,16 @@ public class Supervisor extends Thread {
                 logger.logStatus(newAmount == amount, newAmount);
 
             amount = newAmount;
+
+            synchronized (completedNotification) {
+                completedNotification.notifyAll();
+            }
+
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
