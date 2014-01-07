@@ -9,17 +9,16 @@ C = np.matrix([
     [2, 999],
 ])
 
-"""
-A = np.matrix([30, 40, 20]).T
-B = np.matrix([20, 30, 30, 10]).T
+
+A = np.matrix([30,40,20]).T
+B = np.matrix([20,30,30,10]).T
 C = np.matrix([
-    [2, 3, 2, 4],
-    [3, 2, 5, 1],
-    [4, 3, 2, 6],
+    [2,3,2,4],
+    [3,2,5,1],
+    [4,3,2,6],
 ])
 
 
-"""
 def transport(A, B, C):
     M, N = C.shape
     I1 = range(M)

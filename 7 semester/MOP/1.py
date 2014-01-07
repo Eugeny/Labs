@@ -1,20 +1,59 @@
 import time
 import numpy as np
 
-
 A = np.matrix([
     [1, 4, 4, 1],
     [1, 7, 8, 2],
 ])
-
 beta = np.matrix([5, 9]).T
-
 C = np.matrix([1, -3, -5, -1]).T
 
 
-X = np.matrix([1,0,1,0]).T
-Jb = [1,3]
+#X = np.matrix([1,0,1,0]).T
+#Jb = [1,3]
 
+
+A = np.matrix([
+    [1,1,0,2,0],
+    [0,-1,1,0,2],
+    [1,0,-1,1,-2],
+])
+beta = np.matrix([
+    3,1,-1
+]).T
+C = np.matrix([
+    1, 1, 1, 1, 1
+]).T
+
+
+
+
+A = np.matrix([
+    [1,3,1,2],
+    [2,0,-1,-1],
+])
+beta = np.matrix([
+    5,1
+]).T
+C = np.matrix([
+    1,1,1,1
+]).T
+
+
+
+
+
+A = np.matrix([
+    [1,-1,1,-1,1,-1],
+    [2,3,-2,-3,2,3],
+    [3,2,-1,-4,3,2],
+])
+beta = np.matrix([
+    7,0,10
+]).T
+C = np.matrix([
+    1,2,1,-2,1,-2
+]).T
 
 def raw_simplex(A, beta, C, X, Jb):
     print '======= RAW SIMPLEX'
@@ -49,7 +88,12 @@ def raw_simplex(A, beta, C, X, Jb):
 
 
         Ab = A[:, Jb]
-        B = Ab.I
+
+        try:
+            B = Ab.I
+        except:
+            print 'Conditions are not compatible'
+            return None, None
 
         Cb = C[Jb]
         u = Cb.T * B
@@ -141,3 +185,4 @@ def full_simplex(A, beta, C):
     return raw_simplex(A, beta, C, X_, Jb_)
 
 X, Jb = full_simplex(A, beta, C)
+print X,Jb

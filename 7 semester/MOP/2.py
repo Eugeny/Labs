@@ -12,8 +12,49 @@ beta = np.matrix([1, 9]).T
 C = np.matrix([1, 1, -2, -3]).T
 
 
-Y = np.matrix([1.5,-0.5]).T
-Jb = [0,1]
+#Y = np.matrix([1.5,-0.5]).T
+#Jb = [0,1]
+
+
+
+A = np.matrix([
+    [2,-1,1,0],
+    [-1,2,0,1],
+])
+beta = np.matrix([
+    1,1
+]).T
+C = np.matrix([
+    1,-1,2,3
+]).T
+
+
+
+A = np.matrix([
+    [1,1,0,-4,2],
+    [0,1,1,1,-2],
+    [1,0,1,3,-2],
+])
+beta = np.matrix([
+    -2,-2,-2
+]).T
+C = np.matrix([
+    1, 1, 1, 0, -1
+]).T
+
+
+A = np.matrix([
+    [1,-1,3,-2],
+    [1,-5,11,-6],
+])
+beta = np.matrix([
+    1,9
+]).T
+C = np.matrix([
+    1,1,-2,-3
+]).T
+
+
 
 
 def raw_simplex(A, beta, C, X, Jb):
@@ -49,7 +90,12 @@ def raw_simplex(A, beta, C, X, Jb):
 
 
         Ab = A[:, Jb]
-        B = Ab.I
+
+        try:
+            B = Ab.I
+        except:
+            print 'Conditions are not compatible'
+            return None, None
 
         Cb = C[Jb]
         u = Cb.T * B
@@ -109,6 +155,7 @@ def raw_duplex(A, beta, C, Y, Jb):
     J = range(0, N)
     E = np.identity(M)
 
+
     step = 0
     while True:
         step += 1
@@ -121,12 +168,23 @@ def raw_duplex(A, beta, C, Y, Jb):
         #print 'Fx=', C.T * X
 
         Ab = A[:, Jb]
-        B = Ab.I
+
+        try:
+            B = Ab.I
+        except:
+            print 'Conditions are not compatible'
+            return None, None
+
         NN = [0] * N
         for i in range(M):
             NN[Jb[i]] = (B * beta)[i]
 
+        print 'NN:', NN
+        print Ab, Ab.I, beta
+
         if all(x >= 0 for x in NN):
+            print 'Done!'
+            print "Fx=", NN*C
             return NN, Jb
 
         s = 0
@@ -200,5 +258,23 @@ def full_duplex(A, beta, C):
     X_ = X_[:N]
     return raw_duplex(A, beta, C, X_, Jb_)
 
-#X, Jb = full_duplex(A, beta, C)
+
+
+X, Jb = full_duplex(A, beta, C)
+print X, Jb
+
+
+"""
+A = np.matrix([
+    [1, -1, 3, -2],
+    [1, -5, 11, -6],
+])
+
+beta = np.matrix([1, 9]).T
+
+C = np.matrix([1, 1, -2, -3]).T
+
+Y = np.matrix([1.5,-0.5]).T
+Jb = [0,1]
 print raw_duplex(A, beta, C, Y, Jb)
+"""
