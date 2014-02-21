@@ -9,35 +9,58 @@ namespace Lab1
 	{
 		public static void Main (string[] args)
 		{
-			var task = new ILPTask (){
-				C = DenseVector.OfEnumerable (new [] {1.0,1,-2,3}),
-				B = DenseVector.OfEnumerable (new [] {1.0,9}),
-				M = 2,
-				N = 4,
-				A = DenseMatrix.OfArray (new [,] {
-					{1.0,-1,3,-2},
-					{1,-5,11,-6},
+			ILPTask task = null;
+
+			task = new ILPTask () {
+				C = DenseVector.OfEnumerable (new [] { 
+					-2.0, 1, -2, -1, 8, -5, 3, 5, 1, 2,
 				}),
-				DL =DenseVector.OfEnumerable (new [] {0,0,0,0.0}),
-				DR = DenseVector.OfEnumerable (new [] {999,999,999,999.0}),
-			};
-			
-			task = new ILPTask (){
-				C = DenseVector.OfEnumerable (new [] {3,3,13.0,0,0}),
-				B = DenseVector.OfEnumerable (new [] {-8,-8.0}),
-				M = 2,
-				N = 5,
-				A = DenseMatrix.OfArray (new [,] {
-					{3,-6,-7,-1,0.0},
-					{-6,3,-7,0,-1.0},
+				B = DenseVector.OfEnumerable (new [] { 
+					27.0, 6, 18
 				}),
-				DL =DenseVector.OfEnumerable (new [] {0,0,0,0,0.0}),
-				DR = DenseVector.OfEnumerable (new [] {5,5,5,double.PositiveInfinity,double.PositiveInfinity}),
+				M = 3,
+				N = 10,
+				A = DenseMatrix.OfArray (new [,] {
+					{ 1.0, 0, 0, 1, 1, -3, 4, -1, 3, 3 },
+					{ 0.0, 1, 0, -2, 1, 1, 7, 3, 4, 5 },
+					{ 0.0, 0, 1, 1, 0, 2, -2, 1, -4, 7 },
+				}),
+				DL = DenseVector.OfEnumerable (new [] { 
+					0.0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+				}),
+				DR = DenseVector.OfEnumerable (new [] { 
+					8.0, 7, 6, 7, 8, 5, 6, 7, 8, 5,
+				}),
 			};
+
+
+			task = new ILPTask () {
+				C = DenseVector.OfEnumerable (new [] { 
+					1.0, 2, 3, -1, 4, -5, 6
+				}),
+				B = DenseVector.OfEnumerable (new [] { 
+					26, 185, 32.5
+				}),
+				M = 3,
+				N = 7,
+				A = DenseMatrix.OfArray (new [,] {
+					{ 1.0, 0, 1, 0, 4, 3, 4 },
+					{ 0.0, 1, 2, 0, 55, 3.5, 5 },
+					{ 0.0, 0, 3, 1, 6, 2, -2.5 },
+				}),
+				DL = DenseVector.OfEnumerable (new [] { 
+					0.0, 1, 0, 0, 0, 0, 0, 
+				}),
+				DR = DenseVector.OfEnumerable (new [] { 
+					1.0, 2, 5, 7, 8, 4, 2,
+				}),
+			};
+
 			var result = task.SolveILP ();
+			Console.WriteLine ("=========== FINAL SOLUTION");
 			Console.WriteLine (result);
+			Console.WriteLine ("VALUE");
 			Console.WriteLine (task.C * result);
 		}
-		
 	}
 }

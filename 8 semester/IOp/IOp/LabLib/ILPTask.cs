@@ -9,19 +9,21 @@ namespace LabLib
 		public ILPTask ()
 		{
 		}
-		
+
 		public DenseVector SolveILP ()
 		{
 			Console.WriteLine (this);
-			Console.WriteLine (GeneratePlanAndSolve ());
+			GeneratePlan ();
+			var initial = this.Clone ();
+			Console.WriteLine (initial.Solve ());
 			
 			int counter = 0;
-			
+
 			var tasks = new List<LPTask> ();
 			var r0 = double.NegativeInfinity;
 			var mu0 = 1;
-			var mu = this.X;
-			tasks.Add (this.Clone ());
+			var mu = DenseVector.Create (N, (i) => i);
+			tasks.Add (initial);
 			
 			while (true) {
 				counter++;
@@ -31,7 +33,7 @@ namespace LabLib
 						return mu;
 					if (mu0 == 0)
 						return null;
-					throw new  Exception ("");
+					throw new Exception ("");
 				}
 				var task = tasks [0];
 				tasks.RemoveAt (0);
@@ -45,7 +47,7 @@ namespace LabLib
 				Console.WriteLine ("Value: {0}", value);
 				
 				if (solution == null || value <= r0) {
-					r0 = value;
+					//r0 = value;
 					continue;
 				}
 				if (solution.IsInteger ()) {
@@ -56,7 +58,7 @@ namespace LabLib
 				}
 				
 				var j0 = -1;
-				for (int i = 0; i < N; i++) 
+				for (int i = 0; i < N; i++)
 					if (!solution [i].IsInteger ()) {
 						j0 = i;
 						break;
@@ -72,6 +74,8 @@ namespace LabLib
 				taskR.DL [j0] = l + 1;
 				tasks.Add (taskR);
 				tasks.Add (taskL);
+
+				//Console.ReadLine ();
 			}
 		}
 	}

@@ -23,8 +23,8 @@ namespace LabLib
 				return l;
 			}
 		}
-		
-		public DenseVector X {
+
+		public DenseVector X__ {
 			get {
 				var xj = (DenseVector)(A.SelectColumns (J).Inverse () * B);
 				return DenseVector.Create (N, (i) => J.Contains (i) ? xj [J.IndexOf (i)] : 0);
@@ -33,14 +33,14 @@ namespace LabLib
 
 		public double Value {
 			get {
-				return C * X;
+				return C * X__;
 			}
 		}
-		
+
 		public LPTask ()
 		{
 		}
-		
+
 		public LPTask Clone ()
 		{
 			var r = new LPTask ();
@@ -54,20 +54,26 @@ namespace LabLib
 			r.DR = (DenseVector)DR.Clone ();
 			return r;
 		}
-		
+
 		public double GetSolutionValue (DenseVector sol)
 		{
 			return C * sol;
 		}
-		
+
 		public DenseVector Solve ()
 		{
+			List<int> Jplus = null;
+			List<int> Jminus = null;
+
 			while (true) {
+				J.Sort ();
 				var Ab = A.SelectColumns (J);
 				var Abi = Ab.Inverse ();
 				var Cb = C.Select (J);
 				var E = DenseMatrix.Identity (M);
 			
+				Console.WriteLine (String.Join (" ", J));
+
 				var nn = new DenseVector (N);
 				var final = true;
 				var jk = -1;
@@ -75,12 +81,23 @@ namespace LabLib
 				var delta = (DenseVector)(Cb * Abi);
 				delta *= A;
 				delta -= C;
+
+				if (Jplus == null) {
+					Jplus =	new List<int> ();
+					Jminus = new List<int> ();
+					foreach (int j in Jn) {
+						if (delta [j] >= 0)
+							Jplus.Add (j);
+						else
+							Jminus.Add (j);
+					}
+				}
 				
 				for (int i = 0; i < N; i++) {
 					if (!J.Contains (i)) {
-						if (delta [i] >= 0) 
+						if (Jplus.Contains (i))
 							nn [i] = DL [i];
-						else 
+						else
 							nn [i] = DR [i];
 					}
 				}
@@ -96,7 +113,7 @@ namespace LabLib
 						nn [i] = tmp [J.IndexOf (i)];
 						var fits = nn [i] >= DL [i] && nn [i] <= DR [i];
 						final &= fits;
-						if (!fits && jk == -1)  
+						if (!fits && jk == -1)
 							jk = i;
 					}
 				}
@@ -114,9 +131,9 @@ namespace LabLib
 				}
 			
 				var theta = new DenseVector (N);
-				for (int i =0; i < N; i++) {
+				for (int i = 0; i < N; i++) {
 					if (Jn.Contains (i)) {
-						if ((delta [i] >= 0 && mu [i] < 0) || (delta [i] <= 0 && mu [i] > 0)) {
+						if ((Jplus.Contains (i) && mu [i] < 0) || (Jminus.Contains (i) && mu [i] > 0)) {
 							theta [i] = -delta [i] / mu [i];
 						} else {
 							theta [i] = double.PositiveInfinity;
@@ -135,25 +152,40 @@ namespace LabLib
 			
 				J.Remove (jk);
 				J.Add (j0);
+
+				if (Jplus.Contains (j0))
+					Jplus.Remove (j0);
+				if (mu [jk] == 1)
+					Jplus.Add (jk);
+
+				Jminus.Clear ();
+				foreach (var j in Jn) {
+					if (!Jplus.Contains (j))
+						Jminus.Add (j);
+				}
 			}
 		}
-		
-		public DenseVector GeneratePlanAndSolve ()
+
+		public void GeneratePlan ()
 		{
 			var indexes = new List<int> ();
 			for (int i = 0; i < M; i++)
 				indexes.Add (i);
-			
+
 			foreach (var basis in new Facet.Combinatorics.Combinations<int>(indexes, M, Facet.Combinatorics.GenerateOption.WithoutRepetition)) {
 				J = new List<int> (basis);
-				var solution = Solve ();
-				if (solution != null)
-					return solution;
+				var Ab = A.SelectColumns (J);
+				if (Ab.Determinant () != 0)
+					return;
 			}
-			
-			return null;
 		}
-		
+
+		public DenseVector GeneratePlanAndSolve ()
+		{
+			GeneratePlan ();
+			return Solve ();
+		}
+
 		public override string ToString ()
 		{
 			var s = "--------------\nTask:\n";
@@ -166,6 +198,5 @@ namespace LabLib
 			return s;
 		}
 	}
-	
 }
 
