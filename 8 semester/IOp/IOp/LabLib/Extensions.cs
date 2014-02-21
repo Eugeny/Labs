@@ -15,6 +15,15 @@ namespace LabLib
 			return DenseMatrix.OfColumns (cols [0].Count, cols.Count, cols);
 		}
 
+		public static DenseMatrix SelectRows (this DenseMatrix mtx, IEnumerable<int> indexes)
+		{
+			var rows = new List<DenseVector> ();
+			foreach (int index in indexes) {
+				rows.Add ((DenseVector)mtx.Row (index));
+			}
+			return DenseMatrix.OfRows (rows.Count, rows [0].Count, rows);
+		}
+
 		public static DenseVector Select (this DenseVector v, IEnumerable<int> indexes)
 		{
 			var cols = new List<double> ();

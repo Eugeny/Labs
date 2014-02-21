@@ -11,7 +11,6 @@ namespace LabLib
 		public ILPTask ()
 		{
 		}
-
 		// Метод ветвей и границ
 		public DenseVector SolveILByBranching ()
 		{
@@ -90,15 +89,13 @@ namespace LabLib
 				tasks.Add (taskR);
 				tasks.Add (taskL);
 
-				//Console.ReadLine ();
+				Console.ReadLine ();
 			}
 		}
-
 		// Метод Гомори
 		public DenseVector SolveILPByCutoff ()
 		{
 			var task = Clone ();
-			var Ja = new List<int> ();
 
 			task.GeneratePlanAndSolve ();
 
@@ -106,6 +103,38 @@ namespace LabLib
 				// Решаем задачу
 				var solution = task.Solve ();
 				Console.WriteLine (task);
+
+				// Уменьшаем размерность
+				while (true) {
+					var index = -1;
+					foreach (var i in task.J) {
+						if (i >= N) {
+							index = i;
+							break;
+						}
+					}
+					if (index == -1)
+						break;
+
+					// Индекс нашелся
+					Console.WriteLine("Removing condition {0}", index);
+					var row = index - N + M;
+					var dataRow = task.A.Row (row) / task.A.Row (row) [index];
+					var rowList = new List<int> ();
+					// Вычитаем строку из остальных строк матрицы
+					for (int i = 0; i < task.M; i++) {
+						rowList.Add (i);
+						task.A.SetRow (i, task.A.Row (i) - dataRow * task.A.Row (i) [index]);
+						task.B [i] -= task.B [row];
+					}
+					rowList.Remove (row);
+					// Вырезаем строку
+					task.A = task.A.SelectRows (rowList);
+					task.B = task.B.Select (rowList);
+					task.M--;
+					task.J.Remove (index);
+				}
+				//--------------
 
 				var integer = true;
 				var i0 = -1;
@@ -139,7 +168,6 @@ namespace LabLib
 				task.DR = DenseVector.Create (task.N + 1, (i) => (i < task.N) ? task.DR [i] : 1e10);
 
 				// Добавляем новую переменную в базис и увеличиваем размерность задачи
-				Ja.Add (task.N);
 				task.J.Add (task.N);
 				task.N++;
 				task.M++;
