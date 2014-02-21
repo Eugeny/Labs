@@ -4,15 +4,16 @@ using MathNet.Numerics.LinearAlgebra.Double;
 
 namespace LabLib
 {
-	public class LPTask
+	public class LPTask<T> where T: LPTask<T>, new()
 	{
+		// Параметры задачи
 		public DenseVector C;
 		public DenseVector B;
 		public DenseVector DL, DR;
 		public DenseMatrix A;
 		public List<Int32> J;
 		public int N, M;
-
+		// Небазисные индексы
 		public List<int> Jn {
 			get {
 				var l = new List<int> ();
@@ -24,46 +25,34 @@ namespace LabLib
 			}
 		}
 
-		public DenseVector X__ {
-			get {
-				var xj = (DenseVector)(A.SelectColumns (J).Inverse () * B);
-				return DenseVector.Create (N, (i) => J.Contains (i) ? xj [J.IndexOf (i)] : 0);
-			}
-		}
-
-		public double Value {
-			get {
-				return C * X__;
-			}
-		}
-
 		public LPTask ()
 		{
 		}
 
-		public LPTask Clone ()
+		public T Clone ()
 		{
-			var r = new LPTask ();
+			var r = new T ();
 			r.A = (DenseMatrix)A.Clone ();
 			r.B = (DenseVector)B.Clone ();
 			r.C = (DenseVector)C.Clone ();
-			r.J = new List<int> (J);
+			if (J != null)
+				r.J = new List<int> (J);
 			r.N = N;
 			r.M = M;
 			r.DL = (DenseVector)DL.Clone ();
 			r.DR = (DenseVector)DR.Clone ();
 			return r;
 		}
-
+		// Значение f(X) = C*X для текущего решения
 		public double GetSolutionValue (DenseVector sol)
 		{
 			return C * sol;
 		}
-
+		// Решение двойственным симплекс-методом
 		public DenseVector Solve ()
 		{
-			List<int> Jplus = null;
-			List<int> Jminus = null;
+			List<int> Jplus = null; // Jн+
+			List<int> Jminus = null; // Jн-
 
 			while (true) {
 				J.Sort ();
@@ -78,10 +67,12 @@ namespace LabLib
 				var final = true;
 				var jk = -1;
 			
+				// Расчет Δ
 				var delta = (DenseVector)(Cb * Abi);
 				delta *= A;
 				delta -= C;
 
+				// Начальные значения Jн+ (по Δ)
 				if (Jplus == null) {
 					Jplus =	new List<int> ();
 					Jminus = new List<int> ();
@@ -92,7 +83,8 @@ namespace LabLib
 							Jminus.Add (j);
 					}
 				}
-				
+
+				// Расчет ℵ
 				for (int i = 0; i < N; i++) {
 					if (!J.Contains (i)) {
 						if (Jplus.Contains (i))
@@ -102,25 +94,30 @@ namespace LabLib
 					}
 				}
 				
-				var sumann = DenseVector.Create (M, (i) => 0);
+				var sum = DenseVector.Create (M, (i) => 0);
 				foreach (int i in Jn) {
-					sumann += (DenseVector)(A.Column (i) * nn [i]);
+					sum += (DenseVector)(A.Column (i) * nn [i]);
 				}
-				
-				var tmp = (DenseMatrix)Abi * (B - sumann);
+				var nValues= (DenseMatrix)Abi * (B - sum);
+
 				for (int i = 0; i < N; i++) {
 					if (J.Contains (i)) {
-						nn [i] = tmp [J.IndexOf (i)];
+						nn [i] = nValues [J.IndexOf (i)];
+
+						// Проверка ℵ по ограничениям
 						var fits = nn [i] >= DL [i] && nn [i] <= DR [i];
 						final &= fits;
 						if (!fits && jk == -1)
+							// Запоминаем jk
 							jk = i;
 					}
 				}
 			
+				// Если ℵ подходит, то завершаем
 				if (final)
 					return nn;
 			
+				// Расчет μ
 				var mu = new DenseVector (N);
 				mu [jk] = (nn [jk] < DL [jk] ? 1 : -1);
 				var dy = mu [jk] * E.Column (J.IndexOf (jk)) * Abi;
@@ -130,26 +127,30 @@ namespace LabLib
 					}
 				}
 			
-				var theta = new DenseVector (N);
+				// Расчет σ
+				var sigma = new DenseVector (N);
 				for (int i = 0; i < N; i++) {
 					if (Jn.Contains (i)) {
 						if ((Jplus.Contains (i) && mu [i] < 0) || (Jminus.Contains (i) && mu [i] > 0)) {
-							theta [i] = -delta [i] / mu [i];
+							sigma [i] = -delta [i] / mu [i];
 						} else {
-							theta [i] = double.PositiveInfinity;
+							sigma [i] = double.PositiveInfinity;
 						}
 					} else {
-						theta [i] = double.PositiveInfinity;
+						sigma [i] = double.PositiveInfinity;
 					}
 				}
 			
-				var j0 = theta.MinimumIndex ();
-				var theta0 = theta [j0];
+				// Поиск σ0
+				var j0 = sigma.MinimumIndex ();
+				var sigma0 = sigma [j0];
 			
-				if (theta0 == double.PositiveInfinity) {
+				if (sigma0 == double.PositiveInfinity) {
+					// Нет решений
 					return null;
 				}
 			
+				// Обновляем базис и Jн+/Jн-
 				J.Remove (jk);
 				J.Add (j0);
 
@@ -158,6 +159,7 @@ namespace LabLib
 				if (mu [jk] == 1)
 					Jplus.Add (jk);
 
+				// Пересчет Jн-
 				Jminus.Clear ();
 				foreach (var j in Jn) {
 					if (!Jplus.Contains (j))
@@ -166,6 +168,7 @@ namespace LabLib
 			}
 		}
 
+		// Поиск начального невырожденного плана
 		public void GeneratePlan ()
 		{
 			var indexes = new List<int> ();
@@ -176,6 +179,7 @@ namespace LabLib
 				J = new List<int> (basis);
 				var Ab = A.SelectColumns (J);
 				if (Ab.Determinant () != 0)
+					// |Aб| = 0
 					return;
 			}
 		}

@@ -33,7 +33,7 @@ namespace Lab1
 				}),
 			};
 
-
+			/*
 			task = new ILPTask () {
 				C = DenseVector.OfEnumerable (new [] { 
 					1.0, 2, 3, -1, 4, -5, 6
@@ -54,9 +54,9 @@ namespace Lab1
 				DR = DenseVector.OfEnumerable (new [] { 
 					1.0, 2, 5, 7, 8, 4, 2,
 				}),
-			};
+			};*/
 
-			var result = task.SolveILP ();
+			var result = task.SolveILByBranching ();
 			Console.WriteLine ("=========== FINAL SOLUTION");
 			Console.WriteLine (result);
 			Console.WriteLine ("VALUE");

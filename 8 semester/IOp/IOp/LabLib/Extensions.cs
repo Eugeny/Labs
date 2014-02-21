@@ -14,7 +14,7 @@ namespace LabLib
 			}
 			return DenseMatrix.OfColumns (cols [0].Count, cols.Count, cols);
 		}
-		
+
 		public static DenseVector Select (this DenseVector v, IEnumerable<int> indexes)
 		{
 			var cols = new List<double> ();
@@ -23,7 +23,7 @@ namespace LabLib
 			}
 			return DenseVector.OfEnumerable (cols);
 		}
-		
+
 		public static bool IsInteger (this DenseVector d)
 		{
 			foreach (var x in d)
@@ -31,10 +31,17 @@ namespace LabLib
 					return false;
 			return true;
 		}
-		
+
 		public static bool IsInteger (this Double d)
 		{
 			return Math.Abs (Math.Round (d) - d) < 0.00001f;
+		}
+
+		public static double Frac (this Double d)
+		{
+			if (d.IsInteger ())
+				return 0;
+			return d - Math.Floor (d);
 		}
 	}
 }
