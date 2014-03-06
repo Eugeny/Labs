@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using MathNet.Numerics.LinearAlgebra.Double;
+using System.Threading;
 
 namespace LabLib
 {
@@ -89,72 +90,104 @@ namespace LabLib
 				tasks.Add (taskR);
 				tasks.Add (taskL);
 
-				Console.ReadLine ();
+				//Console.ReadLine ();
 			}
 		}
 		// Метод Гомори
 		public DenseVector SolveILPByCutoff ()
 		{
+			if (N == 0) {
+				M = A.Column (0).Count;
+				N = A.Row (0).Count;
+			}
+			if (DL == null) {
+				DL = DenseVector.Create (N, (i) => 0);
+				DR = DenseVector.Create (N, (i) => 1e100);
+			}
 			var task = Clone ();
-
 			task.GeneratePlanAndSolve ();
 
 			while (true) {
+				//Thread.Sleep (1000);
 				// Решаем задачу
 				var solution = task.Solve ();
+				//var solution = task.GeneratePlanAndSolve ();
 				Console.WriteLine (task);
+				for (int i = 0; i < N; i++)
+					if (task.J.Contains (i))
+						solution [i] += 0.0000001f;
+				Console.WriteLine ("Solution: " + solution);
+				Console.WriteLine ("Indexes: " + string.Join (" ", task.J));
 
+				//Console.ReadLine ();
 				// Уменьшаем размерность
-				while (true) {
-					var index = -1;
-					foreach (var i in task.J) {
-						if (i >= N) {
-							index = i;
-							break;
+				for (int index = task.N - 1; index >= N; index--)
+					if (task.J.Contains (index)) {
+						var row = 0;
+						for (int i = 0; i < task.M; i++) {
+							if (task.A.Row (i) [index] == 1)
+								row = i;
 						}
-					}
-					if (index == -1)
-						break;
 
-					// Индекс нашелся
-					Console.WriteLine("Removing condition {0}", index);
-					var row = index - N + M;
-					var dataRow = task.A.Row (row) / task.A.Row (row) [index];
-					var rowList = new List<int> ();
-					// Вычитаем строку из остальных строк матрицы
-					for (int i = 0; i < task.M; i++) {
-						rowList.Add (i);
-						task.A.SetRow (i, task.A.Row (i) - dataRow * task.A.Row (i) [index]);
-						task.B [i] -= task.B [row];
+						// Индекс нашелся
+						Console.WriteLine ("Removing condition {0}", index);
+						var dataRow = task.A.Row (row);
+						var rowList = new List<int> ();
+						var colList = new List<int> ();
+						// Вычитаем строку из остальных строк матрицы
+						for (int i = 0; i < task.M; i++) {
+							rowList.Add (i);
+							if (i != row) {
+								var k = task.A.Row (i) [index] / task.A.Row (row) [index];
+								task.A.SetRow (i, task.A.Row (i) - dataRow * k);
+								task.B [i] -= task.B [row] * k;
+							}
+						}
+
+						for (int i = 0; i < task.N; i++)
+							colList.Add (i);
+
+						rowList.Remove (row);
+						colList.Remove (index);
+
+						// Вырезаем строку
+						task.A = task.A.SelectRows (rowList).SelectColumns (colList);
+						task.B = task.B.Select (rowList);
+						task.C = task.C.Select (colList);
+						task.M--;
+						task.N--;
+						task.J.Remove (index);
 					}
-					rowList.Remove (row);
-					// Вырезаем строку
-					task.A = task.A.SelectRows (rowList);
-					task.B = task.B.Select (rowList);
-					task.M--;
-					task.J.Remove (index);
-				}
 				//--------------
 
-				var integer = true;
 				var i0 = -1;
+				double maxFrac = 0.0;
 				for (int i = 0; i < N; i++) {
-					if (!solution [i].IsInteger () && task.J.Contains (i) && i0 == -1)
+					if (!solution [i].IsInteger () && task.J.Contains (i) && i0 == -1) {
 						// Нашли нецелую переменную
-						i0 = i;
-					integer &= solution [i].IsInteger ();
+						if (solution [i].Frac () > maxFrac) {
+							i0 = i;
+							maxFrac = solution [i0].Frac ();
+						}
+					}
 				}
-				if (integer)
+				if (i0 == -1)
 					// Все целые, завершаемся
 					return DenseVector.Create (N, (i) => solution [i]);
 
 				// Есть нецелые, продолжаем
 				// Считаем y, β, aj, fj, f
-				var y = (DenseVector)(DenseMatrix.Identity (task.M).Column (i0) * task.A.SelectColumns (task.J).Inverse ());     
+				//var y = (DenseVector)(DenseMatrix.Identity (task.M).Column (task.J.IndexOf (i0)) * task.A.SelectColumns (task.J).Inverse ());     
+				var Abi = task.A.SelectColumns (task.J).Inverse ();
+				var y = Abi.Row (task.J.IndexOf (i0));     
+
 				var aj = DenseVector.Create (task.N, (j) => y * task.A.Column (j));
 				var beta = y * task.B;
-				var fj = DenseVector.Create (task.N, (i) => aj [i].Frac ());
+				//var fj = DenseVector.Create (task.N, (i) => aj [i].Frac ());
 				var f = beta.Frac ();
+
+				var fj = DenseVector.Create (task.N, (i) => (Abi * task.A).Row (task.J.IndexOf (i0)) [i].Frac ());
+
 
 				// Создаем и вставляем новое условие
 				var extra = DenseVector.Create (task.N, (i) => (-fj [i]));
@@ -165,7 +198,7 @@ namespace LabLib
 				// Расширяем матрицы и вектора задачи
 				task.C = DenseVector.Create (task.N + 1, (i) => (i < task.N) ? task.C [i] : 0);
 				task.DL = DenseVector.Create (task.N + 1, (i) => (i < task.N) ? task.DL [i] : 0);
-				task.DR = DenseVector.Create (task.N + 1, (i) => (i < task.N) ? task.DR [i] : 1e10);
+				task.DR = DenseVector.Create (task.N + 1, (i) => (i < task.N) ? task.DR [i] : 1e100);
 
 				// Добавляем новую переменную в базис и увеличиваем размерность задачи
 				task.J.Add (task.N);

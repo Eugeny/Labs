@@ -1,12 +1,20 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Lab1/Main.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="LabLib/LPTask.cs">
     <Files>
-      <File FileName="Lab1/Main.cs" Line="18" Column="20" />
+      <File FileName="LabLib/ILPTask.cs" Line="21" Column="28" />
+      <File FileName="LabLib/LPTask.cs" Line="61" Column="20" />
+      <File FileName="Lab1/Main.cs" Line="164" Column="23" />
+      <File FileName="Lab2/Program.cs" Line="1" Column="1" />
+      <File FileName="Lab1/AssemblyInfo.cs" Line="2" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/home/eugene/Work/Labs/8 semester/IOp/IOp/LabLib/LPTask.cs" line="58" column="1" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
-  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches>
+    <Watch file="LabLib/ILPTask.cs" line="110" offsetX="450" offsetY="1962" expression="task.J" liveUpdate="False" />
+  </MonoDevelop.Ide.DebuggingService.PinnedWatches>
 </Properties>

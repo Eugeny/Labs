@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using MathNet.Numerics.LinearAlgebra.Double;
+using System.Threading;
 
 namespace LabLib
 {
@@ -53,36 +54,50 @@ namespace LabLib
 		{
 			List<int> Jplus = null; // Jн+
 			List<int> Jminus = null; // Jн-
+			
+
+
+			// Расчет Δ
+			var Ab = A.SelectColumns (J);
+			var Abi = Ab.Inverse ();
+			var Cb = C.Select (J);
+			var delta = (DenseVector)(Cb * Abi);
+			delta *= A;
+			delta -= C;
+
+
+			Jplus =	new List<int> ();
+			Jminus = new List<int> ();
+			foreach (int jj in Jn) {
+				if (delta [jj] >= 0)
+					Jplus.Add (jj);
+				else
+					Jminus.Add (jj);
+			}
+
+			var iters = 0;
 
 			while (true) {
+				iters++;
+
+				//Thread.Sleep(10);
 				J.Sort ();
-				var Ab = A.SelectColumns (J);
-				var Abi = Ab.Inverse ();
-				var Cb = C.Select (J);
-				var E = DenseMatrix.Identity (M);
-			
+
 				Console.WriteLine (String.Join (" ", J));
+
+
+				// Расчет Δ
+				Ab = A.SelectColumns (J);
+				Abi = Ab.Inverse ();
+				Cb = C.Select (J);
+				delta = (DenseVector)(Cb * Abi);
+				delta *= A;
+				delta -= C;
 
 				var nn = new DenseVector (N);
 				var final = true;
 				var jk = -1;
-			
-				// Расчет Δ
-				var delta = (DenseVector)(Cb * Abi);
-				delta *= A;
-				delta -= C;
 
-				// Начальные значения Jн+ (по Δ)
-				if (Jplus == null) {
-					Jplus =	new List<int> ();
-					Jminus = new List<int> ();
-					foreach (int j in Jn) {
-						if (delta [j] >= 0)
-							Jplus.Add (j);
-						else
-							Jminus.Add (j);
-					}
-				}
 
 				// Расчет ℵ
 				for (int i = 0; i < N; i++) {
@@ -98,11 +113,15 @@ namespace LabLib
 				foreach (int i in Jn) {
 					sum += (DenseVector)(A.Column (i) * nn [i]);
 				}
-				var nValues= (DenseMatrix)Abi * (B - sum);
+				var nValues = (DenseMatrix)Abi * (B - sum);
 
 				for (int i = 0; i < N; i++) {
+					nn [i] += 1e-10;
 					if (J.Contains (i)) {
 						nn [i] = nValues [J.IndexOf (i)];
+
+						//if (nn [i].IsInteger ())
+						//	nn [i] = Math.Round (nn [i]);
 
 						// Проверка ℵ по ограничениям
 						var fits = nn [i] >= DL [i] && nn [i] <= DR [i];
@@ -120,7 +139,7 @@ namespace LabLib
 				// Расчет μ
 				var mu = new DenseVector (N);
 				mu [jk] = (nn [jk] < DL [jk] ? 1 : -1);
-				var dy = mu [jk] * E.Column (J.IndexOf (jk)) * Abi;
+				var dy = mu [jk] * Abi.Row (J.IndexOf (jk));
 				for (int i = 0; i < N; i++) {
 					if (!J.Contains (i) && i != jk) {
 						mu [i] = dy * A.Column (i);
@@ -167,19 +186,23 @@ namespace LabLib
 				}
 			}
 		}
-
 		// Поиск начального невырожденного плана
 		public void GeneratePlan ()
 		{
+			if (N == 0) {
+				M = A.Column (0).Count;
+				N = A.Row (0).Count;
+			}
 			var indexes = new List<int> ();
-			for (int i = 0; i < M; i++)
+			for (int i = 0; i < N; i++)
 				indexes.Add (i);
 
 			foreach (var basis in new Facet.Combinatorics.Combinations<int>(indexes, M, Facet.Combinatorics.GenerateOption.WithoutRepetition)) {
 				J = new List<int> (basis);
 				var Ab = A.SelectColumns (J);
-				if (Ab.Determinant () != 0)
-					// |Aб| = 0
+				//if (Solve () != null)
+				if (Math.Abs (Ab.Determinant ()) > 0.001)
+					// |Aб| != 0
 					return;
 			}
 		}
@@ -197,7 +220,7 @@ namespace LabLib
 			s += "A:\n" + A.ToMatrixString (99, 99, null) + "\n";
 			s += "B:\n" + B.ToVectorString (99, 99, null) + "\n";
 			for (int i = 0; i < N; i++) {
-				s += string.Format ("{0} <= X{1} <= {2}\n", DL [i], i, DR [i]);
+				//s += string.Format ("{0} <= X{1} <= {2}\n", DL [i], i, DR [i]);
 			}
 			return s;
 		}

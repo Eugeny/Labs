@@ -43,7 +43,7 @@ namespace LabLib
 
 		public static bool IsInteger (this Double d)
 		{
-			return Math.Abs (Math.Round (d) - d) < 0.00001f;
+			return Math.Abs (Math.Round (d) - d) < 0.01f;
 		}
 
 		public static double Frac (this Double d)
