@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using MathNet.Numerics.LinearAlgebra.Double;
 using MathNet.Numerics.Data.Text;
 using System.Xml;
-using System.Linq;
 using System.IO;
+using System.Linq;
 
 namespace LabLib
 {

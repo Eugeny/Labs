@@ -48,9 +48,13 @@ namespace LabLib
 
 		public static double Frac (this Double d)
 		{
+			var f = Math.Abs (d);
 			if (d.IsInteger ())
 				return 0;
-			return d - Math.Floor (d);
+			f -= (double)Decimal.Floor ((decimal)d);
+			if (d < 0)
+			f = Math.Abs (f - 2);
+			return f;
 		}
 	}
 }

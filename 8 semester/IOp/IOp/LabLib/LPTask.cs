@@ -116,7 +116,7 @@ namespace LabLib
 				var nValues = (DenseMatrix)Abi * (B - sum);
 
 				for (int i = 0; i < N; i++) {
-					nn [i] += 1e-10;
+					nn [i] += 1e-5;
 					if (J.Contains (i)) {
 						nn [i] = nValues [J.IndexOf (i)];
 

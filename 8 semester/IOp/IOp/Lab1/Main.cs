@@ -161,7 +161,7 @@ namespace Lab1
 
 			};*/
 
-			var task = tasks [0];
+			var task = tasks [5];
 			var result = task.SolveILByBranching ();
 			Console.WriteLine ("=========== FINAL SOLUTION");
 			Console.WriteLine (result);

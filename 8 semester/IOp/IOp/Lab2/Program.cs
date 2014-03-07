@@ -81,8 +81,27 @@ namespace Lab2
 
 
 
+			task = new ILPTask () {
+				C = DenseVector.OfEnumerable (new [] { 
+					2.0,1
+				}),
+				B = DenseVector.OfEnumerable (new [] { 
+					3.0,
+				}),
+				M = 1,
+				N = 2,
+				A = DenseMatrix.OfArray (new [,] {
+					{2.0,1},
+				}),
+				DL = DenseVector.OfEnumerable (new [] { 
+					0.0, 0, 
+				}),
+				DR = DenseVector.OfEnumerable (new [] { 
+					1e100, 1e100,
+				}),
+			};
 
-			task = tasks[8];
+			//task = tasks[2];
 			var result = task.SolveILPByCutoff ();
 			Console.WriteLine ("=========== FINAL SOLUTION");
 			Console.WriteLine (result);
