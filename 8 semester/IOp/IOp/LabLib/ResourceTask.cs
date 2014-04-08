@@ -12,30 +12,39 @@ namespace LabLib
 			var sol = new Solution {
 				C = C, N = N,
 			};
-			sol.B = new int[N, C + 1];
-			sol.Z = new int[N, C + 1];
+			sol.B = new int[N, C + 1]; // В - значения функции Беллмана
+			sol.Z = new int[N, C + 1]; // Z - количество использованного ресурса
+
+			// Решаем задачу для каждой клетки таблицы
 			for (int n = 0; n < N; n++)
 				for (int c = 0; c <= C; c++)
 					BellmanInner (sol, n, c);
+
 			return sol;
 		}
 
 		private int BellmanInner (Solution sol, int n, int c)
 		{
 			if (sol.B [n, c] != 0)
+				// Эта задача уже была решена ранее, возвращаем сохраненное решение
 				return sol.B [n, c];
 
 			var result = 0;
 			var resultZ = 0;
+
 			if (n == 0) {
+				// 1 потребитель, отдаем ему весь ресурс
 				result = F [n] (c);
 				resultZ = c;
 			} else {
+				// несколько потребителей
 				var bestZ = 0;
 				var bestB = 0;
+				// для всех z ищем оптимальное значение функции Беллмана
 				for (int z = 0; z <= c; z++) {
 					var b = F [n] (z) + BellmanInner (sol, n - 1, c - z);
 					if (b > bestB) {
+						// нашли значение лучше
 						bestB = b;
 						bestZ = z;
 					}
@@ -44,6 +53,7 @@ namespace LabLib
 				resultZ = bestZ;
 			}
 
+			// запоминаем решение задачи
 			sol.B [n, c] = result;
 			sol.Z [n, c] = resultZ;
 			return result;
