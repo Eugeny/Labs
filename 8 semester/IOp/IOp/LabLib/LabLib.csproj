@@ -53,6 +53,7 @@
     <Compile Include="ILPTask.cs" />
     <Compile Include="TasksXmlReader.cs" />
     <Compile Include="ResourceTask.cs" />
+    <Compile Include="Graph.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
