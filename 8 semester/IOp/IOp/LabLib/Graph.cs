@@ -58,17 +58,19 @@ namespace LabLib
 			return null;
 		}
 
-		private void CalculatePotentials (Vertex start, int p)
+		private void CalculatePotentials (Vertex start, int p, Vertex initialStart)
 		{
+			if (start.Potential.HasValue && start.Potential.Value >= p)
+				return;
 			start.Potential = p;
 			foreach (Edge edge in GetIncidentalEdges(start)) {
-				if (edge.To != start) {
-					if (!edge.To.Potential.HasValue && edge.Flow != 0) {
-						CalculatePotentials (edge.To, p - edge.Cost);
-					}
-				} else {
-					if (!edge.From.Potential.HasValue && edge.Flow != 0) {
-						CalculatePotentials (edge.From, p + edge.Cost);
+				if (edge.Flow > 0) {
+					if (edge.To != start) {
+						if (edge.To != initialStart)
+							CalculatePotentials (edge.To, p - edge.Cost, initialStart);
+					} else {
+						if (edge.From != initialStart)
+							CalculatePotentials (edge.From, p + edge.Cost, initialStart);
 					}
 				}
 			}
@@ -111,7 +113,27 @@ namespace LabLib
 				foreach (var v in vertices.Values)
 					v.Potential = null;
 
-				CalculatePotentials (GetVertex (1), 0);
+				CalculatePotentials (vertices [1], 0, vertices [1]);
+				/*while (true) {
+					var done = true;
+					foreach (var v in vertices.Values) {
+						if (!v.Potential.HasValue) {
+							bool hasIncoming = false, hasOutgoing = false;
+							foreach (Edge e in GetIncidentalEdges(v)) {
+								if (e.Flow > 0 && e.From == v)
+									hasOutgoing = true;
+								if (e.Flow > 0 && e.To == v)
+									hasIncoming = true;
+							}
+							if (!hasIncoming && hasOutgoing) {
+								CalculatePotentials (v, 0, v);
+								done = false;
+							}
+						}
+					}
+					if (done)
+						break;
+				}*/
 
 				Edge replacementEdge = null;
 				foreach (var edge in edges) {
@@ -124,6 +146,7 @@ namespace LabLib
 					break;
 
 				var loop = FindLoop (replacementEdge, replacementEdge.To);
+				Console.WriteLine (this);
 
 				List<Edge> positiveEdges = new List<Edge> ();
 				List<Edge> negativeEdges = new List<Edge> ();
