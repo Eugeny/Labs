@@ -173,7 +173,6 @@ namespace LabLib
 
 		private void LocateBackpath (Vertex t, List<Edge> p, List<Edge> n, ref int a)
 		{
-			Console.WriteLine (t.ID);
 			if (t.G > 0) {
 				var i = GetVertex (t.G);
 				var e = GetConnectingEdge (i, t, directional: true);
@@ -190,7 +189,7 @@ namespace LabLib
 			}
 		}
 
-		public void GenerateMaxFlow (Vertex s, Vertex t)
+		public List<Vertex> GenerateMaxFlow (Vertex s, Vertex t)
 		{
 			while (true) {
 				int Ic = 1, It = 1;
@@ -233,7 +232,7 @@ namespace LabLib
 								continue;
 							}
 						if (I.P != Ic)
-							return;
+							return L;
 					}
 				}
 
@@ -269,6 +268,11 @@ namespace LabLib
 		public int ID;
 		public int? Potential;
 		internal int G, P;
+
+		public static void ResetIndexes ()
+		{
+			lastId = 1;
+		}
 
 		public Vertex ()
 		{

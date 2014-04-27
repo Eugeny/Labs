@@ -13,12 +13,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab4", "Lab4\Lab4.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab5", "Lab5\Lab5.csproj", "{1688486B-50FF-48D6-B3D5-94C9FEA5C237}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab6", "Lab6\Lab6.csproj", "{13D350B7-2B49-4194-844A-DFDB5322415C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{13D350B7-2B49-4194-844A-DFDB5322415C}.Debug|x86.ActiveCfg = Debug|x86
+		{13D350B7-2B49-4194-844A-DFDB5322415C}.Debug|x86.Build.0 = Debug|x86
+		{13D350B7-2B49-4194-844A-DFDB5322415C}.Release|x86.ActiveCfg = Release|x86
+		{13D350B7-2B49-4194-844A-DFDB5322415C}.Release|x86.Build.0 = Release|x86
 		{1688486B-50FF-48D6-B3D5-94C9FEA5C237}.Debug|x86.ActiveCfg = Debug|x86
 		{1688486B-50FF-48D6-B3D5-94C9FEA5C237}.Debug|x86.Build.0 = Debug|x86
 		{1688486B-50FF-48D6-B3D5-94C9FEA5C237}.Release|x86.ActiveCfg = Release|x86
@@ -45,6 +51,6 @@ Global
 		{D71DB590-CE9D-4032-8DBC-0D229FEA9627}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
-		StartupItem = Lab5\Lab5.csproj
+		StartupItem = Lab6\Lab6.csproj
 	EndGlobalSection
 EndGlobal
