@@ -1,9 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Lab3/Program.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="LabLib/Graph.cs">
     <Files>
-      <File FileName="LabLib/ResourceTask.cs" Line="56" Column="4" />
-      <File FileName="Lab3/Program.cs" Line="108" Column="31" />
+      <File FileName="LabLib/Graph.cs" Line="136" Column="8" />
+      <File FileName="Lab4/Program.cs" Line="10" Column="16" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -47,12 +47,12 @@ namespace LabLib
 			}
 		}
 
-		public Edge GetConnectingEdge (Vertex a, Vertex b)
+		public Edge GetConnectingEdge (Vertex a, Vertex b, bool directional = false)
 		{
 			foreach (Edge e in GetIncidentalEdges(a)) {
 				if (e.From == a && e.To == b)
 					return e;
-				if (e.To == a && e.From == b)
+				if (e.To == a && e.From == b && !directional)
 					return e;
 			}
 			return null;
@@ -171,6 +171,83 @@ namespace LabLib
 			}
 		}
 
+		private void LocateBackpath (Vertex t, List<Edge> p, List<Edge> n, ref int a)
+		{
+			Console.WriteLine (t.ID);
+			if (t.G > 0) {
+				var i = GetVertex (t.G);
+				var e = GetConnectingEdge (i, t, directional: true);
+				a = Math.Min (a, e.Capacity - e.Flow);
+				p.Add (e);
+				LocateBackpath (i, p, n, ref a);
+			}
+			if (t.G < 0) {
+				var i = GetVertex (-t.G);
+				var e = GetConnectingEdge (t, i, directional: true);
+				a = Math.Min (a, e.Flow);
+				n.Add (e);
+				LocateBackpath (i, p, n, ref a);
+			}
+		}
+
+		public void GenerateMaxFlow (Vertex s, Vertex t)
+		{
+			while (true) {
+				int Ic = 1, It = 1;
+				var I = s;
+				var L = new List<Vertex> ();
+				L.Add (s);
+				s.G = 0;
+				s.P = 1;
+
+				while (true) {
+					foreach (var j in vertices.Values)
+						if (!L.Contains (j)) {
+							var e = GetConnectingEdge (I, j, directional: true);
+							if (e != null && e.Flow < e.Capacity) {
+								j.G = I.ID;
+								It++;
+								j.P = It;
+								L.Add (j);
+							}
+						}
+
+					foreach (var j in vertices.Values)
+						if (!L.Contains (j)) {
+							var e = GetConnectingEdge (j, I, directional: true);
+							if (e != null && e.Flow > 0) {
+								j.G = -I.ID;
+								It++;
+								j.P = It;
+								L.Add (j);
+							}
+						}
+
+					if (L.Contains (t)) {
+						break;
+					} else {
+						Ic++;
+						foreach (var j in vertices.Values)
+							if (L.Contains (j) && j.P == Ic) {
+								I = j;
+								continue;
+							}
+						if (I.P != Ic)
+							return;
+					}
+				}
+
+				var p = new List<Edge> ();
+				var n = new List<Edge> ();
+				int a = int.MaxValue;
+				LocateBackpath (t, p, n, ref a);
+				foreach (var e in p)
+					e.Flow += a;
+				foreach (var e in n)
+					e.Flow -= a;
+			}
+		}
+
 		public override string ToString ()
 		{
 			var es = "";
@@ -191,6 +268,7 @@ namespace LabLib
 		private static int lastId = 1;
 		public int ID;
 		public int? Potential;
+		internal int G, P;
 
 		public Vertex ()
 		{
@@ -199,18 +277,18 @@ namespace LabLib
 
 		public override string ToString ()
 		{
-			return string.Format ("[Vertex {0} (p={1})]", ID, Potential);
+			return string.Format ("[Vertex {0} (pot={1}) P={2} G={3}]", ID, Potential, P, G);
 		}
 	}
 
 	public class Edge
 	{
 		public Vertex From, To;
-		public int Flow, Cost, Delta;
+		public int Flow, Cost, Delta, Capacity;
 
 		public override string ToString ()
 		{
-			return string.Format ("[Edge {0} -> {1}  x {2}  Δ={3}]", From.ID, To.ID, Flow, Delta);
+			return string.Format ("[Edge {0}->{1} F={2} C={3} Δ={4}]", From.ID, To.ID, Flow, Capacity, Delta);
 		}
 	}
 }
