@@ -55,6 +55,7 @@
     <Compile Include="ResourceTask.cs" />
     <Compile Include="Graph.cs" />
     <Compile Include="TaskAssignment.cs" />
+    <Compile Include="CommivoyageurTask.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
