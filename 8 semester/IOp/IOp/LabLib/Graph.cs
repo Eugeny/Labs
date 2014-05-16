@@ -30,6 +30,7 @@ namespace LabLib
 			return vertices [id];
 		}
 
+		// возвращает ребра, инцидентные данной вершине
 		public IEnumerable GetIncidentalEdges (Vertex v)
 		{
 			foreach (var e in edges)
@@ -37,6 +38,7 @@ namespace LabLib
 					yield return e;
 		}
 
+		// возвращает связанные вершины, связанные с данной ребрами
 		public IEnumerable GetConnectedVertices (Vertex v)
 		{
 			foreach (Edge e in GetIncidentalEdges(v)) {
@@ -58,17 +60,22 @@ namespace LabLib
 			return null;
 		}
 
+		// рекурсивно рассчитывает потенциалы, начиная с вершины start.
 		private void CalculatePotentials (Vertex start, int p, Vertex initialStart)
 		{
 			if (start.Potential.HasValue && start.Potential.Value >= p)
 				return;
+
 			start.Potential = p;
+			// для всех инцидентных данной вершине базисных ребер
 			foreach (Edge edge in GetIncidentalEdges(start)) {
 				if (edge.Flow > 0) {
+					// если ребро прямое
 					if (edge.To != start) {
 						if (edge.To != initialStart)
 							CalculatePotentials (edge.To, p - edge.Cost, initialStart);
 					} else {
+						// если ребро обратное
 						if (edge.From != initialStart)
 							CalculatePotentials (edge.From, p + edge.Cost, initialStart);
 					}
@@ -76,6 +83,7 @@ namespace LabLib
 			}
 		}
 
+		// находит и возвращает цикл, включающий ребро start и начинающийся с вершины vstart
 		private List<Edge> FindLoop (Edge start, Vertex vstart, List<Edge> oldHistory = null)
 		{
 			List<Edge> history = new List<Edge> ();
@@ -85,6 +93,7 @@ namespace LabLib
 				oldHistory = new List<Edge> ();
 			}
 
+			// пришли в начальную вершину (и в цикле больше нуля ребер)
 			if (history.Count > 0 && history [0].From == vstart) {
 				history.Add (start);
 				return history;
@@ -92,12 +101,15 @@ namespace LabLib
 			if (history.Contains (start))
 				return null;
 
+			// запоминаем следующее ребро
 			history.Add (start);
 
 			foreach (Vertex v in GetConnectedVertices(vstart)) {
+				// перебираем инцидентные ребра, которые пока вне цикла
 				var edge = GetConnectingEdge (vstart, v);
 				if (!oldHistory.Contains (edge)) {
 					if (edge.Flow > 0) {
+						// рекурсивно ищем цикл далее, используя выбранное ребро и все предыдущие
 						var res = FindLoop (edge, v, history);
 						if (res != null)
 							return res;
@@ -107,130 +119,151 @@ namespace LabLib
 			return null;
 		}
 
+		// поиск потока минимальной стоимости
 		public void GenerateMinimalCostFlow ()
 		{
 			while (true) {
+				// рассчитываем потенциалы вершин
 				foreach (var v in vertices.Values)
 					v.Potential = null;
 
-				CalculatePotentials (vertices [1], 0, vertices [1]);
-				/*while (true) {
-					var done = true;
-					foreach (var v in vertices.Values) {
-						if (!v.Potential.HasValue) {
-							bool hasIncoming = false, hasOutgoing = false;
-							foreach (Edge e in GetIncidentalEdges(v)) {
-								if (e.Flow > 0 && e.From == v)
-									hasOutgoing = true;
-								if (e.Flow > 0 && e.To == v)
-									hasIncoming = true;
-							}
-							if (!hasIncoming && hasOutgoing) {
-								CalculatePotentials (v, 0, v);
-								done = false;
-							}
-						}
-					}
-					if (done)
-						break;
-				}*/
+				CalculatePotentials (vertices [7], 0, vertices [7]);
 
+				// выбираем ребро с положительной delta
 				Edge replacementEdge = null;
-				foreach (var edge in edges) {
+				foreach (var edge in edges) 
+					if (edge.From.Potential.HasValue && edge.To.Potential.HasValue)
+				{
+
 					edge.Delta = edge.From.Potential.Value - edge.To.Potential.Value - edge.Cost;
 					if (edge.Delta > 0 && replacementEdge == null)
 						replacementEdge = edge;
 				}
 
+				// ребро не найдено, конец алгоритма
 				if (replacementEdge == null)
 					break;
 
+				// находим цикл, содержащий это ребро
 				var loop = FindLoop (replacementEdge, replacementEdge.To);
-				Console.WriteLine (this);
 
-				List<Edge> positiveEdges = new List<Edge> ();
-				List<Edge> negativeEdges = new List<Edge> ();
+				var positiveEdges = new List<Edge> ();
+				var negativeEdges = new List<Edge> ();
 				var lastVertex = replacementEdge.From;
 				var minTheta = int.MaxValue;
+				// проходим по циклу
 				foreach (Edge edge in loop) {
+					// определяем ребро с минимальным потоком (мин theta)
+					if (edge.Flow < minTheta && edge.Flow > 0)
+						minTheta = edge.Flow;
+					// определяем, прямое это ребро
 					if (edge.From == lastVertex) {
 						lastVertex = edge.To;
 						positiveEdges.Add (edge);
 					} else {
+						// или обратное
 						lastVertex = edge.From;
-						if (edge.Flow < minTheta)
-							minTheta = edge.Flow;
 						negativeEdges.Add (edge);
 					}
 				}
 
+				// увеличиваем поток в положительных ребрах
 				foreach (var edge in positiveEdges)
 					edge.Flow += minTheta;
+
+				// и уменьшаем в отрицательных
 				foreach (var edge in negativeEdges)
 					edge.Flow -= minTheta;
 			}
 		}
 
+		// восстановление пути из вершины t по Форду-Фалкерсону
 		private void LocateBackpath (Vertex t, List<Edge> p, List<Edge> n, ref int a)
 		{
+			// вершина помечена как имеющая входящую дугу
 			if (t.G > 0) {
 				var i = GetVertex (t.G);
 				var e = GetConnectingEdge (i, t, directional: true);
+				// обновляем alpha с новым запасом изменения потока в пути
 				a = Math.Min (a, e.Capacity - e.Flow);
+				// запоминаем дугу как прямую
 				p.Add (e);
+				// продолжаем поиск пути
 				LocateBackpath (i, p, n, ref a);
 			}
+			// помечена как с исходящей дугой
 			if (t.G < 0) {
 				var i = GetVertex (-t.G);
 				var e = GetConnectingEdge (t, i, directional: true);
+				// обновляем alpha с новым запасом изменения потока в пути
 				a = Math.Min (a, e.Flow);
+				// запоминаем дугу как обратную
 				n.Add (e);
+				// продолжаем поиск пути
 				LocateBackpath (i, p, n, ref a);
 			}
 		}
 
+		// поиск максимального потока из s в t
 		public List<Vertex> GenerateMaxFlow (Vertex s, Vertex t)
 		{
+			// итерация
 			while (true) {
+				// счетчики итераций поиска пути и меток
 				int Ic = 1, It = 1;
+				// "текущая" вершина
 				var I = s;
+				// список помеченных вершин
 				var L = new List<Vertex> ();
+				// добавляем туда начальную вершину
 				L.Add (s);
 				s.G = 0;
 				s.P = 1;
 
 				while (true) {
+					// ищем непомеченные вершины...
 					foreach (var j in vertices.Values)
 						if (!L.Contains (j)) {
 							var e = GetConnectingEdge (I, j, directional: true);
+							// ...связанные с текущей прямыми дугами
 							if (e != null && e.Flow < e.Capacity) {
+								// помечаем
 								j.G = I.ID;
 								It++;
 								j.P = It;
+								// обновляем список
 								L.Add (j);
 							}
 						}
 
+					// ищем непомеченные вершины...
 					foreach (var j in vertices.Values)
 						if (!L.Contains (j)) {
 							var e = GetConnectingEdge (j, I, directional: true);
+							// ...связанные с текущей обратными дугами
 							if (e != null && e.Flow > 0) {
+								// помечаем
 								j.G = -I.ID;
 								It++;
 								j.P = It;
+								// обновляем список
 								L.Add (j);
 							}
 						}
 
 					if (L.Contains (t)) {
+						// конечная вершина помечена, путь найден
 						break;
 					} else {
+						// увеличиваем счетчик итераций
 						Ic++;
 						foreach (var j in vertices.Values)
+							// выбираем новую текущую вершину
 							if (L.Contains (j) && j.P == Ic) {
 								I = j;
 								continue;
 							}
+						// не нашли новую текущую вершину - увеличивающих путей нет
 						if (I.P != Ic)
 							return L;
 					}
@@ -239,9 +272,13 @@ namespace LabLib
 				var p = new List<Edge> ();
 				var n = new List<Edge> ();
 				int a = int.MaxValue;
+				// восстанавливаем увеличивающий путь
+				// находим списки прямых и обратных дуг, а также alpha
 				LocateBackpath (t, p, n, ref a);
+				// увеличиваем поток в прямых
 				foreach (var e in p)
 					e.Flow += a;
+				// и уменьшаем в обратных дугах
 				foreach (var e in n)
 					e.Flow -= a;
 			}

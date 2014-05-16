@@ -133,8 +133,10 @@ def raw_simplex(A, beta, C, X, Jb):
         nX = np.matrix([0.0] * N).T
         nX[j0] = theta
         for i in range(M):
+            print '-', i, Jb[i], X[Jb[i]], z[i], theta
             nX[Jb[i]] = X[Jb[i]] - theta * z[i]
         Jb[s] = j0
+        print z, theta
         X = nX
 
         time.sleep(0.1)
@@ -184,5 +186,22 @@ def full_simplex(A, beta, C):
     X_ = X_[:N]
     return raw_simplex(A, beta, C, X_, Jb_)
 
-X, Jb = full_simplex(A, beta, C)
+#X, Jb = full_simplex(A, beta, C)
+#print X,Jb
+
+
+A = np.matrix([
+    [1, 4, 4, 1],
+    [1, 7, 8, 2],
+])
+beta = np.matrix([5, 9]).T
+C = np.matrix([1, -3, -5, -1]).T
+
+
+X = np.matrix([1,0,1,0]).T
+Jb = [0,2]
+
+
+
+X, Jb = raw_simplex(A, beta, C, X, Jb)
 print X,Jb

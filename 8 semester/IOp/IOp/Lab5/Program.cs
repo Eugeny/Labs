@@ -7,7 +7,7 @@ namespace Lab5
 	{
 		public static void Main (string[] args)
 		{
-			int task = 1;
+			int task = -1;
 			int S = 0, T = 0;
 			Graph graph = null;
 
@@ -49,6 +49,26 @@ namespace Lab5
 				graph.AddEdge (new Edge{ From = graph.GetVertex (5), To = graph.GetVertex (T), Capacity = 4 });
 				graph.AddEdge (new Edge{ From = graph.GetVertex (6), To = graph.GetVertex (5), Capacity = 3 });
 				graph.AddEdge (new Edge{ From = graph.GetVertex (6), To = graph.GetVertex (T), Capacity = 5 });
+			}
+
+
+			if (task == -1) {
+				graph = new Graph (9);
+				S = 8;
+				T = 9;
+				graph.AddEdge (new Edge{ From = graph.GetVertex (S), To = graph.GetVertex (2), Capacity = 14 });
+				graph.AddEdge (new Edge{ From = graph.GetVertex (S), To = graph.GetVertex (4), Capacity = 12 });
+				graph.AddEdge (new Edge{ From = graph.GetVertex (S), To = graph.GetVertex (5), Capacity = 10 });
+				graph.AddEdge (new Edge{ From = graph.GetVertex (2), To = graph.GetVertex (4), Capacity = 1 });
+				graph.AddEdge (new Edge{ From = graph.GetVertex (2), To = graph.GetVertex (3), Capacity = 8 });
+				graph.AddEdge (new Edge{ From = graph.GetVertex (3), To = graph.GetVertex (T), Capacity = 3 });
+				graph.AddEdge (new Edge{ From = graph.GetVertex (3), To = graph.GetVertex (6), Capacity = 5 });
+				graph.AddEdge (new Edge{ From = graph.GetVertex (4), To = graph.GetVertex (5), Capacity = 2 });
+				graph.AddEdge (new Edge{ From = graph.GetVertex (4), To = graph.GetVertex (T), Capacity = 100 });
+				graph.AddEdge (new Edge{ From = graph.GetVertex (4), To = graph.GetVertex (6), Capacity = 15 });
+				graph.AddEdge (new Edge{ From = graph.GetVertex (4), To = graph.GetVertex (5), Capacity = 2 });
+				graph.AddEdge (new Edge{ From = graph.GetVertex (5), To = graph.GetVertex (6), Capacity = 10 });
+				graph.AddEdge (new Edge{ From = graph.GetVertex (6), To = graph.GetVertex (T), Capacity = 20 });
 			}
 
 			graph.GenerateMaxFlow (graph.GetVertex (S), graph.GetVertex (T));

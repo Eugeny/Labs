@@ -18,7 +18,7 @@ namespace LabLib
 			Console.WriteLine (this);
 			GeneratePlan ();
 			var initial = this.Clone ();
-			Console.WriteLine (initial.Solve ());
+			Console.WriteLine (initial.SolveDualSimplex ());
 			
 			int counter = 0;
 
@@ -46,7 +46,7 @@ namespace LabLib
 				var task = tasks [0];
 				tasks.RemoveAt (0);
 				
-				var solution = task.Solve (); // Решаем задачу
+				var solution = task.SolveDualSimplex (); // Решаем задачу
 				var value = (solution != null) ? task.GetSolutionValue (solution) : 0; // Получаем c'x
 
 				Console.WriteLine ("====================");
@@ -111,18 +111,18 @@ namespace LabLib
 
 			while (true) {
 				// Решаем задачу
-				var solution = task.Solve ();
-				Console.WriteLine (task);
+				var solution = task.SolveDualSimplex ();
+				//Console.WriteLine (task);
 				for (int i = 0; i < N; i++)
-					if (task.J.Contains (i))
+					if (task.Jb.Contains (i))
 						solution [i] += 0.0000001f;
 				Console.WriteLine ("Solution: " + solution);
-				Console.WriteLine ("Indexes: " + string.Join (" ", task.J));
+				Console.WriteLine ("Indexes: " + string.Join (" ", task.Jb));
 
 				// Уменьшаем размерность
 				for (int index = task.N - 1; index >= N; index--)
 				// Перебираем базисные индексы в поисках искуственной переменной
-					if (task.J.Contains (index)) {
+					if (task.Jb.Contains (index)) {
 						var row = 0;
 
 						// Находим соответствующий столбец в A
@@ -158,8 +158,9 @@ namespace LabLib
 						task.C = task.C.Select (colList); // и С
 						task.M--; // уменьшаем размерность задачи
 						task.N--;
-						task.J.Remove (index); // убираем удаленную переменную из базиса
+						task.Jb.Remove (index); // убираем удаленную переменную из базиса
 					}
+
 				//--------------
 
 				// Выбираем индекс i0 с наибольшей дробной частью в переменной
@@ -167,7 +168,7 @@ namespace LabLib
 				double maxFrac = 0.0;
 				for (int i = 0; i < N; i++) {
 					// смотрим только нецелые базисные переменные
-					if (!solution [i].IsInteger () && task.J.Contains (i) && i0 == -1) {
+					if (!solution [i].IsInteger () && task.Jb.Contains (i) && i0 == -1) {
 						// Нашли нецелую переменную
 						if (solution [i].Frac () > maxFrac) {
 							i0 = i;
@@ -180,10 +181,13 @@ namespace LabLib
 					// Все целые, завершаемся
 					return DenseVector.Create (N, (i) => solution [i]); // возвращаем текущее решение
 
+				Console.WriteLine (C * DenseVector.Create (N, (i) => solution [i]));
+				Console.ReadLine();
+
 				// Есть нецелые, продолжаем
 				// Считаем y, β, fj, f
-				var Abi = task.A.SelectColumns (task.J).Inverse (); // Aб'
-				var y = Abi.Row (task.J.IndexOf (i0)); // y = Aб'[i0]
+				var Abi = task.A.SelectColumns (task.Jb).Inverse (); // Aб'
+				var y = Abi.Row (task.Jb.IndexOf (i0)); // y = Aб'[i0]
 
 				float beta = (float)(y * task.B); // β = y'B
 				var ff = beta;
@@ -192,7 +196,7 @@ namespace LabLib
 				//if (beta < 0)
 				//	ff += 1;
 
-				var fj = DenseVector.Create (task.N, (i) => (Abi * task.A).Row (task.J.IndexOf (i0)) [i].Frac ());
+				var fj = DenseVector.Create (task.N, (i) => (Abi * task.A).Row (task.Jb.IndexOf (i0)) [i].Frac ());
 				// Fj = [ Aб'[i0] ]
 
 				// Создаем и вставляем новое условие
@@ -210,7 +214,7 @@ namespace LabLib
 				task.DR = DenseVector.Create (task.N + 1, (i) => (i < task.N) ? task.DR [i] : 1e100);
 
 				// Добавляем новую переменную в базис и увеличиваем размерность задачи
-				task.J.Add (task.N);
+				task.Jb.Add (task.N);
 				task.N++;
 				task.M++;
 			}

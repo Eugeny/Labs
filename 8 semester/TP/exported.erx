@@ -1,0 +1,984 @@
+/* PLATINUM ERwin/ERX 3.5 */
+/*
+CREATE TABLE ERW_TEXT
+      (ERWIN_TEXT_ID            INTEGER NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       ERWIN_TEXT_VALUE         VARCHAR(255)
+);
+*/
+1,0,"Model_1"
+2,0,"%AttDef"
+3,0,"%DomainDef"
+4,0,"%AttDef"
+5,0,"Author of the book"
+6,0,"id"
+7,0,"name"
+8,0,"XPKAuthor"
+9,0,"Yes"
+10,0,"A book"
+11,0,"id"
+12,0,"author_id"
+13,0,"name"
+14,0,"isbn"
+15,0,"id"
+16,0,"series_id"
+17,0,"XPKBook"
+18,0,"Yes"
+19,0,"XIF2Book"
+20,0,"No"
+21,0,"XIF1Book"
+22,0,"No"
+23,0,"Reader's book shelf containing books"
+24,0,"id"
+25,0,"name"
+26,0,"id"
+27,0,"reader_id"
+28,0,"XPKBookShelf"
+29,0,"Yes"
+30,0,"XIF1BookShelf"
+31,0,"No"
+32,0,"Relation of book to the store listing"
+33,0,"Relation of store to a store listing"
+34,0,"Ownership of book by author"
+35,0,"Presence of book in series"
+36,0,"Ownership of series by author"
+37,0,"Inclusion of a store in a store network"
+38,0,"Presence of books in shelves"
+39,0,"Book_BookShelf"
+40,0,"id"
+41,0,"id"
+42,0,"Ownership of shelf by a reader"
+43,0,"Ownership of review by user"
+44,0,"Review's relation to book"
+45,0,"A reader (user) who reads books"
+46,0,"name"
+47,0,"XPKReader"
+48,0,"Yes"
+49,0,"A reader's review for the book incl. rating"
+50,0,"id"
+51,0,"text"
+52,0,"rating"
+53,0,"reader_id"
+54,0,"book_id"
+55,0,"XPKReview"
+56,0,"Yes"
+57,0,"XIF1Review"
+58,0,"No"
+59,0,"XIF2Review"
+60,0,"No"
+61,0,"A series of books by same author"
+62,0,"name"
+63,0,"author_id"
+64,0,"XPKSeries"
+65,0,"Yes"
+66,0,"XIF1Series"
+67,0,"No"
+68,0,"A store which sells books"
+69,0,"id"
+70,0,"name"
+71,0,"id"
+72,0,"network_id"
+73,0,"XPKStore"
+74,0,"Yes"
+75,0,"XIF1Store"
+76,0,"No"
+77,0,"A listing of book in the store, with price"
+78,0,"id"
+79,0,"book_id"
+80,0,"store_id"
+81,0,"price"
+82,0,"XPKStoreListing"
+83,0,"Yes"
+84,0,"XIF1StoreListing"
+85,0,"No"
+86,0,"XIF2StoreListing"
+87,0,"No"
+88,0,"A network of stores by same name"
+89,0,"name"
+90,0,"XPKStoreNetwork"
+91,0,"Yes"
+/*
+CREATE TABLE ERWIN_ENTITY
+      (ENTITY_ID                INTEGER NOT NULL,
+       ENTITY_TYPE              CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       ENTITY_NAME              VARCHAR(254),
+       TABLE_NAME               VARCHAR(254),
+       ENTITY_NOTE              INTEGER,
+       ENTITY_DEFINITION        INTEGER
+       VIEW_WITH_CHECK          INTEGER
+       ENTITY_FLAGS             INTEGER
+);
+*/
+1,"ET_IE",0,"Author","",0,5,0,0
+2,"ET_IE",0,"Book","",0,10,0,0
+3,"ET_IE",0,"BookShelf","",0,23,0,0
+4,"ET_DE",0,"Book/BookShelf","Book_BookShelf",0,0,0,0
+5,"ET_IE",0,"Reader","",0,45,0,0
+6,"ET_IE",0,"Review","",0,49,0,0
+7,"ET_IE",0,"Series","",0,61,0,0
+8,"ET_IE",0,"Store","",0,68,0,0
+9,"ET_IE",0,"StoreListing","",0,77,0,0
+10,"ET_IE",0,"StoreNetwork","",0,88,0,0
+/*
+CREATE TABLE ERWIN_RELATIONSHIP
+      (RELATIONSHIP_ID          INTEGER NOT NULL,
+       RELATIONSHIP_TYPE        CHAR(6) NOT NULL,
+       DIAG_ID                 INTEGER NOT NULL,
+       PARENT_ENTITY            INTEGER NOT NULL,
+       PARENT_TYPE              CHAR(6) NOT NULL,
+       CHILD_ENTITY             INTEGER NOT NULL,
+       CHILD_TYPE               CHAR(6) NOT NULL,
+       VERB_PHRASE              VARCHAR(254),
+       CARDINALITY              CHAR(6),
+       PARENT_DELETE_RULE       CHAR(6),
+       PARENT_UPDATE_RULE       CHAR(6),
+       CHILD_INSERT_RULE        CHAR(6),
+       CHILD_DELETE_RULE        CHAR(6),
+       CHILD_UPDATE_RULE        CHAR(6),
+       PARENT_INSERT_RULE       CHAR(6),
+       NULL_RULE                CHAR(6),
+       RELATIONSHIP_DEFINITION  INTEGER,
+       VERB_PHRASE2             VARCHAR(254),
+       SYNONYM_NAME             VARCHAR(128),
+       VIEWSEQ                  INTEGER
+       ISOUTER                  INTEGER
+       MMASSOC                  INTEGER
+       REL_FLAGS                INTEGER
+);
+*/
+1,"RT_NI",0,2,"ET_IE",9,"ET_IE","","CT_ZM","DR_RE","UR_RE","IR_RE","RI_NO","UR_CRE","RI_NO","NR_NN",32,"","",0,0,0,0
+2,"RT_NI",0,8,"ET_IE",9,"ET_IE","","CT_ZM","DR_RE","UR_RE","IR_RE","RI_NO","UR_CRE","RI_NO","NR_NN",33,"","",0,0,0,0
+3,"RT_NI",0,1,"ET_IE",2,"ET_IE","","CT_ZM","DR_RE","UR_RE","IR_RE","RI_NO","UR_CRE","RI_NO","NR_NN",34,"","",0,0,0,0
+4,"RT_NI",0,7,"ET_IE",2,"ET_IE","","CT_ZM","DR_SN","UR_SN","IR_SN","RI_NO","UR_CSN","RI_NO","NR_NA",35,"","",0,0,0,0
+5,"RT_NI",0,1,"ET_IE",7,"ET_IE","","CT_ZM","DR_RE","UR_RE","IR_RE","RI_NO","UR_CRE","RI_NO","NR_NN",36,"","",0,0,0,0
+6,"RT_NI",0,10,"ET_IE",8,"ET_IE","","CT_ZM","DR_SN","UR_SN","IR_SN","RI_NO","UR_CSN","RI_NO","NR_NA",37,"","",0,0,0,0
+8,"RT_ID",0,2,"ET_IE",4,"ET_DE","","CT_ZM","DR_RE","UR_RE","IR_RE","RI_NO","UR_CRE","RI_NO","NR_NN",0,"","",0,0,4,0
+9,"RT_ID",0,3,"ET_IE",4,"ET_DE","","CT_ZM","DR_RE","UR_RE","IR_RE","RI_NO","UR_CRE","RI_NO","NR_NN",0,"","",0,0,4,0
+7,"RT_MM",0,2,"ET_IE",3,"ET_IE","","CT_ZM","RI_NO","RI_NO","RI_NO","RI_NO","RI_NO","RI_NO","NR_NA",38,"","",0,0,4,0
+10,"RT_NI",0,5,"ET_IE",3,"ET_IE","","CT_ZM","DR_RE","UR_RE","IR_RE","RI_NO","UR_CRE","RI_NO","NR_NN",42,"","",0,0,0,0
+11,"RT_NI",0,5,"ET_IE",6,"ET_IE","","CT_ZM","DR_RE","UR_RE","IR_RE","RI_NO","UR_CRE","RI_NO","NR_NN",43,"","",0,0,0,0
+12,"RT_NI",0,2,"ET_IE",6,"ET_IE","","CT_ZM","DR_RE","UR_RE","IR_RE","RI_NO","UR_CRE","RI_NO","NR_NN",44,"","",0,0,0,0
+/*
+CREATE TABLE ERWIN_ATTRIBUTE
+      (ATTRIBUTE_ID             INTEGER NOT NULL,
+       ATTRIBUTE_TYPE           CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       ENTITY_ATTRIBUTE_TYPE    CHAR(6) NOT NULL,
+       ENTITY_ID                INTEGER NOT NULL,
+       ENTITY_TYPE              CHAR(6) NOT NULL,
+       RELATIONSHIP_ID          INTEGER NOT NULL,
+       RELATIONSHIP_TYPE        CHAR(6) NOT NULL,
+       PARENT_ATTRIBUTE         INTEGER,
+       ATTRIBUTE_ORDER          INTEGER,
+       COLUMN_POSITION          INTEGER,
+       ATTRIBUTE_FONT           INTEGER,
+       ATTRIBUTE_COLOR          INTEGER,
+       ATTRIBUTE_FLAGS          INTEGER
+);
+*/
+13,"DOMAIN",0,"AT_PK",1,"ET_IE",-1,"RT_OA",0,0,-1,-1,-1,4
+14,"DOMAIN",0,"AT_NK",1,"ET_IE",-1,"RT_OA",0,1,-1,-1,-1,4
+15,"DOMAIN",0,"AT_PK",2,"ET_IE",-1,"RT_OA",0,0,-1,-1,-1,4
+16,"DOMAIN",0,"AT_NK",2,"ET_IE",3,"RT_NI",13,1,-1,-1,-1,4
+17,"DOMAIN",0,"AT_NK",2,"ET_IE",-1,"RT_OA",0,2,-1,-1,-1,4
+18,"DOMAIN",0,"AT_NK",2,"ET_IE",-1,"RT_OA",0,3,-1,-1,-1,4
+19,"DOMAIN",0,"AT_PK",7,"ET_IE",-1,"RT_OA",0,0,-1,-1,-1,4
+20,"DOMAIN",0,"AT_NK",2,"ET_IE",4,"RT_NI",19,4,-1,-1,-1,4
+21,"DOMAIN",0,"AT_PK",3,"ET_IE",-1,"RT_OA",0,0,-1,-1,-1,4
+22,"DOMAIN",0,"AT_NK",3,"ET_IE",-1,"RT_OA",0,1,-1,-1,-1,4
+23,"DOMAIN",0,"AT_PK",5,"ET_IE",-1,"RT_OA",0,0,-1,-1,-1,4
+24,"DOMAIN",0,"AT_NK",3,"ET_IE",10,"RT_NI",23,2,-1,-1,-1,4
+25,"DOMAIN",0,"AT_PK",4,"ET_DE",8,"RT_ID",15,0,-1,-1,-1,4
+26,"DOMAIN",0,"AT_PK",4,"ET_DE",9,"RT_ID",21,0,-1,-1,-1,4
+27,"DOMAIN",0,"AT_NK",5,"ET_IE",-1,"RT_OA",0,1,-1,-1,-1,4
+28,"DOMAIN",0,"AT_PK",6,"ET_IE",-1,"RT_OA",0,0,-1,-1,-1,4
+29,"DOMAIN",0,"AT_NK",6,"ET_IE",-1,"RT_OA",0,1,-1,-1,-1,4
+30,"DOMAIN",0,"AT_NK",6,"ET_IE",-1,"RT_OA",0,2,-1,-1,-1,4
+31,"DOMAIN",0,"AT_NK",6,"ET_IE",11,"RT_NI",23,3,-1,-1,-1,4
+32,"DOMAIN",0,"AT_NK",6,"ET_IE",12,"RT_NI",15,4,-1,-1,-1,4
+33,"DOMAIN",0,"AT_NK",7,"ET_IE",-1,"RT_OA",0,1,-1,-1,-1,4
+34,"DOMAIN",0,"AT_NK",7,"ET_IE",5,"RT_NI",13,2,-1,-1,-1,4
+35,"DOMAIN",0,"AT_PK",8,"ET_IE",-1,"RT_OA",0,0,-1,-1,-1,4
+36,"DOMAIN",0,"AT_NK",8,"ET_IE",-1,"RT_OA",0,1,-1,-1,-1,4
+37,"DOMAIN",0,"AT_PK",10,"ET_IE",-1,"RT_OA",0,0,-1,-1,-1,4
+38,"DOMAIN",0,"AT_NK",8,"ET_IE",6,"RT_NI",37,2,-1,-1,-1,4
+39,"DOMAIN",0,"AT_PK",9,"ET_IE",-1,"RT_OA",0,0,-1,-1,-1,4
+40,"DOMAIN",0,"AT_NK",9,"ET_IE",1,"RT_NI",15,1,-1,-1,-1,4
+41,"DOMAIN",0,"AT_NK",9,"ET_IE",2,"RT_NI",35,2,-1,-1,-1,4
+42,"DOMAIN",0,"AT_NK",9,"ET_IE",-1,"RT_OA",0,3,-1,-1,-1,4
+43,"DOMAIN",0,"AT_NK",10,"ET_IE",-1,"RT_OA",0,1,-1,-1,-1,4
+/*
+CREATE TABLE ERWIN_SUBTYPE_REL
+      (SUBTYPE_ID               INTEGER NOT NULL,
+       SUBTYPE_TYPE             CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       DISCRIMINATOR_NAME       VARCHAR(254)
+);
+*/
+/*
+CREATE TABLE ERWIN_DIAG_VIEW_OBJ
+      (SUBJECT_ID               INTEGER NOT NULL,
+       DISPLAY_ID               INTEGER NOT NULL,
+       OBJECT_ID                INTEGER NOT NULL,
+       OBJECT_TYPE              CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       XCOORD1                  INTEGER,
+       YCOORD1                  INTEGER,
+       XCOORD2                  INTEGER,
+       YCOORD2                  INTEGER
+       ENRN_FONT_ID             INTEGER,
+       ENR_COLOR_ID             INTEGER,
+       ELINE_COLOR_ID           INTEGER,
+       EFILL_COLOR_ID           INTEGER,
+       EDEF_FONT_ID             INTEGER,
+       EDEF_COLOR_ID            INTEGER,
+       COLOR_TYPE               CHAR(6),
+       FONT_TYPE                CHAR(6)
+       USER_TOUCHED             INTEGER,
+       PATH0_X                  INTEGER,
+       PATH0_Y                  INTEGER,
+       PATH1_X                  INTEGER,
+       PATH1_Y                  INTEGER,
+       PATH2_X                  INTEGER,
+       PATH2_Y                  INTEGER,
+       PATH3_X                  INTEGER,
+       PATH3_Y                  INTEGER,
+       PATH4_X                  INTEGER,
+       PATH4_Y                  INTEGER,
+       VERB1_X                  INTEGER,
+       VERB1_Y                  INTEGER,
+       VERB2_X                  INTEGER,
+       VERB2_Y                  INTEGER,
+       MID_X                    INTEGER,
+       MID_Y                    INTEGER,
+);
+*/
+1,0,1,"ET_IE",0,555,176,609,246,1,0,0,1,0,0,"TX_FNT","TX_COL",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1,0,8,"ET_IE",0,621,291,727,377,1,0,0,1,0,0,"TX_FNT","TX_COL",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1,0,2,"ET_IE",0,324,119,422,237,1,0,0,1,0,0,"TX_FNT","TX_COL",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1,0,9,"ET_IE",0,342,320,434,422,1,0,0,1,0,0,"TX_FNT","TX_COL",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1,0,10,"ET_IE",0,687,153,783,223,1,0,0,1,0,0,"TX_FNT","TX_COL",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1,0,7,"ET_IE",0,493,7,591,93,1,0,0,1,0,0,"TX_FNT","TX_COL",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1,0,5,"ET_IE",0,39,75,101,145,1,0,0,1,0,0,"TX_FNT","TX_COL",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1,0,3,"ET_IE",0,106,216,206,302,1,0,0,1,0,0,"TX_FNT","TX_COL",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1,0,6,"ET_IE",0,167,-4,267,114,1,0,0,1,0,0,"TX_FNT","TX_COL",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+1,0,1,"RT_NI",0,0,0,0,0,1,0,0,0,0,0,"TX_FNT","TX_COL",0,373,237,373,256,388,256,388,320,0,0,0,0,0,0,0,0
+1,0,2,"RT_NI",0,0,0,0,0,1,0,0,0,0,0,"TX_FNT","TX_COL",0,621,334,602,334,602,371,434,371,0,0,0,0,0,0,0,0
+1,0,3,"RT_NI",0,0,0,0,0,1,0,0,0,0,0,"TX_FNT","TX_COL",0,555,209,467,209,467,224,422,224,0,0,0,0,0,0,0,0
+1,0,4,"RT_NI",0,0,0,0,0,1,0,0,0,0,0,"TX_FNT","TX_COL",0,493,50,399,50,399,50,399,119,0,0,0,0,0,0,0,0
+1,0,5,"RT_NI",0,0,0,0,0,1,0,0,0,0,0,"TX_FNT","TX_COL",0,582,176,582,161,542,161,542,93,0,0,0,0,0,0,0,0
+1,0,6,"RT_NI",0,0,0,0,0,1,0,0,0,0,0,"TX_FNT","TX_COL",0,735,223,735,234,674,234,674,291,0,0,0,0,0,0,0,0
+1,0,7,"RT_MM",0,0,0,0,0,1,0,0,0,0,0,"TX_FNT","TX_COL",0,324,178,278,178,278,259,206,259,0,0,0,0,0,0,0,0
+1,0,10,"RT_NI",0,0,0,0,0,1,0,0,0,0,0,"TX_FNT","TX_COL",0,70,145,70,162,156,162,156,216,0,0,0,0,0,0,0,0
+1,0,11,"RT_NI",0,0,0,0,0,1,0,0,0,0,0,"TX_FNT","TX_COL",0,101,110,124,110,124,55,167,55,0,0,0,0,0,0,0,0
+1,0,12,"RT_NI",0,0,0,0,0,1,0,0,0,0,0,"TX_FNT","TX_COL",0,363,119,363,55,363,55,267,55,0,0,0,0,0,0,0,0
+1,0,8,"RT_ID",0,0,0,0,0,0,0,0,1,0,0,"TX_FNT","TX_COL",0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1
+1,0,9,"RT_ID",0,0,0,0,0,0,0,0,1,0,0,"TX_FNT","TX_COL",0,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1
+1,0,4,"ET_DE",0,0,0,0,0,0,0,0,1,0,0,"TX_FNT","TX_COL",0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+/*
+CREATE TABLE ENTITY_INDEX
+      (INDEX_ID                 INTEGER NOT NULL,
+       INDEX_TYPE               CHAR(6) NOT NULL,
+       ENTITY_ID                INTEGER NOT NULL,
+       ENTITY_TYPE              CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       INDEX_GENERATE           INTEGER,
+       INDEX_LOGICAL_NAME       VARCHAR(254),
+       INDEX_PHYS_NAME          VARCHAR(254),
+       INDEX_FLAGS              INTEGER NOT NULL
+);
+*/
+0,"IT_PK",1,"ET_IE",0,0,"XPKAuthor","",4
+0,"IT_PK",2,"ET_IE",0,0,"XPKBook","",4
+4,"IT_IF",2,"ET_IE",0,0,"XIF2Book","",4
+3,"IT_IF",2,"ET_IE",0,0,"XIF1Book","",4
+0,"IT_PK",3,"ET_IE",0,0,"XPKBookShelf","",4
+10,"IT_IF",3,"ET_IE",0,0,"XIF1BookShelf","",4
+0,"IT_PK",4,"ET_DE",0,0,"","",4
+8,"IT_IF",4,"ET_DE",0,0,"","",0
+9,"IT_IF",4,"ET_DE",0,0,"","",0
+0,"IT_PK",5,"ET_IE",0,0,"XPKReader","",4
+0,"IT_PK",6,"ET_IE",0,0,"XPKReview","",4
+11,"IT_IF",6,"ET_IE",0,0,"XIF1Review","",4
+12,"IT_IF",6,"ET_IE",0,0,"XIF2Review","",4
+0,"IT_PK",7,"ET_IE",0,0,"XPKSeries","",4
+5,"IT_IF",7,"ET_IE",0,0,"XIF1Series","",4
+0,"IT_PK",8,"ET_IE",0,0,"XPKStore","",4
+6,"IT_IF",8,"ET_IE",0,0,"XIF1Store","",4
+0,"IT_PK",9,"ET_IE",0,0,"XPKStoreListing","",4
+1,"IT_IF",9,"ET_IE",0,0,"XIF1StoreListing","",4
+2,"IT_IF",9,"ET_IE",0,0,"XIF2StoreListing","",4
+0,"IT_PK",10,"ET_IE",0,0,"XPKStoreNetwork","",4
+/*
+CREATE TABLE INDEX_MEMBER
+      (INDEX_ID                 INTEGER NOT NULL,
+       INDEX_TYPE               CHAR(6) NOT NULL,
+       ENTITY_ID                INTEGER NOT NULL,
+       ENTITY_TYPE              CHAR(6) NOT NULL,
+       ATTRIBUTE_ID             INTEGER NOT NULL,
+       ATTRIBUTE_TYPE           CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       INDEX_POSITION           INTEGER
+);
+*/
+0,"IT_PK",1,"ET_IE",13,"DOMAIN",0,1
+0,"IT_PK",2,"ET_IE",15,"DOMAIN",0,1
+4,"IT_IF",2,"ET_IE",20,"DOMAIN",0,1
+3,"IT_IF",2,"ET_IE",16,"DOMAIN",0,1
+0,"IT_PK",3,"ET_IE",21,"DOMAIN",0,1
+10,"IT_IF",3,"ET_IE",24,"DOMAIN",0,1
+0,"IT_PK",4,"ET_DE",26,"DOMAIN",0,1
+8,"IT_IF",4,"ET_DE",25,"DOMAIN",0,1
+9,"IT_IF",4,"ET_DE",26,"DOMAIN",0,1
+0,"IT_PK",5,"ET_IE",23,"DOMAIN",0,1
+0,"IT_PK",6,"ET_IE",28,"DOMAIN",0,1
+11,"IT_IF",6,"ET_IE",31,"DOMAIN",0,1
+12,"IT_IF",6,"ET_IE",32,"DOMAIN",0,1
+0,"IT_PK",7,"ET_IE",19,"DOMAIN",0,1
+5,"IT_IF",7,"ET_IE",34,"DOMAIN",0,1
+0,"IT_PK",8,"ET_IE",35,"DOMAIN",0,1
+6,"IT_IF",8,"ET_IE",38,"DOMAIN",0,1
+0,"IT_PK",9,"ET_IE",39,"DOMAIN",0,1
+1,"IT_IF",9,"ET_IE",40,"DOMAIN",0,1
+2,"IT_IF",9,"ET_IE",41,"DOMAIN",0,1
+0,"IT_PK",10,"ET_IE",37,"DOMAIN",0,1
+/*
+CREATE TABLE DIAGRAM_OPTION
+      (OPTION_NAME              CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       SUBJECT_ID               INTEGER,
+       DISPLAY_ID               INTEGER,
+       OPTION_VALUE             VARCHAR(254)
+);
+*/
+"DO_DL",0,1,0,"1"
+"DO_PDL",0,1,0,"1"
+"DO_FK",0,1,0,"1"
+"DO_DFK",0,1,0,"1"
+"DO_DSN",0,1,0,"1"
+"DO_SMA",0,1,0,"1"
+"DO_LFK",0,1,0,"1"
+"DO_TD",0,1,0,"194"
+"DO_TV",0,1,0,"2"
+"DO_TM",0,1,0,"0"
+/*
+CREATE TABLE TEXT_BLOCK
+      (TEXT_BLOCK_ID            INTEGER NOT NULL,
+       TEXT_BLOCK_TYPE          CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       TEXT_BLOCK_TEXT          INTEGER
+);
+*/
+/*
+CREATE TABLE VALIDATION_RULE
+      (VAL_RULE_ID              INTEGER NOT NULL,
+       VAL_RULE_TYPE            CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       VAL_RULE_NAME            CHAR(254) NOT NULL,
+       CLIENT_RULE              INTEGER,
+       SERVER_RULE              INTEGER,
+       C_S_TYPE                 INTEGER,
+       CLIENT_TYPE              INTEGER,
+       CLIENT_WARNING           VARCHAR(254),
+       MINIMUM_VALUE            VARCHAR(254),
+       MAXIMUM_VALUE            VARCHAR(254),
+       SERVER_WARNING           VARCHAR(254)
+);
+*/
+/*
+CREATE TABLE VALID_VALUES
+      (VAL_RULE_ID              INTEGER NOT NULL,
+       VAL_RULE_TYPE            CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       VALUE                    VARCHAR(254) NOT NULL
+       VALUE_DEF                INTEGER,
+       VALUE_DISP               VARCHAR(254),
+       VALUE_SEQ                INTEGER NOT NULL
+);
+*/
+/*
+CREATE TABLE TABLE_CONSTRAINT
+      (ENTITY_ID                INTEGER NOT NULL,
+       ENTITY_TYPE              CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       VAL_RULE_ID              INTEGER NOT NULL,
+       VAL_RULE_TYPE            CHAR(6) NOT NULL,
+       TARGET_SERVER            CHAR(6) NOT NULL,
+       TARGET_CLIENT            CHAR(6) NOT NULL
+);
+*/
+/*
+CREATE TABLE PHYSICAL_OBJECT
+      (PHYSICAL_OBJECT_ID       INTEGER NOT NULL,
+       PHYSICAL_OBJECT_TYPE     CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       TARGET_SYSTEM            CHAR(6) NOT NULL,
+       PHYSICAL_OBJECT_NAME     VARCHAR(254) NOT NULL,
+);
+*/
+/*
+CREATE TABLE PHYS_OBJ_PROP_VALUE
+      (PHYSICAL_OBJECT_ID       INTEGER NOT NULL,
+       PHYSICAL_OBJECT_TYPE     CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       PHYS_OBJ_PROP_ID         CHAR(6) NOT NULL,
+       PHYS_OBJ_PROP_VALUE      INTEGER,
+       PHYS_OBJ_PROP_IVAL       INTEGER,
+       PHYS_OBJ_PROP_SVAL       VARCHAR(254)
+);
+*/
+/*
+CREATE TABLE ENT_PHYSICAL_PV
+      (ENTITY_ID                INTEGER NOT NULL,
+       ENTITY_TYPE              CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       TARGET_SYSTEM            CHAR(6) NOT NULL,
+       PHYS_PROP_TYPE           CHAR(6) NOT NULL,
+       PHYS_PROP_VAL            INTEGER,
+       PHYS_PROP_IVAL           INTEGER,
+       PHYS_PROP_IDVAL          INTEGER
+);
+*/
+4,"ET_DE",0,"TB_OB","EP_TBN",39,0,0
+/*
+CREATE TABLE IDX_MBR_PHYS_PV
+      (INDEX_ID                 INTEGER NOT NULL,
+       INDEX_TYPE               CHAR(6) NOT NULL,
+       ENTITY_ID                INTEGER NOT NULL,
+       ENTITY_TYPE              CHAR(6) NOT NULL,
+       ATTRIBUTE_ID             INTEGER NOT NULL,
+       ATTRIBUTE_TYPE           CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       TARGET_SYSTEM            CHAR(6) NOT NULL,
+       INDEX_MBR_PVNAME         VARCHAR(254) NOT NULL,
+       INDEX_MBR_PVVALUE        INTEGER
+);
+*/
+/*
+CREATE TABLE INDEX_PHYSICAL_PV
+      (INDEX_ID                 INTEGER NOT NULL,
+       INDEX_TYPE               CHAR(6) NOT NULL,
+       ENTITY_ID                INTEGER NOT NULL,
+       ENTITY_TYPE              CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       TARGET_SYSTEM            CHAR(6) NOT NULL,
+       INDEX_PV_ID              CHAR(6),
+       INDEX_PV_PHYS_OBJ        INTEGER,
+       INDEX_PV_VALUE           INTEGER
+);
+*/
+0,"IT_PK",1,"ET_IE",0,"TB_OB","IP_LNM",-1,8
+0,"IT_PK",1,"ET_IE",0,"TB_OB","IP_UNQ",-1,9
+0,"IT_PK",2,"ET_IE",0,"TB_OB","IP_LNM",-1,17
+0,"IT_PK",2,"ET_IE",0,"TB_OB","IP_UNQ",-1,18
+4,"IT_IF",2,"ET_IE",0,"TB_OB","IP_LNM",-1,19
+4,"IT_IF",2,"ET_IE",0,"TB_OB","IP_UNQ",-1,20
+3,"IT_IF",2,"ET_IE",0,"TB_OB","IP_LNM",-1,21
+3,"IT_IF",2,"ET_IE",0,"TB_OB","IP_UNQ",-1,22
+0,"IT_PK",3,"ET_IE",0,"TB_OB","IP_LNM",-1,28
+0,"IT_PK",3,"ET_IE",0,"TB_OB","IP_UNQ",-1,29
+10,"IT_IF",3,"ET_IE",0,"TB_OB","IP_LNM",-1,30
+10,"IT_IF",3,"ET_IE",0,"TB_OB","IP_UNQ",-1,31
+0,"IT_PK",5,"ET_IE",0,"TB_OB","IP_LNM",-1,47
+0,"IT_PK",5,"ET_IE",0,"TB_OB","IP_UNQ",-1,48
+0,"IT_PK",6,"ET_IE",0,"TB_OB","IP_LNM",-1,55
+0,"IT_PK",6,"ET_IE",0,"TB_OB","IP_UNQ",-1,56
+11,"IT_IF",6,"ET_IE",0,"TB_OB","IP_LNM",-1,57
+11,"IT_IF",6,"ET_IE",0,"TB_OB","IP_UNQ",-1,58
+12,"IT_IF",6,"ET_IE",0,"TB_OB","IP_LNM",-1,59
+12,"IT_IF",6,"ET_IE",0,"TB_OB","IP_UNQ",-1,60
+0,"IT_PK",7,"ET_IE",0,"TB_OB","IP_LNM",-1,64
+0,"IT_PK",7,"ET_IE",0,"TB_OB","IP_UNQ",-1,65
+5,"IT_IF",7,"ET_IE",0,"TB_OB","IP_LNM",-1,66
+5,"IT_IF",7,"ET_IE",0,"TB_OB","IP_UNQ",-1,67
+0,"IT_PK",8,"ET_IE",0,"TB_OB","IP_LNM",-1,73
+0,"IT_PK",8,"ET_IE",0,"TB_OB","IP_UNQ",-1,74
+6,"IT_IF",8,"ET_IE",0,"TB_OB","IP_LNM",-1,75
+6,"IT_IF",8,"ET_IE",0,"TB_OB","IP_UNQ",-1,76
+0,"IT_PK",9,"ET_IE",0,"TB_OB","IP_LNM",-1,82
+0,"IT_PK",9,"ET_IE",0,"TB_OB","IP_UNQ",-1,83
+1,"IT_IF",9,"ET_IE",0,"TB_OB","IP_LNM",-1,84
+1,"IT_IF",9,"ET_IE",0,"TB_OB","IP_UNQ",-1,85
+2,"IT_IF",9,"ET_IE",0,"TB_OB","IP_LNM",-1,86
+2,"IT_IF",9,"ET_IE",0,"TB_OB","IP_UNQ",-1,87
+0,"IT_PK",10,"ET_IE",0,"TB_OB","IP_LNM",-1,90
+0,"IT_PK",10,"ET_IE",0,"TB_OB","IP_UNQ",-1,91
+/*
+CREATE TABLE ENTITY_TRIGGER
+      (ENTITY_ID                INTEGER NOT NULL,
+       ENTITY_TYPE              CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       TARGET_SYSTEM            CHAR(6) NOT NULL,
+       TRIGGER_NAME             VARCHAR(254) NOT NULL,
+       TRIGGER_TYPE             CHAR(6),
+       TRIGGER_DISABLED         INTEGER,
+       TRIGGER_FIRE             CHAR(6),
+       TRIGGER_SCOPE            CHAR(6),
+       TRIGGER_OLD              VARCHAR(254),
+       TRIGGER_NEW              VARCHAR(254),
+       TRIGGER_BODY             INTEGER
+);
+*/
+/*
+CREATE TABLE ENTITY_TRIGGER_UPD
+      (ENTITY_ID                INTEGER NOT NULL,
+       ENTITY_TYPE              CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       TARGET_SYSTEM            CHAR(6) NOT NULL,
+       TRIGGER_NAME             VARCHAR(254) NOT NULL,
+       UPDCOLS_LOG_NAME         VARCHAR(254) NOT NULL,
+       UPDCOLS_ORDER            INTEGER,
+       UPDCOLS_PHYS_NAME        VARCHAR(254)
+);
+*/
+/*
+CREATE TABLE ERWIN_DOMAIN
+      (DOMAIN_ID                INTEGER NOT NULL,
+       DOMAIN_TYPE              CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       PARENT_DOMAIN_ID         INTEGER,
+       DOMAIN_INTERNAL          INTEGER NOT NULL
+);
+*/
+7,"DOMAIN",0,0,4
+8,"DOMAIN",0,7,3
+9,"DOMAIN",0,8,5
+10,"DOMAIN",0,8,6
+11,"DOMAIN",0,8,7
+12,"DOMAIN",0,8,8
+13,"DOMAIN",0,8,2
+14,"DOMAIN",0,9,2
+15,"DOMAIN",0,10,2
+16,"DOMAIN",0,8,2
+17,"DOMAIN",0,9,2
+18,"DOMAIN",0,9,2
+19,"DOMAIN",0,8,2
+20,"DOMAIN",0,8,2
+21,"DOMAIN",0,8,2
+22,"DOMAIN",0,8,2
+23,"DOMAIN",0,8,2
+24,"DOMAIN",0,8,2
+25,"DOMAIN",0,10,2
+26,"DOMAIN",0,10,2
+27,"DOMAIN",0,8,2
+28,"DOMAIN",0,8,2
+29,"DOMAIN",0,9,2
+30,"DOMAIN",0,10,2
+31,"DOMAIN",0,8,2
+32,"DOMAIN",0,10,2
+33,"DOMAIN",0,8,2
+34,"DOMAIN",0,8,2
+35,"DOMAIN",0,8,2
+36,"DOMAIN",0,9,2
+37,"DOMAIN",0,8,2
+38,"DOMAIN",0,8,2
+39,"DOMAIN",0,10,2
+40,"DOMAIN",0,10,2
+41,"DOMAIN",0,8,2
+42,"DOMAIN",0,10,2
+43,"DOMAIN",0,8,2
+/*
+CREATE TABLE DOMAIN_PROP_VALUE
+      (DOMAIN_ID                INTEGER NOT NULL,
+       DOMAIN_TYPE              CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       TARGET_SYSTEM            CHAR(6) NOT NULL,
+       DOMAINPV_SEQ             INTEGER NOT NULL,
+       DOMAINPV_TYPE            CHAR(6) NOT NULL,
+       DOMAINPV_TEXT_VAL        INTEGER,
+       DOMAINPV_INT_VAL         INTEGER,
+       DOMAINPV_ID_VAL          INTEGER,
+       DOMAINPV_STR_VAL         VARCHAR(254),
+       DOMAINPV_INHERIT         INTEGER NOT NULL
+);
+*/
+7,"DOMAIN",0,"TB_OB",0,"CD_TYP",0,0,0,"CHAR(18)",0
+7,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,0,0,"",0
+7,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"%AttName",0
+7,"DOMAIN",0,"TB_OB",0,"CD_PLB",0,0,0,"%AttName:",0
+7,"DOMAIN",0,"TB_OB",0,"CD_PHD",0,0,0,"%AttName",0
+7,"DOMAIN",0,"TB_OB",0,"CD_CMT",2,0,0,"",0
+7,"DOMAIN",0,"TB_OB",0,"CD_DMC",3,0,0,"",0
+7,"DOMAIN",0,"TB_OB",0,"CD_DMN",0,0,0,"%DomainName",0
+7,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"%AttDomain",0
+7,"DOMAIN",0,"TB_OB",0,"CD_PCM",4,0,0,"",0
+7,"DOMAIN",0,"TB_OB",0,"CD_PLP",0,23,0,"",0
+7,"DOMAIN",0,"TB_OB",0,"CD_PHP",0,25,0,"",0
+7,"DOMAIN",0,"TB_OB",0,"CD_PJT",0,23,0,"",0
+7,"DOMAIN",0,"TB_OB",0,"CD_PCS",0,26,0,"",0
+7,"DOMAIN",0,"TB_OB",0,"CD_PBM",0,110,0,"",0
+7,"DOMAIN",0,"TB_OB",0,"CD_VSB",0,121,0,"",0
+11,"DOMAIN",0,"TB_OB",0,"CD_DLN",0,0,0,"Datetime",0
+11,"DOMAIN",0,"TB_OB",0,"CD_TYP",0,0,0,"TIMESTAMP",0
+10,"DOMAIN",0,"TB_OB",0,"CD_DLN",0,0,0,"Number",0
+10,"DOMAIN",0,"TB_OB",0,"CD_TYP",0,0,0,"NUMERIC",0
+8,"DOMAIN",0,"TB_OB",0,"CD_DLN",0,0,0,"<unknown>",0
+8,"DOMAIN",0,"TB_OB",0,"CD_TYP",0,0,0,"CHAR(18)",0
+12,"DOMAIN",0,"TB_OB",0,"CD_DLN",0,0,0,"Blob",0
+12,"DOMAIN",0,"TB_OB",0,"CD_TYP",0,0,0,"LONG VARBINARY",0
+9,"DOMAIN",0,"TB_OB",0,"CD_DLN",0,0,0,"String",0
+9,"DOMAIN",0,"TB_OB",0,"CD_TYP",0,0,0,"VARCHAR(20)",0
+13,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"id",0
+13,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,1,0,"",0
+13,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"id",0
+14,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"name",0
+14,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,0,0,"",0
+14,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"name",0
+15,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"id",0
+15,"DOMAIN",0,"TB_OB",0,"CD_TYP",0,0,0,"INTEGER",0
+15,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,1,0,"",0
+15,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"id",0
+16,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"author_id",0
+16,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,1,0,"",0
+16,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"author_id",0
+17,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"name",0
+17,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,0,0,"",0
+17,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"name",0
+18,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"isbn",0
+18,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,0,0,"",0
+18,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"isbn",0
+19,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"id",0
+19,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,1,0,"",0
+19,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"id",0
+20,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"series_id",0
+20,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,0,0,"",0
+20,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"series_id",0
+21,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"id",0
+21,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,1,0,"",0
+21,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"id",0
+22,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"name",0
+22,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,0,0,"",0
+22,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"name",0
+23,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"id",0
+23,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,1,0,"",0
+23,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"id",0
+24,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"reader_id",0
+24,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,1,0,"",0
+24,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"reader_id",0
+25,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"id",0
+25,"DOMAIN",0,"TB_OB",0,"CD_TYP",0,0,0,"INTEGER",0
+25,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,1,0,"",0
+25,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"id",0
+26,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"id",0
+26,"DOMAIN",0,"TB_OB",0,"CD_TYP",0,0,0,"INTEGER",0
+26,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,1,0,"",0
+26,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"id",0
+27,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"name",0
+27,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,0,0,"",0
+27,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"name",0
+28,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"id",0
+28,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,1,0,"",0
+28,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"id",0
+29,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"text",0
+29,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,0,0,"",0
+29,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"text",0
+30,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"rating",0
+30,"DOMAIN",0,"TB_OB",0,"CD_TYP",0,0,0,"INTEGER",0
+30,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,0,0,"",0
+30,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"rating",0
+31,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"reader_id",0
+31,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,1,0,"",0
+31,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"reader_id",0
+32,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"book_id",0
+32,"DOMAIN",0,"TB_OB",0,"CD_TYP",0,0,0,"INTEGER",0
+32,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,1,0,"",0
+32,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"book_id",0
+33,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"name",0
+33,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,0,0,"",0
+33,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"name",0
+34,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"author_id",0
+34,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,1,0,"",0
+34,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"author_id",0
+35,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"id",0
+35,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,1,0,"",0
+35,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"id",0
+36,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"name",0
+36,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,0,0,"",0
+36,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"name",0
+37,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"id",0
+37,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,1,0,"",0
+37,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"id",0
+38,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"network_id",0
+38,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,0,0,"",0
+38,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"network_id",0
+39,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"id",0
+39,"DOMAIN",0,"TB_OB",0,"CD_TYP",0,0,0,"INTEGER",0
+39,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,1,0,"",0
+39,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"id",0
+40,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"book_id",0
+40,"DOMAIN",0,"TB_OB",0,"CD_TYP",0,0,0,"INTEGER",0
+40,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,1,0,"",0
+40,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"book_id",0
+41,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"store_id",0
+41,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,1,0,"",0
+41,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"store_id",0
+42,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"price",0
+42,"DOMAIN",0,"TB_OB",0,"CD_TYP",0,0,0,"INTEGER",0
+42,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,0,0,"",0
+42,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"price",0
+43,"DOMAIN",0,"TB_OB",0,"CD_NAM",0,0,0,"name",0
+43,"DOMAIN",0,"TB_OB",0,"CD_NUL",0,0,0,"",0
+43,"DOMAIN",0,"TB_OB",0,"CD_ANM",0,0,0,"name",0
+/*
+CREATE TABLE ERWIN_DEFAULT
+      (DEFAULT_ID               INTEGER NOT NULL,
+       DEFAULT_TYPE             CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       DEFAULT_NAME             VARCHAR(254),
+       CLIENT_VALUE             INTEGER,
+       SERVER_VALUE             INTEGER,
+       DEFAULT_FLAG             INTEGER
+);
+*/
+/*
+CREATE TABLE REL_PHYS_PROP
+      (RELATIONSHIP_ID          INTEGER NOT NULL,
+       RELATIONSHIP_TYPE        CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       TARGET_SYSTEM            CHAR(6) NOT NULL,
+       FOREIGN_KEY_NAME         VARCHAR(8) NOT NULL
+       PHYSICAL_COMMENT         INTEGER
+);
+*/
+/*
+CREATE TABLE REL_TEMPLATE
+      (RELATIONSHIP_ID          INTEGER NOT NULL,
+       RELATIONSHIP_TYPE        CHAR(6) NOT NULL,
+       TEMPLATE_ID              INTEGER NOT NULL,
+       TEMPLATE_TYPE            CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       TARGET_SYSTEM            CHAR(6) NOT NULL,
+       REL_TMPLT_PURPOSE        CHAR(6)
+);
+*/
+/*
+CREATE TABLE TEMPLATE
+      (TEMPLATE_ID              INTEGER NOT NULL,
+       TEMPLATE_TYPE            CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       TARGET_SYSTEM            CHAR(6) NOT NULL,
+       TEMPLATE_NAME            VARCHAR(254) NOT NULL,
+       TEMPLATE_CODE            INTEGER
+);
+*/
+/*
+CREATE TABLE GLOBAL_TEMPLATE
+      (TEMPLATE_ID              INTEGER NOT NULL,
+       TEMPLATE_TYPE            CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       TARGET_SYSTEM            CHAR(6) NOT NULL,
+       TEMPLATE_PURPOSE         CHAR(6) NOT NULL
+);
+*/
+/*
+CREATE TABLE ENTITY_SP_TEMPLATE
+      (ENTITY_ID                INTEGER NOT NULL,
+       ENTITY_TYPE              CHAR(6) NOT NULL,
+       TEMPLATE_ID              INTEGER NOT NULL,
+       TEMPLATE_TYPE            CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       TARGET_SYSTEM            CHAR(6) NOT NULL
+);
+*/
+/*
+CREATE TABLE FONT
+      (FONT_ID                  INTEGER NOT NULL,
+       FONT_TYPE                CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       FONT_HEIGHT              INTEGER NOT NULL,
+       FONT_WIDTH               INTEGER NOT NULL,
+       FONT_ESCAPEMENT          INTEGER NOT NULL,
+       FONT_ORIENTATION         INTEGER NOT NULL,
+       FONT_WEIGHT              INTEGER NOT NULL,
+       FONT_ITALIC              BYTE NOT NULL,
+       FONT_UNDERLINE           BYTE NOT NULL,
+       FONT_STRIKEOUT           BYTE NOT NULL,
+       FONT_CHARSET             BYTE NOT NULL,
+       FONT_OUTPRECISION        BYTE NOT NULL,
+       FONT_CLIPPRECISION       BYTE NOT NULL,
+       FONT_QUALITY             BYTE NOT NULL,
+       FONT_PITCHANDFAMILY      BYTE NOT NULL,
+       FONT_NAME                VARCHAR(254) NOT NULL,
+       OLDFONT_HEIGHT           INTEGER NOT NULL,
+);
+*/
+0,"TX_FNT",0,10,0,0,0,400,0,0,0,0,7,2,1,34,"Arial",-13
+1,"TX_FNT",0,10,0,0,0,400,0,0,0,0,7,2,1,34,"Microsoft Sans Serif",-13
+/*
+CREATE TABLE COLOR
+      (COLOR_ID                 INTEGER NOT NULL,
+       COLOR_TYPE               CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       COLOR_VAL                INTEGER NOT NULL
+);
+*/
+0,"TX_COL",0,0
+1,"TX_COL",0,16777215
+/*
+CREATE TABLE SUBJECT
+      (DIAG_ID                  INTEGER NOT NULL,
+       SUBJECT_ID               INTEGER NOT NULL,
+       SUBJECT_NAME             VARCHAR(254),
+       SUBJECT_DESCRIPTION      INTEGER NOT NULL,
+       SUBJECT_AUTHOR           VARCHAR(254),
+       SUBJECT_CREATION_DATE    INTEGER NOT NULL,
+       SUBJECT_MOD_DATE         INTEGER NOT NULL
+);
+*/
+0,1,"<Main Subject Area>",0,"",1399904846,1399904846,0,0
+/*
+CREATE TABLE DISPLAY
+      (DIAG_ID                  INTEGER NOT NULL,
+       SUBJECT_ID               INTEGER NOT NULL,
+       DISPLAY_ID               INTEGER NOT NULL,
+       DISPLAY_NAME             VARCHAR(254),
+       DISPLAY_DESCRIPTION      INTEGER NOT NULL,
+       DISPLAY_AUTHOR           VARCHAR(254),
+       DISPLAY_CREATION_DATE    INTEGER NOT NULL,
+       DISPLAY_MOD_DATE         INTEGER NOT NULL,
+       ENTITY_FILL_COLOR        INTEGER NOT NULL,
+       BACKGROUND_COLOR_ID      INTEGER NOT NULL,
+       DEF_REL_FONT_ID          INTEGER NOT NULL,
+       DEF_ENT_NAME_FONT_ID     INTEGER NOT NULL,
+       DEF_ENT_DEF_FONT_ID      INTEGER NOT NULL,
+       DEF_ELINE_COLOR_ID       INTEGER NOT NULL,
+       DEF_EDEF_COLOR_ID        INTEGER NOT NULL,
+       DEF_REL_NAME_COLOR_ID    INTEGER NOT NULL,
+       DEF_ENT_NAME_COLOR_ID    INTEGER NOT NULL,
+       FONT_TYPE                CHAR(6),
+       COLOR_TYPE               CHAR(6)
+);
+*/
+0,1,0,"Display1",0,"",1399904846,1399904846,-1,-1,0,0,0,-1,-1,-1,-1,"TX_FNT","TX_COL"
+/*
+CREATE TABLE ERWIN_REPORT
+      (DIAG_ID                  INTEGER NOT NULL,
+       ERWIN_REPORT_ID          INTEGER NOT NULL,
+       ERWIN_REPORT_TYPE        CHAR(6) NOT NULL,
+       ERWIN_REPORT_NAME        VARCHAR(254) NOT NULL
+       ERWIN_REPORT_COMMENT     INTEGER
+);
+*/
+/*
+CREATE TABLE ERWIN_REPORT_OPTION
+      (DIAG_ID                  INTEGER NOT NULL,
+       ERWIN_REPORT_ID          INTEGER NOT NULL,
+       REPORT_OPTION_ID         INTEGER NOT NULL,
+       REPORT_OPTION_SEQ        INTEGER NOT NULL,
+       REPORT_OPTION_NAME       VARCHAR(254) NOT NULL,
+       REPORT_OPTION_VALUE      INTEGER NOT NULL,
+       REPORT_OPTION_TYPE       INTEGER NOT NULL,
+       REPORT_OPTION_MULTI      INTEGER NOT NULL
+);
+*/
+/*
+CREATE TABLE ENTITY_SYNONYM
+       SYNONYM_NAME             CHAR(128) NOT NULL,
+       ENTITY_ID                INTEGER NOT NULL,
+       ENTITY_TYPE              CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL
+);
+*/
+/*
+CREATE TABLE SYNONYM_PHYSICAL_PV
+      (SYNONYM_NAME             CHAR(128) NOT NULL,
+       ENTITY_ID                INTEGER NOT NULL,
+       ENTITY_TYPE              CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       TARGET_SYSTEM            CHAR(6) NOT NULL,
+       SYNONYM_PV_ID            CHAR(6),
+       SYNONYM_PV_VALUE         CHAR(256)
+);
+*/
+/*
+CREATE TABLE ERWIN_DATA_RULE
+      (DATA_RULE_ID             INTEGER NOT NULL,
+       DATA_RULE_TYPE           CHAR(6) NOT NULL,
+       DIAG_ID                  INTEGER NOT NULL,
+       DATA_RULE_NAME           CHAR(254) NOT NULL,
+       DATA_RULE_COMMENT        INTEGER
+);
+*/
+/*
+CREATE TABLE ERWIN_BITMAP
+      (BITMAP_ID             INTEGER NOT NULL,
+       BITMAP_TYPE           CHAR(6) NOT NULL,
+       DIAG_ID               INTEGER NOT NULL,
+       BITMAP_NAME           CHAR(256) NOT NULL,
+       BITMAP_SIZE           INTEGER NOT NULL,
+       BITMAP_BITS           INTEGER NOT NULL,
+       BITMAP_FLAGS          INTEGER NOT NULL,
+       BITMAP_MM_ID          INTEGER NOT NULL
+);
+*/
+/*
+CREATE TABLE ERWIN_DWXSRC
+      (DWXSRC_ID             INTEGER NOT NULL,
+       DWXSRC_TYPE           CHAR(6) NOT NULL,
+       DIAG_ID               INTEGER NOT NULL,
+       DWXSRC_NAME           CHAR(256) NOT NULL,
+       DWXSRC_SYS_NAME       CHAR(256) NOT NULL,
+       DWXSRC_HOST           CHAR(256) NOT NULL,
+       DWXSRC_DBMS           CHAR(256) NOT NULL,
+       DWXSRC_SOURCE         CHAR(256) NOT NULL,
+       DWXSRC_MM_ID          INTEGER NOT NULL
+       DWXSRC_DEF            INTEGER
+);
+*/
+/*
+CREATE TABLE ERWIN_DWXSRC_TABLE
+      (DWXTBL_ID             INTEGER NOT NULL,
+       DWXTBL_TYPE           CHAR(6) NOT NULL,
+       DIAG_ID               INTEGER NOT NULL,
+       DWXSRC_ID             INTEGER NOT NULL,
+       DWXSRC_TYPE           CHAR(6) NOT NULL,
+       DWXTBL_SEQ            INTEGER NOT NULL,
+       DWXTBL_NAME           CHAR(256) NOT NULL,
+);
+*/
+/*
+CREATE TABLE ERWIN_DWXSRC_COLUMN
+      (DWXCOL_ID             INTEGER NOT NULL,
+       DWXCOL_TYPE           CHAR(6) NOT NULL,
+       DIAG_ID               INTEGER NOT NULL,
+       DWXTBL_ID             INTEGER NOT NULL,
+       DWXTBL_TYPE           CHAR(6) NOT NULL,
+       DWXCOL_SEQ            INTEGER NOT NULL,
+       DWXCOL_NAME           CHAR(256) NOT NULL,
+       DWXCOL_DATA_TYPE      CHAR(256) NOT NULL,
+       DWXCOL_COMMENT        INTEGER
+);
+*/
+/*
+CREATE TABLE ERWIN_UDP
+      (UDP_ID                INTEGER NOT NULL,
+       UDP_TYPE              CHAR(6) NOT NULL,
+       DIAG_ID               INTEGER NOT NULL,
+       UDP_NAME              CHAR(256) NOT NULL,
+       UDP_DEF               INTEGER,
+       UDP_DATATYPE          INTEGER NOT NULL
+       UDP_DEFAULT           INTEGER,
+       UDP_FLAGS             INTEGER NOT NULL
+       UDP_SEQ               INTEGER NOT NULL
+       UDP_DISP_OPTIONS      INTEGER,
+       UDP_MMID              INTEGER NOT NULL
+);
+*/
+2,"5",0,"DiagAuth",0,2,0,3,1,0,0
+5,"5",0,"DiagDbName",0,2,0,3,2,0,0
+3,"5",0,"DiagDef",0,2,0,3,3,0,0
+4,"5",0,"DiagImpType",0,1,0,3,4,0,0
+1,"5",0,"DiagTitle",0,2,0,3,5,0,0
+/*
+CREATE TABLE ERWIN_UDPU
+      (OBJ_ID                INTEGER NOT NULL,
+       OBJ_TYPE              CHAR(6) NOT NULL,
+       UDP_ID                INTEGER NOT NULL,
+       UDP_TYPE              CHAR(6) NOT NULL,
+       DIAG_ID               INTEGER NOT NULL,
+       UDP_VAL               INTEGER
+       UDP_INHERIT           INTEGER NOT NULL
+);
+*/
+0,"DIAG_T",1,"5",0,1,0

@@ -1,9 +1,12 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug|x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="LabLib/Graph.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Lab2/Program.cs">
     <Files>
-      <File FileName="LabLib/Graph.cs" Line="136" Column="8" />
-      <File FileName="Lab4/Program.cs" Line="10" Column="16" />
+      <File FileName="Lab6/Program.cs" Line="40" Column="8" />
+      <File FileName="LabLib/TaskAssignment.cs" Line="69" Column="7" />
+      <File FileName="Lab7/Program.cs" Line="16" Column="1" />
+      <File FileName="Lab2/Program.cs" Line="134" Column="6" />
+      <File FileName="LabLib/ILPTask.cs" Line="118" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
@@ -11,5 +14,7 @@
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches>
     <Watch file="LabLib/ILPTask.cs" line="110" offsetX="450" offsetY="1962" expression="task.J" liveUpdate="False" />
+    <Watch file="LabLib/Graph.cs" line="135" offsetX="745" offsetY="2144" expression="edge.To" liveUpdate="False" />
+    <Watch file="LabLib/Graph.cs" line="130" offsetX="542" offsetY="2064" expression="vertices" liveUpdate="False" />
   </MonoDevelop.Ide.DebuggingService.PinnedWatches>
 </Properties>
